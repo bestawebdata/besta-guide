@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社ベスタ｜印鑑・はんこ知識テスト（成長記録版）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0f1e;font-family:'Hiragino Kaku Gothic ProN','Yu Gothic Medium','Meiryo',sans-serif;color:#e2e8f0;min-height:100vh;padding-bottom:40px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#060c18;border-bottom:1px solid #1e2d45;position:sticky;top:0;z-index:10}
+.brand{font-size:12px;font-weight:700;color:#c9a227;letter-spacing:.15em}
+.ver-badge{font-size:10px;color:#f87171;background:#2a0a0a;border:1px solid #5a1a1a;border-radius:6px;padding:2px 8px;margin-left:8px}
+.hist-btn{background:#0f172a;border:1px solid #1e3a5f;border-radius:8px;color:#60a5fa;font-size:12px;padding:5px 10px;cursor:pointer;font-family:inherit}
+.card{background:#111827;border-radius:18px;margin:20px auto 0;padding:24px 20px;max-width:580px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.stamp{font-size:36px;text-align:center;margin-bottom:6px}
+h1{font-size:22px;font-weight:900;text-align:center;color:#f8fafc;line-height:1.3;margin:0 0 6px;letter-spacing:-.02em}
+.sub{text-align:center;font-size:12px;color:#475569;margin:0 0 4px}
+.policy-note{text-align:center;font-size:11px;color:#f87171;background:#1a0a0a;border:1px solid #3a1a1a;border-radius:8px;padding:6px 12px;margin:0 0 16px}
+.div{border-top:1px solid #1e2d45;margin:16px 0}
+.field-label{display:block;font-size:10px;font-weight:700;color:#64748b;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chip{background:#0f172a;color:#94a3b8;border:2px solid #1e2d45;border-radius:10px;padding:7px 12px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;font-family:inherit}
+.chip.on{background:#c9a22722;color:#c9a227;border-color:#c9a227}
+.text-in{background:#0f172a;border:2px solid #1e3a5f;border-radius:10px;color:#e2e8f0;padding:9px 12px;font-size:13px;width:100%;margin-bottom:14px;outline:none;font-family:inherit}
+.count{text-align:center;font-size:12px;color:#475569;margin-bottom:14px}
+.primary{background:linear-gradient(135deg,#c9a227,#a07820);color:#0a0f1e;border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:700;cursor:pointer;width:100%;letter-spacing:.05em;font-family:inherit}
+.primary:disabled{opacity:.4;cursor:not-allowed}
+.prog-track{background:#0f172a;border-radius:4px;height:5px;margin-bottom:16px;overflow:hidden}
+.prog-fill{background:linear-gradient(90deg,#c9a227,#22d3ee);height:100%;border-radius:4px;transition:width .3s}
+.meta-row{display:flex;gap:7px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.cat-tag{border-radius:6px;padding:3px 9px;font-size:10px;font-weight:700}
+.diff-tag{background:#1e2d45;color:#60a5fa;border-radius:6px;padding:3px 9px;font-size:10px;font-weight:600}
+.q-num{font-size:11px;color:#334155;font-weight:700;margin-left:auto}
+.q-text{font-size:16px;font-weight:600;color:#f1f5f9;line-height:1.7;margin-bottom:18px}
+.choice{display:flex;align-items:flex-start;gap:10px;width:100%;padding:12px 14px;border-radius:11px;font-size:13px;font-weight:500;cursor:pointer;text-align:left;margin-bottom:7px;transition:all .15s;border:2px solid #1e2d45;background:#0f172a;color:#cbd5e1;line-height:1.5;font-family:inherit}
+.choice:disabled{cursor:default}
+.choice.correct{background:#064e3b;border-color:#34d399;color:#34d399}
+.choice.wrong{background:#450a0a;border-color:#f87171;color:#f87171}
+.choice.dim{background:#0f172a;border-color:#111;color:#334155}
+.choice-letter{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:#1e2d45;color:#64748b;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.mark{margin-left:auto;font-weight:900;font-size:15px;flex-shrink:0}
+.feedback{border-radius:11px;padding:12px 14px;margin-top:6px;margin-bottom:10px}
+.fb-ok{background:#064e3b;border-left:4px solid #34d399}
+.fb-ng{background:#1a0a0a;border-left:4px solid #f87171}
+.fb-title-ok{font-size:12px;font-weight:700;color:#34d399;margin-bottom:5px}
+.fb-title-ng{font-size:12px;font-weight:700;color:#f87171;margin-bottom:5px}
+.fb-body{font-size:12px;color:#94a3b8;line-height:1.7}
+.next-btn{background:#1e2d45;color:#60a5fa;border:none;border-radius:11px;padding:13px;font-size:13px;font-weight:600;cursor:pointer;width:100%;margin-top:4px;font-family:inherit}
+.grade-badge{display:inline-block;border-radius:10px;padding:4px 16px;font-size:15px;font-weight:700;border:2px solid}
+.bar-track{background:#0f172a;border-radius:4px;height:8px;overflow:hidden;margin-top:2px}
+.bar-fill{height:100%;border-radius:4px;transition:width .6s ease;min-width:4px}
+.review-item{background:#0f172a;border-radius:10px;padding:12px;margin-bottom:9px;border-left:3px solid #f87171}
+.user-card{background:#0f172a;border-radius:11px;padding:14px;margin-bottom:11px}
+.log-grid{display:grid;grid-template-columns:70px 80px 1fr 55px;gap:6px;align-items:center}
+.log-header{font-size:10px;color:#334155;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:7px 0;border-bottom:2px solid #1e2d45;margin-bottom:3px}
+.log-row{font-size:12px;padding:9px 0;border-bottom:1px solid #0f172a}
+.screen{display:none}.screen.active{display:block}
+
+.gas-set{background:#064e3b;border:1px solid #34d399;border-radius:8px;padding:8px 12px;font-size:12px;color:#34d399;margin-bottom:0}
+.gas-unset{background:#1a0a0a;border:1px solid #5a1a1a;border-radius:8px;padding:8px 12px;font-size:12px;color:#f87171;margin-bottom:0}
+.gas-btn{background:transparent;border:1px solid #1e3a5f;border-radius:6px;color:#60a5fa;font-size:11px;padding:3px 8px;cursor:pointer;font-family:inherit;margin-left:8px}
+.send-ok{background:#064e3b;border-radius:8px;padding:10px 14px;font-size:13px;color:#34d399;margin-top:8px;text-align:center}
+.send-ng{background:#1a0a0a;border-radius:8px;padding:10px 14px;font-size:13px;color:#f87171;margin-top:8px;text-align:center}
+.send-wait{background:#1e2d45;border-radius:8px;padding:10px 14px;font-size:13px;color:#60a5fa;margin-top:8px;text-align:center}
+@media(max-width:480px){.card{margin:12px 8px 0;padding:18px 14px}.log-grid{grid-template-columns:60px 80px 1fr 50px}}
+</style>
+</head>
+<body>
+
+<div id="s-start" class="screen active">
+  <div class="top">
+    <span class="brand">株式会社ベスタ<span class="ver-badge">成長記録版</span></span>
+    <button class="hist-btn" onclick="go('s-hist')">📊 履歴</button>
+  </div>
+  <div class="card">
+    <div class="stamp">🔏</div>
+    <h1>印鑑・はんこ<br>知識テスト</h1>
+    <p class="sub">社員スキル評価システム — 印鑑カテゴリ 全50問</p>
+    <p class="policy-note">ベスタ販売方針対応版 / 結果をスプレッドシートに自動記録</p>
+    <div class="div"></div>
+    <span class="field-label">受験者</span>
+    <div class="chip-row" id="user-chips"></div>
+    <input class="text-in" id="custom-in" placeholder="その他の名前を入力してください" style="display:none">
+    <span class="field-label">カテゴリ</span>
+    <div class="chip-row" id="cat-chips"></div>
+    <span class="field-label">難易度</span>
+    <div class="chip-row" id="diff-chips"></div>
+    <div class="count" id="q-count">対象 50 問</div>
+    <div id="gas-status" style="margin-bottom:14px"></div>
+        <button class="primary" id="start-btn" onclick="startQuiz()">テスト開始 →</button>
+  </div>
+</div>
+
+<div id="s-quiz" class="screen">
+  <div class="top">
+    <span style="font-size:12px;color:#64748b" id="q-user-name"></span>
+    <span style="font-size:12px;color:#64748b" id="q-score-info"></span>
+  </div>
+  <div class="card">
+    <div class="prog-track"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+    <div class="meta-row">
+      <span class="cat-tag" id="q-cat-tag"></span>
+      <span class="diff-tag" id="q-diff-tag"></span>
+      <span class="q-num" id="q-num"></span>
+    </div>
+    <p class="q-text" id="q-text"></p>
+    <div id="choices"></div>
+    <div id="feedback" style="display:none"></div>
+    <button class="next-btn" id="next-btn" onclick="next()" style="display:none">次の問題 →</button>
+  </div>
+</div>
+
+<div id="s-result" class="screen">
+  <div class="top"><span class="brand">テスト結果</span><button class="hist-btn" onclick="go('s-hist')">📊 履歴</button></div>
+  <div class="card" id="result-card"></div>
+  <div id="send-status" style="max-width:580px;margin:8px auto 0;padding:0 12px"></div>
+</div>
+
+<div id="s-hist" class="screen">
+  <div class="top"><span class="brand">スコア履歴</span><button class="hist-btn" onclick="go('s-start');renderStart()">← 戻る</button></div>
+  <div class="card" id="hist-card"></div>
+</div>
+
+<script>
+// ===== ベスタ仕様版 Q&A 50問 =====
+var QA=[
+  // ── 種類・用途 (Q1-10) ──
+  {id:1,cat:"種類・用途",dif:1,q:"市区町村の役所に印鑑登録した印鑑を何と呼ぶか？",c:["実印","銀行印","認印","ゴム印"],a:0,ex:"実印は住民登録している役所に登録した印鑑です。不動産売買・相続・ローン契約など法的効力が必要な重要場面で使います。"},
+  {id:2,cat:"種類・用途",dif:1,q:"金融機関（銀行・信用金庫等）に届け出をする印鑑を何と呼ぶか？",c:["実印","銀行印","認印","代表者印"],a:1,ex:"銀行印は金融機関に届け出た印鑑です。口座開設や窓口での出金・各種手続きに使います。"},
+  {id:3,cat:"種類・用途",dif:1,q:"どこにも登録していない日常使いの印鑑は？",c:["実印","銀行印","認印","代表者印"],a:2,ex:"認印は役所にも銀行にも登録しない印鑑です。宅配便の受取・回覧板・社内書類への押印など日常的な場面で使います。"},
+  {id:4,cat:"種類・用途",dif:1,q:"個人の実印は一人につき何本まで登録できるか？",c:["1本","2本","3本","制限なし"],a:0,ex:"実印は一人1本のみ登録可能です。夫婦でも別々の実印が必要で、同じ印影を共有することはできません。"},
+  {id:5,cat:"種類・用途",dif:2,q:"シャチハタ（浸透印）が実印・銀行印として登録できない主な理由は？",c:["印面がゴムで経年変化するため","価格が安すぎるため","サイズが小さすぎるため","法律で明確に禁止されているため"],a:0,ex:"シャチハタは印面がゴム素材のため経年劣化で印影が変化する可能性があります。印影の同一性が保証できないため登録不可です。"},
+  {id:6,cat:"種類・用途",dif:1,q:"実印が必要な場面はどれか？",c:["宅配便の受取","不動産（土地・建物）の売買","回覧板の確認","社内書類への簡単な押印"],a:1,ex:"実印は不動産売買・相続・住宅ローン契約など法的効力が必要な重要場面で使います。"},
+  {id:7,cat:"種類・用途",dif:1,q:"印鑑証明書をコンビニで取得するために必要なものは？",c:["通帳と銀行印","マイナンバーカード","運転免許証のみ","何も不要"],a:1,ex:"コンビニのマルチコピー機でマイナンバーカードがあれば印鑑証明書を取得できます。役所の窓口でも発行可能です。"},
+  {id:8,cat:"種類・用途",dif:2,q:"会社設立時に法務局に登録する、法人の最重要印鑑は？",c:["角印（社印）","会社銀行印","代表者印（会社実印）","ゴム印"],a:2,ex:"代表者印（会社実印）は法務局に登録する最重要の法人印です。「丸印」とも呼ばれ、重要な契約書への押印に使います。"},
+  {id:9,cat:"種類・用途",dif:1,q:"法人印鑑で、正方形（四角形）の形をした印鑑は何と呼ぶか？",c:["代表者印","会社銀行印","角印（社印）","認印"],a:2,ex:"角印（社印）は法人名を彫る正方形の印鑑です。請求書・領収書・見積書など日常業務の書類に広く使われます。"},
+  {id:10,cat:"種類・用途",dif:2,q:"認印にシャチハタが使えない書類として適切なのは？",c:["宅配便の受取伝票","公的な届出書（住民票申請など）","回覧板","社内の簡単な確認書"],a:1,ex:"公的な届出書・契約書など重要な書類ではシャチハタ不可の場合が多いです。朱肉タイプの認印を使いましょう。"},
+
+  // ── 素材・印材 (Q11-20) ── ベスタ仕様：黒水牛推奨、チタン案内なし
+  {id:11,cat:"素材・印材",dif:1,q:"株式会社ベスタがコストと耐久性のバランスから最もお客様にお勧めしている印材は？",c:["柘（つげ）","象牙","黒水牛","彩樺"],a:2,ex:"ベスタでは黒水牛をメイン素材として推奨しています。コストと耐久性のバランスに優れ、漆黒の美しさと適度な硬度・粘りが特徴です。"},
+  {id:12,cat:"素材・印材",dif:2,q:"黒水牛の最大の特徴として正しいのはどれか？",c:["水洗いができ錆びない","適度な硬度と粘りがあり漆黒の高級感がある","すべての印材の中で最も安価","ワシントン条約の規制がある"],a:1,ex:"黒水牛は水牛の角を加工した印材です。漆黒の美しさと適度な硬度・粘りがあり耐久性に優れています。ベスタの推奨素材です。"},
+  {id:13,cat:"素材・印材",dif:2,q:"黒水牛の印材は何を加工したものか？",c:["黒い柘の木材","水牛の角","黒い合成樹脂","石炭の化石"],a:1,ex:"黒水牛は水牛の角を加工した印材です。適度な硬度と粘りがあり耐久性に優れ、漆黒の高級感が特徴です。"},
+  {id:14,cat:"素材・印材",dif:3,q:"高品質な「薩摩本柘」の産地として有名なのは？",c:["北海道","京都","鹿児島（薩摩）","沖縄"],a:2,ex:"薩摩本柘は鹿児島産の高級木材印材です。木目が美しく捺印性が高く、木製印材の中では高品質とされています。"},
+  {id:15,cat:"素材・印材",dif:3,q:"象牙を印材として使用する際に注意が必要な主な理由は？",c:["非常に柔らかく彫刻が難しいから","ワシントン条約により取引が制限されているから","朱肉との相性が悪いから","水に非常に弱いから"],a:1,ex:"象牙はワシントン条約（CITES）により厳格な取引規制があります。合法的に入手した象牙のみ使用可能です。"},
+  {id:16,cat:"素材・印材",dif:2,q:"木製の印鑑を水洗いしてはいけない理由は？",c:["染料が溶け出して印影が見えなくなるから","水を吸って膨張し乾燥時にひび割れるから","朱肉が定着しなくなるから","彫刻部分が埋まってしまうから"],a:1,ex:"木材は水を吸って膨張・収縮し、乾燥時にひび割れが起きやすいです。使用後は柔らかい布で拭くだけで十分です。"},
+  {id:17,cat:"素材・印材",dif:3,q:"オランダ水牛の別名は何か？",c:["白水牛（牛角）","アカネ","彩樺","黒壇"],a:0,ex:"オランダ水牛は白水牛（牛角）とも呼ばれます。黒水牛より耐摩耗性がやや高く、「ふ」の入り方で純白・色物に分類されます。"},
+  {id:18,cat:"素材・印材",dif:3,q:"エコ印材「彩樺（さいか）」の主な原料は？",c:["リサイクルプラスチック","バーチ材とフェノールレジンを高圧加熱処理した合成木材","竹と樹脂の合成素材","人工象牙"],a:1,ex:"彩樺はバーチ（白樺）材とフェノールレジンを結合させ高圧加熱処理した環境対応印材です。通常の木材より強くひび割れが少ない特徴があります。"},
+  {id:19,cat:"素材・印材",dif:2,q:"コストと耐久性のバランスから、ベスタが実印・銀行印に最もお勧めする印材は？",c:["柘（つげ）","象牙","黒水牛","彩樺"],a:2,ex:"ベスタでは黒水牛を推奨しています。適度な硬度と粘りがあり耐久性が高く、価格と品質のバランスが最も優れた素材です。"},
+  {id:20,cat:"素材・印材",dif:3,q:"天然印材の耐久性を高い順に並べた場合、正しいのはどれか？",c:["象牙＞白水牛＞黒水牛＞柘","柘＞黒水牛＞白水牛＞象牙","黒水牛＞象牙＞柘＞白水牛","白水牛＞柘＞象牙＞黒水牛"],a:0,ex:"天然印材の耐久性は「象牙 ＞ 白水牛 ＞ 黒水牛 ＞ 柘」の順とされています。ベスタでは耐久性と価格のバランスが優れた黒水牛を推奨しています。"},
+
+  // ── 書体 (Q21-30) ── ベスタ仕様：太枠篆書体なし、横彫りなし→縦彫り統一
+  {id:21,cat:"書体",dif:1,q:"実印・銀行印に最も多く使われる、2000年以上の歴史を持つ印鑑の王道書体は？",c:["楷書体","古印体","篆書体","行書体"],a:2,ex:"篆書体は紀元前から続く最古の書体です。可読性が低く偽造されにくいため、実印・銀行印・法人印の王道書体です。"},
+  {id:22,cat:"書体",dif:2,q:"印相体の別名として正しいのはどれか？",c:["太枠篆書体","吉相体（八方篆書体）","古印体","隷書体"],a:1,ex:"印相体は「吉相体」「八方篆書体」とも呼ばれます。篆書体をベースに8方向に末広がるデザインで縁起が良いとされる開運書体です。"},
+  {id:23,cat:"書体",dif:1,q:"認印に向いている書体として最も適切なのはどれか？",c:["篆書体","印相体","古印体","草書体"],a:2,ex:"認印には古印体がおすすめです。日本独自の書体で墨溜まりや欠け・途切れが特徴の親しみやすい書体です。誰が押したか読めることが重要な認印に最適です。"},
+  {id:24,cat:"書体",dif:2,q:"日本銀行発行のお札（紙幣）に押されている印鑑の書体は？",c:["楷書体","篆書体","古印体","印相体"],a:1,ex:"日本銀行のお札に押されている印鑑は篆書体です。また「日本銀行券」の文字は隷書体で書かれています。"},
+  {id:25,cat:"書体",dif:2,q:"印相体の最大の特徴を正しく説明しているのはどれか？",c:["文字が縦長で読みやすい","上下左右斜めの8方向に文字が枠まで広がる","文字の太さが均一","枠が太く文字が細いデザイン"],a:1,ex:"印相体は中心から外に向かい8方向に線が広がる「八方篆書」が特徴です。枠と文字が接する部分が多く欠けにくいメリットもあります。"},
+  {id:26,cat:"書体",dif:2,q:"株式会社ベスタでは、実印・銀行印の彫り方をどのように統一しているか？",c:["銀行印は横彫り・実印は縦彫り","実印・銀行印ともに横彫りに統一","実印・銀行印ともに縦彫りに統一","お客様の希望に合わせて都度決める"],a:2,ex:"ベスタでは実印も銀行印もすべて縦彫りに統一しています。横彫りを推奨するお店もありますが、ベスタでは縦彫りで統一対応しています。"},
+  {id:27,cat:"書体",dif:2,q:"篆書体が実印・銀行印におすすめの主な理由は？",c:["文字が読みやすく誰でも認識できるから","可読性が低く偽造・複製がされにくいから","最も安価に作れる書体だから","最近開発された新しいデザインだから"],a:1,ex:"篆書体は読みにくさ（可読性の低さ）から偽造されにくいため、実印・銀行印など重要な印鑑に最も適した書体です。2000年以上の歴史を持つ王道書体でもあります。"},
+  {id:28,cat:"書体",dif:2,q:"「偽造されにくい（可読性が低い）」書体の組み合わせはどれか？",c:["篆書体と印相体","楷書体と行書体","古印体と隷書体","草書体と楷書体"],a:0,ex:"篆書体と印相体は可読性が低く偽造・複製がしにくいため、実印・銀行印などの重要な印鑑に推奨されます。"},
+  {id:29,cat:"書体",dif:2,q:"シャチハタのネーム印や住所のゴム印によく使われる、最も読みやすい書体は？",c:["篆書体","印相体","楷書体","古印体"],a:2,ex:"シャチハタのネーム印や住所ゴム印など、内容をはっきり読ませる必要がある印鑑には楷書体が最適です。角印（社印）は篆書体が一般的です。"},
+  {id:51,cat:"書体",dif:2,q:"法人の角印（社印）に最もよく使われる書体はどれか？",c:["楷書体","古印体","篆書体","隷書体"],a:2,ex:"角印（社印）には篆書体が一般的です。社名をきちんと彫り込みながら格式を持たせるため、法人印全般に篆書体が使われます。ゴム印・住所印など内容を読ませる用途には楷書体を使います。"},
+  {id:30,cat:"書体",dif:1,q:"古印体の特徴として正しいのはどれか？",c:["非常に読みにくく偽造防止に最適","墨溜りやかけ・途切れがあり可読性が高い日本独自の書体","篆書体よりさらに複雑","現代の楷書体とほぼ同じ"],a:1,ex:"古印体は大和古印に由来する日本独自の書体です。墨溜りや欠け・途切れが特徴で、親しみやすく可読性が高いため認印に最も適しています。"},
+
+  // ── サイズ (Q31-40) ── ベスタ仕様サイズ適用
+  {id:31,cat:"サイズ",dif:2,q:"個人の実印として登録できる印鑑の直径サイズの範囲は？",c:["5mm〜20mm","8mm〜25mm","10mm〜30mm","12mm〜18mm"],a:1,ex:"個人の実印は直径8mm超〜25mm未満の範囲で登録可能です。この範囲を外れると印鑑登録できません。"},
+  {id:32,cat:"サイズ",dif:1,q:"実印・銀行印・認印のサイズの基本原則は？",c:["認印＞銀行印＞実印の順","すべて同じサイズ","実印＞銀行印＞認印の順","用途に関係なく自由"],a:2,ex:"重要度の高い印鑑ほど大きく作る慣習があります。実印＞銀行印＞認印の順でサイズを分け、見分けやすくします。"},
+  {id:33,cat:"サイズ",dif:2,q:"ベスタで男性の実印としてご案内するサイズは？",c:["10.5mm〜12mm","12mm〜13.5mm","13.5mm〜15mm","15mm〜18mm"],a:3,ex:"ベスタでは男性の実印は15mm〜18mmをご案内しています。フルネームを彫ることが多く、大きめのサイズが適しています。"},
+  {id:34,cat:"サイズ",dif:2,q:"ベスタで女性の実印としてご案内するサイズは？",c:["10.5mm〜12mm","12mm〜13.5mm","13.5mm〜16.5mm","16.5mm〜18mm"],a:2,ex:"ベスタでは女性の実印は13.5mm〜16.5mmをご案内しています。苗字変更を考慮して名前のみを彫ることも多いです。"},
+  {id:35,cat:"サイズ",dif:2,q:"ベスタで法人の代表者印（会社実印）としてご案内するサイズは？",c:["13.5mm","15mm","16.5mmまたは18mm","21mmまたは24mm"],a:2,ex:"ベスタでは法人の代表者印は16.5mmまたは18mmをご案内しています。社名が長い場合は18mmが適しています。"},
+  {id:36,cat:"サイズ",dif:1,q:"個人の認印の一般的なサイズは？",c:["6mm〜8mm","10.5mm〜12mm","13.5mm〜15mm","16.5mm〜18mm"],a:1,ex:"認印は10.5mmまたは12mmが一般的です。荷物受取欄など押印スペースに合った小さめのサイズが使いやすいです。"},
+  {id:37,cat:"サイズ",dif:2,q:"ベスタで法人の角印（社印）としてご案内するサイズは？",c:["13.5mm","16.5mm","18mm","21mm"],a:3,ex:"ベスタでは角印は21mmをご案内しています。法人印鑑は一般的に「銀行印＜代表者印＜角印」の順に大きくなります。"},
+  {id:38,cat:"サイズ",dif:2,q:"個人の実印として登録が「できない」サイズはどれか？",c:["10mm","15mm","20mm","27mm"],a:3,ex:"個人実印は8mm超〜25mm未満が登録条件です。27mmは上限の25mmを超えるため登録できません。"},
+  {id:39,cat:"サイズ",dif:3,q:"法人（会社）実印のサイズ規定として正しいのはどれか？",c:["1辺が1cmを超え3cm以内の四角形に収まるもの","直径8mm〜25mm","直径10mm〜30mm","1辺が5mm〜15mmの正方形"],a:0,ex:"法人実印は1辺が1cmを超え3cm以内の四角形に収まるサイズが登録条件です。個人（8mm〜25mm）より若干大きめの規定です。"},
+  {id:40,cat:"サイズ",dif:2,q:"ベスタで法人の銀行印としてご案内するサイズは？",c:["10.5mm〜12mm","13.5mm〜15mm","15mmまたは16.5mm","21mm〜24mm"],a:2,ex:"ベスタでは法人銀行印は15mmまたは16.5mmをご案内しています。代表者印より一回り小さくし、見分けやすくします。"},
+
+  // ── 管理・取扱い (Q41-45) ──
+  {id:41,cat:"管理・取扱い",dif:2,q:"実印と銀行印を同じ1本で兼用してはいけない主な理由は？",c:["法律で禁止されているから","役所が受け付けないから","紛失・偽造時に両方のリスクが倍増するから","書体が同じになるから"],a:2,ex:"兼用すると紛失・盗難・偽造時の被害が不動産と銀行口座の両方に及びます。リスクヘッジのため必ず別々に作成・保管しましょう。"},
+  {id:42,cat:"管理・取扱い",dif:1,q:"印鑑を使用した後の基本的なお手入れは？",c:["毎回水洗いして清潔を保つ","柔らかい布やティッシュで朱肉を拭き取る","アルコールで消毒する","何もしなくてよい"],a:1,ex:"使用後は柔らかい布やティッシュで朱肉を軽く拭き取ります。朱肉が残ると劣化の原因になります。水洗いは原則行いません。"},
+  {id:43,cat:"管理・取扱い",dif:3,q:"一度登録した実印の登録を変更・抹消できるのはいつか？",c:["登録後1年以内のみ","重要な手続きの前後のみ","原則いつでも可能（役所で手続き）","一度登録したら変更不可"],a:2,ex:"実印の登録変更・抹消はいつでも可能です。役所の窓口で手続きします。印鑑を紛失した場合も早急に抹消手続きをしましょう。"},
+  {id:44,cat:"管理・取扱い",dif:2,q:"銀行印を紛失したとき、最初に取るべき行動は？",c:["新しい銀行印をすぐに作る","すぐに銀行に連絡し取引を停止させる","警察に届け出る","しばらく様子を見る"],a:1,ex:"銀行印紛失時はすぐに金融機関に連絡し、既存の印鑑での取引を停止させることが最優先です。その後新しい印鑑の再登録手続きを行います。"},
+  {id:45,cat:"管理・取扱い",dif:2,q:"印鑑の保管で避けるべきことはどれか？",c:["専用のケースに入れて保管する","直射日光の当たる場所に放置する","乾燥した室内で保管する","使用後に朱肉を拭き取る"],a:1,ex:"天然素材の印鑑は直射日光・高温・湿気に弱いです。専用ケースに入れ、直射日光の当たらない場所で保管しましょう。"},
+
+  // ── 法人・会社印 (Q46-50) ──
+  {id:46,cat:"法人・会社印",dif:1,q:"会社設立時に法務局に登録が必要な印鑑は？",c:["角印（社印）","会社銀行印","代表者印（会社実印）","ゴム印"],a:2,ex:"会社設立の際は代表者印（会社実印）を法務局に登録します。登録することで法的拘束力を持つ最重要の法人印となります。"},
+  {id:47,cat:"法人・会社印",dif:3,q:"法人印鑑のサイズの大きさの一般的な順序として正しいのは？",c:["代表者印＜銀行印＜角印","角印＜銀行印＜代表者印","銀行印＜代表者印＜角印","代表者印＜角印＜銀行印"],a:2,ex:"法人印は「銀行印＜代表者印＜角印」の順に大きくなるのが一般的です（個人印とは逆の序列に注意）。"},
+  {id:48,cat:"法人・会社印",dif:3,q:"法人の角印（社印）が登録不要な理由として正しいのは？",c:["サイズが大きすぎて登録できないから","法律上の印鑑登録制度が角印には存在しないから","角印は使用頻度が低いから","丸印のみが法的に認められているから"],a:1,ex:"角印には法律上の登録制度がなく、任意で作成する印鑑です。請求書・領収書など日常業務の書類に広く使われます。"},
+  {id:49,cat:"法人・会社印",dif:3,q:"会社銀行印の内枠（中央部分）に彫られる文字として一般的なのは？",c:["会社名之印","銀行之印","代表者印","認印"],a:1,ex:"会社銀行印の内枠（丸印の中心円内）には通常「銀行之印」と彫られます。外枠に会社名が彫られる構成です。"},
+  {id:50,cat:"法人・会社印",dif:2,q:"法人の代表者印と会社銀行印を兼用しないほうがよい理由は？",c:["法律で禁止されているから","紛失・悪用時に法的契約と銀行口座の両方にリスクが及ぶから","書体が合わなくなるから","登録できないから"],a:1,ex:"代表者印と銀行印を兼用すると、紛失・盗難・偽造時に法的書類と銀行取引の両方が危険にさらされます。必ず別々に作成・管理しましょう。"}
+];
+
+var CATS=["すべて","種類・用途","素材・印材","書体","サイズ","管理・取扱い","法人・会社印"];
+var DIFS=["すべて","★ 初級","★★ 中級","★★★ 上級"];
+var PRESET=["イガラシ","福田さん","野口さん"];
+var CAT_COL={"種類・用途":"#60a5fa","素材・印材":"#f59e0b","書体":"#34d399","サイズ":"#a78bfa","管理・取扱い":"#f87171","法人・会社印":"#22d3ee"};
+var DIFF_LABEL={1:"★ 初級",2:"★★ 中級",3:"★★★ 上級"};
+var LETTERS=["Ａ","Ｂ","Ｃ","Ｄ"];
+var state={user:"イガラシ",customOn:false,cat:"すべて",dif:"すべて",questions:[],qIdx:0,selected:null,showFB:false,answers:[],history:[]};
+
+function saveHistory(){try{localStorage.setItem('vesta_quiz_v2_history',JSON.stringify(state.history));}catch(e){}}
+function loadHistory(){try{var d=localStorage.getItem('vesta_quiz_v2_history');if(d)state.history=JSON.parse(d);}catch(e){}}
+function shuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
+function grade(p){return p>=90?["S","#f59e0b"]:p>=70?["A","#34d399"]:p>=50?["B","#60a5fa"]:["C","#f87171"];}
+function go(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});document.getElementById(id).classList.add('active');}
+function getFiltered(){var q=QA;if(state.cat!=="すべて")q=q.filter(function(x){return x.cat===state.cat;});if(state.dif!=="すべて")q=q.filter(function(x){return DIFF_LABEL[x.dif]===state.dif;});return q;}
+function effName(){return state.customOn?(document.getElementById('custom-in').value.trim()||"名前未入力"):state.user;}
+
+function renderStart(){
+  var uh=document.getElementById('user-chips');uh.innerHTML='';
+  PRESET.concat(['✏️ その他']).forEach(function(u,i){
+    var b=document.createElement('button');b.className='chip';
+    var isOn=(!state.customOn&&u===state.user)||(state.customOn&&i===3);
+    if(isOn)b.classList.add('on');
+    b.textContent=u;
+    b.onclick=(function(u2,i2){return function(){if(i2===3){state.customOn=true;}else{state.customOn=false;state.user=u2;}document.getElementById('custom-in').style.display=state.customOn?'block':'none';renderStart();};})(u,i);
+    uh.appendChild(b);
+  });
+  document.getElementById('custom-in').style.display=state.customOn?'block':'none';
+  var ch=document.getElementById('cat-chips');ch.innerHTML='';
+  CATS.forEach(function(c){
+    var b=document.createElement('button');b.className='chip'+(state.cat===c?' on':'');
+    b.textContent=c;
+    if(state.cat===c&&CAT_COL[c]){b.style.cssText='background:'+CAT_COL[c]+'22;color:'+CAT_COL[c]+';border-color:'+CAT_COL[c]+'88';}
+    b.onclick=(function(c2){return function(){state.cat=c2;renderStart();};})(c);
+    ch.appendChild(b);
+  });
+  var dh=document.getElementById('diff-chips');dh.innerHTML='';
+  DIFS.forEach(function(d){
+    var b=document.createElement('button');b.className='chip'+(state.dif===d?' on':'');
+    b.textContent=d;b.onclick=(function(d2){return function(){state.dif=d2;renderStart();};})(d);
+    dh.appendChild(b);
+  });
+  document.getElementById('q-count').textContent='対象 '+getFiltered().length+' 問';
+  document.getElementById('start-btn').disabled=getFiltered().length===0;
+}
+
+function startQuiz(){
+  var pool=getFiltered();if(!pool.length)return;
+  state.questions=shuffle(pool);state.qIdx=0;state.selected=null;state.showFB=false;state.answers=[];
+  go('s-quiz');renderQuiz();
+}
+
+function renderQuiz(){
+  var q=state.questions[state.qIdx];
+  var pct=Math.round(state.qIdx/state.questions.length*100);
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('q-user-name').textContent=effName();
+  var sc=state.answers.filter(function(a){return a.correct;}).length;
+  document.getElementById('q-score-info').textContent=sc+'/'+state.qIdx+' 正解 | '+(state.qIdx+1)+'/'+state.questions.length+'問';
+  var ct=document.getElementById('q-cat-tag');ct.textContent=q.cat;
+  var col=CAT_COL[q.cat]||'#888';
+  ct.style.cssText='background:'+col+'22;color:'+col+';border:1px solid '+col+'44';
+  document.getElementById('q-diff-tag').textContent=DIFF_LABEL[q.dif];
+  document.getElementById('q-num').textContent='Q'+(state.qIdx+1);
+  document.getElementById('q-text').textContent=q.q;
+  var cc=document.getElementById('choices');cc.innerHTML='';
+  q.c.forEach(function(c,i){
+    var b=document.createElement('button');b.className='choice';
+    b.innerHTML='<span class="choice-letter">'+LETTERS[i]+'</span><span>'+c+'</span>';
+    b.onclick=(function(i2){return function(){pick(i2);};})(i);
+    cc.appendChild(b);
+  });
+  document.getElementById('feedback').style.display='none';
+  document.getElementById('next-btn').style.display='none';
+}
+
+function pick(i){
+  if(state.showFB)return;
+  var q=state.questions[state.qIdx];
+  state.selected=i;state.showFB=true;
+  state.answers.push({correct:i===q.a,q:q,sel:i});
+  var btns=document.getElementById('choices').querySelectorAll('button');
+  btns.forEach(function(b,j){
+    b.disabled=true;
+    if(j===q.a){b.className='choice correct';b.innerHTML+='<span class="mark" style="color:#34d399">✓</span>';}
+    else if(j===i){b.className='choice wrong';b.innerHTML+='<span class="mark" style="color:#f87171">✗</span>';}
+    else{b.className='choice dim';}
+  });
+  var fb=document.getElementById('feedback');fb.style.display='block';
+  var ok=i===q.a;
+  fb.className='feedback '+(ok?'fb-ok':'fb-ng');
+  fb.innerHTML='<div class="'+(ok?'fb-title-ok':'fb-title-ng')+'">'+(ok?'✓ 正解！':'✗ 不正解 — 正解は「'+q.c[q.a]+'」')+'</div><div class="fb-body">'+q.ex+'</div>';
+  var nb=document.getElementById('next-btn');nb.style.display='block';
+  nb.textContent=(state.qIdx+1>=state.questions.length)?'結果を確認する →':'次の問題 →';
+}
+
+function next(){
+  if(state.qIdx+1>=state.questions.length){
+    var ans=state.answers;var sc=ans.filter(function(a){return a.correct;}).length;
+    var rec={user:effName(),date:new Date().toLocaleString('ja-JP'),score:sc,total:state.questions.length,pct:Math.round(sc/state.questions.length*100),cat:state.cat,dif:state.dif,answers:ans.slice()};
+    state.history.unshift(rec);saveHistory();renderResult(rec);go('s-result');sendToGas(rec);
+  }else{state.qIdx++;state.selected=null;state.showFB=false;renderQuiz();}
+}
+
+function renderResult(r){
+  var gg=grade(r.pct);var g=gg[0];var gc=gg[1];
+  var catStats=CATS.slice(1).map(function(c){var as=r.answers.filter(function(a){return a.q.cat===c;});return{c:c,cor:as.filter(function(x){return x.correct;}).length,tot:as.length};}).filter(function(x){return x.tot>0;});
+  var wrong=r.answers.filter(function(a){return !a.correct;});
+  var html='<p style="text-align:center;color:#64748b;margin-bottom:8px;font-size:13px">'+r.user+' さんの結果</p>'
+    +'<div style="text-align:center;margin-bottom:20px">'
+    +'<div style="font-size:64px;font-weight:900;color:'+gc+';line-height:1">'+r.pct+'<span style="font-size:20px;opacity:.6">%</span></div>'
+    +'<div style="font-size:16px;color:#64748b;margin-bottom:10px">'+r.score+' / '+r.total+' 問正解</div>'
+    +'<span class="grade-badge" style="color:'+gc+';border-color:'+gc+';background:'+gc+'22">ランク '+g+'</span>'
+    +'</div><div class="div"></div>';
+  if(catStats.length>1){
+    html+='<span class="field-label">カテゴリ別成績</span>';
+    catStats.forEach(function(x){
+      var p=Math.round(x.cor/x.tot*100);var col=CAT_COL[x.c]||"#888";
+      html+='<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:'+col+'">'+x.c+'</span><span style="color:#64748b">'+x.cor+'/'+x.tot+' ('+p+'%)</span></div><div class="bar-track"><div class="bar-fill" style="width:'+p+'%;background:'+col+'"></div></div></div>';
+    });
+    html+='<div class="div"></div>';
+  }
+  if(wrong.length){
+    html+='<span class="field-label">復習ポイント ('+wrong.length+'問)</span>';
+    wrong.forEach(function(item){
+      html+='<div class="review-item"><div style="font-size:12px;color:#f1f5f9;margin-bottom:5px;font-weight:600">'+item.q.q+'</div><div style="font-size:11px;color:#f87171;margin-bottom:2px">あなたの解答: '+item.q.c[item.sel]+'</div><div style="font-size:11px;color:#34d399;margin-bottom:5px">正解: '+item.q.c[item.q.a]+'</div><div style="font-size:11px;color:#94a3b8;line-height:1.6">'+item.q.ex+'</div></div>';
+    });
+    html+='<div class="div"></div>';
+  }
+  html+='<button class="primary" onclick="go(\'s-start\');renderStart()">もう一度挑戦する</button>';
+  document.getElementById('result-card').innerHTML=html;
+}
+
+function renderHist(){
+  var h=state.history;
+  var userSet=[];
+  PRESET.forEach(function(u){if(userSet.indexOf(u)<0)userSet.push(u);});
+  h.forEach(function(x){if(userSet.indexOf(x.user)<0)userSet.push(x.user);});
+  var html='<span class="field-label">メンバー別サマリー</span>';
+  userSet.forEach(function(u){
+    var recs=h.filter(function(x){return x.user===u;});if(!recs.length)return;
+    var avg=Math.round(recs.reduce(function(s,r){return s+r.pct;},0)/recs.length);
+    var best=Math.max.apply(null,recs.map(function(r){return r.pct;}));
+    var gg=grade(avg);var g=gg[0];var gc=gg[1];
+    html+='<div class="user-card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div><span style="font-weight:700;color:#f1f5f9;font-size:15px">'+u+'</span><span style="margin-left:10px;color:#475569;font-size:11px">'+recs.length+'回受験</span></div><span class="grade-badge" style="color:'+gc+';border-color:'+gc+';background:'+gc+'22;font-size:13px;padding:3px 12px">平均 '+g+'</span></div><div style="display:flex;gap:14px;margin-bottom:8px;font-size:12px"><span style="color:#64748b">平均 <strong style="color:#f59e0b">'+avg+'%</strong></span><span style="color:#64748b">最高 <strong style="color:#34d399">'+best+'%</strong></span></div><div class="bar-track"><div class="bar-fill" style="width:'+avg+'%;background:#f59e0b"></div></div></div>';
+  });
+  if(!h.length)html+='<p style="color:#475569;font-size:13px">まだ記録がありません</p>';
+  html+='<div class="div"></div><span class="field-label">受験ログ</span>';
+  if(h.length){
+    html+='<div class="log-grid log-header"><span>受験者</span><span>日時</span><span>問題</span><span>結果</span></div>';
+    h.forEach(function(rec){
+      var gg=grade(rec.pct);var gc=gg[1];
+      html+='<div class="log-grid log-row"><span style="color:#e2e8f0;font-weight:600">'+rec.user+'</span><span style="color:#475569;font-size:10px">'+rec.date.split(' ')[0]+'</span><span style="color:#64748b;font-size:11px">'+(rec.cat==="すべて"?"全カテゴリ":rec.cat)+'</span><span style="color:'+gc+';font-weight:700">'+rec.pct+'%</span></div>';
+    });
+    html+='<div style="margin-top:12px"><button class="hist-btn" onclick="if(confirm(\'履歴をすべて削除しますか？\')){state.history=[];saveHistory();renderHist();}">🗑 履歴を削除</button></div>';
+  }
+  document.getElementById('hist-card').innerHTML=html;
+}
+
+
+// ===== GAS連携 =====
+var GAS_KEY = 'vesta_gas_url';
+
+function getGasUrl(){return localStorage.getItem(GAS_KEY)||'';}
+
+function renderGasStatus(){
+  var url=getGasUrl();
+  var el=document.getElementById('gas-status');
+  if(!el)return;
+  if(url){
+    var short = url.length > 40 ? url.substring(0,40)+'...' : url;
+    el.innerHTML='<div class="gas-set">✓ スプレッドシート連携：設定済み<br><span style="font-size:10px;opacity:.7">'+short+'</span><button class="gas-btn" onclick="configGas()">変更</button><button class="gas-btn" onclick="testGas()">送信テスト</button></div>';
+  }else{
+    el.innerHTML='<div class="gas-unset">⚠ スプレッドシート未設定 — 記録されません<button class="gas-btn" onclick="configGas()">GAS URLを設定する</button></div>';
+  }
+}
+
+function configGas(){
+  var current=getGasUrl();
+  var url=prompt('GASのデプロイURLを貼り付けてください：', current||'');
+  if(url===null)return;
+  url=url.trim();
+  if(url){
+    localStorage.setItem(GAS_KEY, url);
+    alert('保存しました！');
+  }else{
+    localStorage.removeItem(GAS_KEY);
+    alert('GAS URLを削除しました。');
+  }
+  renderGasStatus();
+}
+
+function buildParams(payload){
+  return Object.keys(payload).map(function(k){
+    var v = typeof payload[k]==='object'?JSON.stringify(payload[k]):String(payload[k]);
+    return encodeURIComponent(k)+'='+encodeURIComponent(v);
+  }).join('&');
+}
+
+function submitForm(url, params){
+  // iframe.srcに直接セット（file://でも確実に動く）
+  var iframe=document.getElementById('vesta_sink');
+  if(!iframe){
+    iframe=document.createElement('iframe');
+    iframe.name='vesta_sink';
+    iframe.id='vesta_sink';
+    iframe.style.display='none';
+    document.body.appendChild(iframe);
+  }
+  iframe.src = url + '?' + params;
+}
+
+function testGas(){
+  var url=getGasUrl();
+  if(!url){alert('GAS URLが設定されていません');return;}
+  var payload={
+    date:new Date().toLocaleString('ja-JP'),
+    user:'テスト送信',
+    pct:100,score:1,total:1,dif:'テスト',cat:'テスト',
+    catStats:{"種類・用途":100,"素材・印材":100,"書体":100,"サイズ":100,"管理・取扱い":100,"法人・会社印":100}
+  };
+  submitForm(url, buildParams(payload));
+  setTimeout(function(){
+    alert('送信しました！\nスプレッドシートに「テスト送信」の行が追加されているか確認してください。');
+  }, 800);
+}
+
+function sendToGas(rec){
+  var url=getGasUrl();
+  var statusEl=document.getElementById('send-status');
+  if(!url){
+    if(statusEl)statusEl.innerHTML='<div class="gas-unset" style="text-align:center">GAS URL未設定のためスプレッドシートには記録されていません</div>';
+    return;
+  }
+  if(statusEl)statusEl.innerHTML='<div class="send-wait">📤 スプレッドシートに送信中...</div>';
+
+  var cats=["種類・用途","素材・印材","書体","サイズ","管理・取扱い","法人・会社印"];
+  var catStats={};
+  cats.forEach(function(c){
+    var as=rec.answers.filter(function(a){return a.q.cat===c;});
+    if(as.length>0)catStats[c]=Math.round(as.filter(function(a){return a.correct;}).length/as.length*100);
+  });
+
+  var payload={
+    date:rec.date, user:rec.user, pct:rec.pct,
+    score:rec.score, total:rec.total, dif:rec.dif,
+    cat:rec.cat, catStats:catStats
+  };
+
+  submitForm(url, buildParams(payload));
+  setTimeout(function(){
+    if(statusEl)statusEl.innerHTML='<div class="send-ok">✓ スプレッドシートに記録しました</div>';
+  }, 800);
+}
+
+loadHistory();renderStart();renderGasStatus();
+</script>
+<iframe name="vesta_sink" style="display:none"></iframe>
+</body>
+</html>
