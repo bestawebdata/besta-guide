@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社besta スタッフガイド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f5f0;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 20px 16px 16px;
+      text-align: center;
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    header .subtitle {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    nav {
+      background: #16213e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    nav a:hover { background: #0f3460; color: #fff; }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-left: 4px solid #e94560;
+      padding-left: 10px;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #333;
+      margin: 14px 0 8px;
+    }
+
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .card {
+      background: #f0f4ff;
+      border-radius: 8px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .card .icon { font-size: 1.6rem; }
+    .card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #1a1a2e; }
+    .card .desc { font-size: 0.75rem; color: #666; margin-top: 4px; }
+
+    .philosophy-box {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin: 10px 0;
+    }
+    .philosophy-box p { margin: 0; font-size: 0.95rem; }
+
+    .staff-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .staff-table th, .staff-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    .staff-table th {
+      background: #f0f4ff;
+      font-weight: 700;
+      color: #1a1a2e;
+      width: 30%;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: step;
+      margin-top: 8px;
+    }
+    .step-list li {
+      counter-increment: step;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.93rem;
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before {
+      content: counter(step);
+      background: #e94560;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      min-width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-right: 4px;
+    }
+    .tag.red { background: #fce4ec; color: #c62828; }
+    .tag.blue { background: #e3f2fd; color: #1565c0; }
+
+    .link-btn {
+      display: inline-block;
+      background: #1a1a2e;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .link-btn:hover { background: #0f3460; }
+
+    footer {
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    @media (max-width: 480px) {
+      header .logo { font-size: 1.2rem; }
+      h2 { font-size: 1rem; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">株式会社besta スタッフガイド</div>
+  <div class="subtitle">宝塚市 阪急山本駅近く ／ 社内資料</div>
+</header>
+
+<nav>
+  <a href="#company">会社概要</a>
+  <a href="#products">商品カテゴリ</a>
+  <a href="#philosophy">接客哲学</a>
+  <a href="#flow">接客フロー</a>
+  <a href="#staff">スタッフ</a>
+  <a href="#tools">ツール</a>
+</nav>
+
+<main>
+
+  <!-- 会社概要 -->
+  <section id="company">
+    <h2>会社概要</h2>
+    <table class="staff-table">
+      <tr>
+        <th>会社名</th>
+        <td>株式会社besta</td>
+      </tr>
+      <tr>
+        <th>事業内容</th>
+        <td>印鑑・名刺・印刷・看板・防災用品</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>兵庫県宝塚市（阪急山本駅近く）</td>
+      </tr>
+      <tr>
+        <th>代表</th>
+        <td>五十嵐一生（イガラシ）</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- 商品カテゴリ -->
+  <section id="products">
+    <h2>商品カテゴリ</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">🔴</div>
+        <div class="label">印鑑</div>
+        <div class="desc">実印・銀行印・認印</div>
+      </div>
+      <div class="card">
+        <div class="icon">🖨️</div>
+        <div class="label">印刷</div>
+        <div class="desc">チラシ・冊子・伝票</div>
+      </div>
+      <div class="card">
+        <div class="icon">🪧</div>
+        <div class="label">看板</div>
+        <div class="desc">店舗看板・屋外サイン</div>
+      </div>
+      <div class="card">
+        <div class="icon">💼</div>
+        <div class="label">名刺</div>
+        <div class="desc">各種名刺・カード類</div>
+      </div>
+      <div class="card">
+        <div class="icon">🎒</div>
+        <div class="label">防災</div>
+        <div class="desc">非常持出袋・防災グッズ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 接客哲学 -->
+  <section id="philosophy">
+    <h2>接客哲学</h2>
+
+    <h3>基本方針</h3>
+    <div class="philosophy-box">
+      <p>お客様の言葉をそのまま信じるな。<br>
+      用途を聞いてから提案する。<br>
+      <strong>リピーターにすることがゴール。</strong></p>
+    </div>
+
+    <h3>なぜ「用途を聞く」のか</h3>
+    <p>
+      お客様は商品名を正確に知らないことが多い。<br>
+      「安い印鑑がほしい」→ 実は会社設立の実印が必要、というケースも。<br>
+      用途を聞くことで、<span class="tag">本当に必要なもの</span>を提案でき、<span class="tag blue">クレーム防止</span>と<span class="tag red">リピート促進</span>につながる。
+    </p>
+
+    <h3>リピーターにするために</h3>
+    <p>
+      一度の購入で終わらせない。名前を覚える。次回来店時に声をかける。<br>
+      「また来たくなるお店」をつくることが最大の営業活動。
+    </p>
+  </section>
+
+  <!-- 接客フロー -->
+  <section id="flow">
+    <h2>接客フロー（基本）</h2>
+    <ol class="step-list">
+      <li>来店時に笑顔で声かけ「いらっしゃいませ、何かお探しですか？」</li>
+      <li>商品カテゴリをざっくり確認（印鑑？印刷？名刺？看板？）</li>
+      <li><strong>用途をヒアリング</strong>（個人用？法人用？いつ使う？）</li>
+      <li>ヒアリング内容をもとに最適な商品・プランを提案</li>
+      <li>価格・納期・仕様を丁寧に説明し、不安を取り除く</li>
+      <li>購入後も「また何かあればいつでも」とフォローの言葉を添える</li>
+    </ol>
+  </section>
+
+  <!-- スタッフ -->
+  <section id="staff">
+    <h2>スタッフ一覧</h2>
+    <table class="staff-table">
+      <tr>
+        <th>五十嵐（代表）</th>
+        <td>全体統括・営業・商品企画</td>
+      </tr>
+      <tr>
+        <th>福田さん</th>
+        <td>経理・事務</td>
+      </tr>
+      <tr>
+        <th>野口さん</th>
+        <td>WEB・EC運営</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ツール -->
+  <section id="tools">
+    <h2>スタッフ向けツール</h2>
+
+    <h3>印鑑クイズ（51問）</h3>
+    <p>
+      印鑑の基礎知識を楽しくテストできるクイズ。<br>
+      新人研修・自己学習に活用してください。
+    </p>
+    <a class="link-btn" href="vesta_hanko_quiz_v3.html">印鑑クイズをやってみる →</a>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 株式会社besta ／ このページは社内スタッフ向け資料です
+</footer>
+
+</body>
+</html>
