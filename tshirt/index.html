@@ -4,116 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tシャツプリント業務マニュアル｜株式会社ベスタ スタッフガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0a0a0a;
-  --bg2:#141414;
-  --bg3:#1c1c1c;
-  --gold:#c9a84c;
-  --gold2:#e8c97a;
-  --red:#e05555;
-  --green:#4caf7d;
-  --blue:#4c8fe0;
-  --text:#e8e8e8;
-  --text2:#a0a0a0;
-  --border:#2a2a2a;
-}
-body{background:var(--bg);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Yu Gothic Medium','Meiryo',sans-serif;font-size:15px;line-height:1.7}
-a{color:var(--gold);text-decoration:none}
-a:hover{text-decoration:underline}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
 
 /* ヘッダー */
-.site-header{background:#060606;border-bottom:1px solid var(--border);padding:10px 16px;position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center}
-.site-brand{font-size:12px;color:var(--text2)}
-.site-brand span{color:var(--gold);font-weight:bold}
+.site-header {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 20px 16px 16px;
+  text-align: center;
+}
+.site-brand { font-size: 1.4rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
 
 /* パンくず */
-.breadcrumb{padding:10px 16px;font-size:12px;color:var(--text2);border-bottom:1px solid var(--border);background:var(--bg2)}
-.breadcrumb a{color:var(--text2)}
-
-/* ページヘッダー */
-.page-header{padding:28px 16px 20px;background:var(--bg2);border-bottom:1px solid var(--border)}
-.page-header h1{font-size:22px;font-weight:bold;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.page-header .sub{font-size:12px;color:var(--text2);margin-top:6px}
+.breadcrumb {
+  background: #16213e;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  color: #888;
+}
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.breadcrumb a:hover { color: #fff; }
 
 /* ナビ */
-.page-nav{background:var(--bg3);border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;padding:0 8px}
-.page-nav a{display:inline-block;padding:10px 10px;font-size:12px;color:var(--text2);border-bottom:2px solid transparent}
-.page-nav a:hover{color:var(--gold);border-bottom-color:var(--gold);text-decoration:none}
+.page-nav {
+  background: #16213e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.page-nav a { color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; transition: background 0.2s; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
 
 /* メイン */
-main{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+main { max-width: 820px; margin: 0 auto; padding: 16px; }
 
 /* セクション */
-section{margin-bottom:32px}
-.section-title{font-size:17px;font-weight:bold;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.section-title .step-badge{background:var(--gold);color:#000;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:20px}
+section { margin-bottom: 24px; }
 
 /* カード */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px}
-.card-title{font-size:13px;font-weight:bold;color:var(--gold);margin-bottom:10px}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+/* セクションタイトル */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  border-left: 4px solid #e94560;
+  padding-left: 10px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.step-badge {
+  display: inline-block;
+  background: #e94560;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+/* カードタイトル */
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
 
 /* テーブル */
-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
-th{background:var(--bg3);color:var(--text2);font-size:12px;font-weight:bold;padding:8px 10px;text-align:left;border:1px solid var(--border)}
-td{padding:8px 10px;border:1px solid var(--border);vertical-align:top}
-tr:nth-child(even) td{background:#111}
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+tr:hover td { background: #fff3f3; }
 
 /* チェックリスト */
-.checklist{list-style:none;padding:0}
-.checklist li{padding:6px 0 6px 26px;position:relative;border-bottom:1px solid var(--border);font-size:14px}
-.checklist li:last-child{border-bottom:none}
-.checklist li::before{content:"□";position:absolute;left:4px;color:var(--gold);font-size:14px}
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 7px 0 7px 26px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "□"; position: absolute; left: 4px; color: #e94560; }
 
 /* 注意・重要 */
-.alert{border-radius:6px;padding:12px 14px;margin:10px 0;font-size:13px}
-.alert.warn{background:#2a1a1a;border-left:3px solid var(--red);color:#f0a0a0}
-.alert.info{background:#1a1f2a;border-left:3px solid var(--blue);color:#a0c0f0}
-.alert.ok{background:#1a2a1f;border-left:3px solid var(--green);color:#90d0a0}
-.alert strong{display:block;margin-bottom:4px}
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.warn strong { color: #e65100; display: block; margin-bottom: 4px; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.alert.info strong { color: #2e7d32; display: block; margin-bottom: 4px; }
 
 /* 要確認バッジ */
-.req{background:var(--red);color:#fff;font-size:11px;font-weight:bold;padding:1px 7px;border-radius:4px;vertical-align:middle;margin-left:6px}
+.req { background: #e94560; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 1px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; }
 
-/* TOP5 */
-.top5{counter-reset:top5;list-style:none;padding:0}
-.top5 li{counter-increment:top5;padding:10px 10px 10px 44px;position:relative;border-bottom:1px solid var(--border);font-size:14px}
-.top5 li:last-child{border-bottom:none}
-.top5 li::before{content:counter(top5);position:absolute;left:10px;top:50%;transform:translateY(-50%);background:var(--gold);color:#000;font-size:13px;font-weight:bold;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+/* フロー番号リスト */
+.flow { list-style: none; padding: 0; counter-reset: flow; }
+.flow li { counter-increment: flow; padding: 8px 8px 8px 40px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.flow li:last-child { border-bottom: none; }
+.flow li::before { content: counter(flow); position: absolute; left: 6px; top: 50%; transform: translateY(-50%); background: #1a1a2e; color: #fff; font-size: 0.8rem; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-/* 価格表 */
-.price-note{font-size:12px;color:var(--text2);margin-top:8px}
+/* ルールリスト */
+.top5 { counter-reset: top5; list-style: none; padding: 0; }
+.top5 li { counter-increment: top5; padding: 10px 10px 10px 44px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.top5 li:last-child { border-bottom: none; }
+.top5 li::before { content: counter(top5); position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: #e94560; color: #fff; font-size: 0.8rem; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-/* スクリプト対応フロー */
-.flow{list-style:none;padding:0;counter-reset:flow}
-.flow li{counter-increment:flow;padding:10px 10px 10px 44px;position:relative;border-bottom:1px solid var(--border);font-size:14px}
-.flow li:last-child{border-bottom:none}
-.flow li::before{content:counter(flow);position:absolute;left:10px;top:50%;transform:translateY(-50%);background:var(--bg3);color:var(--gold);border:1px solid var(--gold);font-size:12px;font-weight:bold;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
+/* 価格表注記 */
+.price-note { font-size: 0.78rem; color: #888; margin-top: 8px; line-height: 1.8; }
 
 /* データ料金 */
-.fee-free{color:var(--green);font-weight:bold}
-.fee-paid{color:var(--gold);font-weight:bold}
+.fee-free { color: #2e7d32; font-weight: 700; }
+.fee-paid { color: #c62828; font-weight: 700; }
 
 /* フッター */
-footer{text-align:center;padding:20px;font-size:11px;color:var(--text2);border-top:1px solid var(--border)}
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; margin-top: 20px; }
+
+@media (max-width: 480px) {
+  .site-brand { font-size: 1.1rem; }
+  .section-title { font-size: 1rem; }
+  th, td { font-size: 0.78rem; padding: 7px 6px; }
+}
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="site-brand"><span>株式会社ベスタ</span> スタッフガイド</div>
-  <div style="font-size:11px;color:var(--text2)">社内資料</div>
+  <div class="breadcrumb" style="background:transparent;padding:0;margin-bottom:6px;text-align:center;">
+    <a href="../" style="color:#aaa;">スタッフガイド TOP</a> › Tシャツプリント業務マニュアル
+  </div>
+  <div class="site-brand">👕 <span>Tシャツプリント</span>業務マニュアル</div>
+  <div class="header-sub">株式会社ベスタ スタッフ研修テキスト｜対象：印刷スタッフ全般</div>
 </header>
-
-<div class="breadcrumb">
-  <a href="../">スタッフガイド TOP</a> › Tシャツプリント業務マニュアル
-</div>
-
-<div class="page-header">
-  <h1>👕 Tシャツプリント業務マニュアル</h1>
-  <div class="sub">株式会社ベスタ スタッフ研修テキスト｜対象：印刷スタッフ全般</div>
-</div>
 
 <nav class="page-nav">
   <a href="#flow-overview">🗺️流れ</a>
