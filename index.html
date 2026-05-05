@@ -35,8 +35,6 @@
     .step-list li { counter-increment: step; display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.93rem; }
     .step-list li:last-child { border-bottom: none; }
     .step-list li::before { content: counter(step); background: #e94560; color: #fff; font-weight: 700; font-size: 0.8rem; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-    .link-btn { display: inline-block; background: #1a1a2e; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; margin-top: 8px; transition: background 0.2s; }
-    .link-btn:hover { background: #0f3460; }
     footer { text-align: center; padding: 20px 16px; font-size: 0.8rem; color: #999; }
     @media (max-width: 480px) { header .logo { font-size: 1.2rem; } h2 { font-size: 1rem; } .card-grid { grid-template-columns: repeat(2, 1fr); } }
   </style>
@@ -53,7 +51,6 @@
   </style>
 </head>
 <body>
-
 <div id="auth-overlay">
   <div id="auth-box">
     <h1>株式会社ベスタ</h1>
@@ -63,7 +60,6 @@
     <div id="auth-error"></div>
   </div>
 </div>
-
 <script>
   if (sessionStorage.getItem('besta_auth') === '1') {
     document.getElementById('auth-overlay').style.display = 'none';
@@ -83,24 +79,18 @@
     if (e.key === 'Enter') checkPassword();
   });
 </script>
-
 <header>
   <div class="logo">株式会社ベスタ スタッフガイド</div>
   <div class="subtitle">宝塚市 阪急山本駅近く ／ 社内資料</div>
 </header>
-
 <nav>
   <a href="#company">会社概要</a>
   <a href="#products">商品カテゴリ</a>
   <a href="#philosophy">接客哲学</a>
   <a href="#flow">接客フロー</a>
   <a href="#staff">スタッフ</a>
-  <a href="#tools">ツール</a>
 </nav>
-
 <main>
-
-  <!-- 会社概要 -->
   <section id="company">
     <h2>会社概要</h2>
     <table class="staff-table">
@@ -110,21 +100,19 @@
       <tr><th>代表</th><td>五十嵐一生（イガラシ）</td></tr>
     </table>
   </section>
-
-  <!-- 商品カテゴリ -->
   <section id="products">
     <h2>商品カテゴリ　マニュアル一覧</h2>
     <p style="font-size:0.85rem; color:#666; margin-bottom:12px;">各カテゴリをタップしてマニュアルを読もう。テスト付き。</p>
     <div class="card-grid">
       <a href="hanko/" style="text-decoration:none;">
-        <div class="card" style="border:2px solid #e94560; position:relative;">
+        <div class="card" style="border:2px solid #e94560;">
           <div class="icon">🔴</div>
           <div class="label">印鑑</div>
           <div class="desc">実印・銀行印・認印</div>
         </div>
       </a>
       <a href="tshirt/" style="text-decoration:none;">
-        <div class="card" style="border:2px solid #e94560; position:relative;">
+        <div class="card" style="border:2px solid #e94560;">
           <div class="icon">👕</div>
           <div class="label">Tシャツプリント</div>
           <div class="desc">オリジナルウェア</div>
@@ -153,8 +141,6 @@
     </div>
     <p style="font-size:0.78rem; color:#aaa; margin-top:10px;">※ グレーのカテゴリは順次公開予定</p>
   </section>
-
-  <!-- 接客哲学 -->
   <section id="philosophy">
     <h2>接客哲学</h2>
     <h3>基本方針</h3>
@@ -189,8 +175,6 @@
     <h3>リピーターにするために</h3>
     <p>一度の購入で終わらせない。名前を覚える。次回来店時に声をかける。<br>「また来たくなるお店」をつくることが最大の営業活動。</p>
   </section>
-
-  <!-- 接客フロー -->
   <section id="flow">
     <h2>接客フロー（基本）</h2>
     <ol class="step-list">
@@ -202,8 +186,6 @@
       <li>購入後も「また何かあればいつでも」とフォローの言葉を添える</li>
     </ol>
   </section>
-
-  <!-- スタッフ -->
   <section id="staff">
     <h2>スタッフ一覧</h2>
     <table class="staff-table">
@@ -213,20 +195,9 @@
       <tr><th>有園さん</th><td>印刷・DTP</td></tr>
     </table>
   </section>
-
-  <!-- ツール -->
-  <section id="tools">
-    <h2>スタッフ向けツール</h2>
-    <h3>印鑑・はんこ知識テスト（51問）</h3>
-    <p>印鑑の基礎知識を確認できるテスト。<br>新人研修・自己学習に活用してください。</p>
-    <a class="link-btn" href="vesta_hanko_quiz_v3_5.html">印鑑・はんこ知識テストをやってみる →</a>
-  </section>
-
 </main>
-
 <footer>
   &copy; 2025 株式会社ベスタ ／ このページは社内スタッフ向け資料です
 </footer>
-
 </body>
 </html>
