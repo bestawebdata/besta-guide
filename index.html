@@ -1,498 +1,521 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社ベスタ スタッフガイド</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tシャツプリント業務マニュアル｜株式会社ベスタ スタッフガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
 
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: #f5f5f0;
-      color: #333;
-      line-height: 1.7;
-    }
+/* ヘッダー */
+.site-header {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 20px 16px 16px;
+  text-align: center;
+}
+.site-brand { font-size: 1.4rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
 
-    header {
-      background: #1a1a2e;
-      color: #fff;
-      padding: 20px 16px 16px;
-      text-align: center;
-    }
-    header .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-    header .subtitle {
-      font-size: 0.85rem;
-      color: #aaa;
-      margin-top: 4px;
-    }
+/* パンくず */
+.breadcrumb {
+  background: #16213e;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  color: #888;
+}
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.breadcrumb a:hover { color: #fff; }
 
-    nav {
-      background: #16213e;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 4px;
-      padding: 10px 12px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 0.8rem;
-      padding: 5px 10px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    nav a:hover { background: #0f3460; color: #fff; }
+/* ナビ */
+.page-nav {
+  background: #16213e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.page-nav a { color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; transition: background 0.2s; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
 
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 16px;
-    }
+/* メイン */
+main { max-width: 820px; margin: 0 auto; padding: 16px; }
 
-    section {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-    }
+/* セクション */
+section { margin-bottom: 24px; }
 
-    h2 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      border-left: 4px solid #e94560;
-      padding-left: 10px;
-      margin-bottom: 14px;
-    }
+/* カード */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
 
-    h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #333;
-      margin: 14px 0 8px;
-    }
+/* セクションタイトル */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  border-left: 4px solid #e94560;
+  padding-left: 10px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.step-badge {
+  display: inline-block;
+  background: #e94560;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
 
-    p { margin-bottom: 10px; font-size: 0.95rem; }
+/* カードタイトル */
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .card {
-      background: #f0f4ff;
-      border-radius: 8px;
-      padding: 14px 10px;
-      text-align: center;
-    }
-    .card .icon { font-size: 1.6rem; }
-    .card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #1a1a2e; }
-    .card .desc { font-size: 0.75rem; color: #666; margin-top: 4px; }
+/* テーブル */
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+tr:hover td { background: #fff3f3; }
 
-    .philosophy-box {
-      background: #fff8e1;
-      border-left: 4px solid #f9a825;
-      border-radius: 0 8px 8px 0;
-      padding: 14px 16px;
-      margin: 10px 0;
-    }
-    .philosophy-box p { margin: 0; font-size: 0.95rem; }
+/* チェックリスト */
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 7px 0 7px 26px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "□"; position: absolute; left: 4px; color: #e94560; }
 
-    .staff-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-top: 8px;
-    }
-    .staff-table th, .staff-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid #eee;
-      text-align: left;
-    }
-    .staff-table th {
-      background: #f0f4ff;
-      font-weight: 700;
-      color: #1a1a2e;
-      width: 30%;
-    }
+/* 注意・重要 */
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.warn strong { color: #e65100; display: block; margin-bottom: 4px; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.alert.info strong { color: #2e7d32; display: block; margin-bottom: 4px; }
 
-    .step-list {
-      list-style: none;
-      counter-reset: step;
-      margin-top: 8px;
-    }
-    .step-list li {
-      counter-increment: step;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 0.93rem;
-    }
-    .step-list li:last-child { border-bottom: none; }
-    .step-list li::before {
-      content: counter(step);
-      background: #e94560;
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.8rem;
-      min-width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+/* 要確認バッジ */
+.req { background: #e94560; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 1px 7px; border-radius: 4px; vertical-align: middle; margin-left: 6px; }
 
-    .tag {
-      display: inline-block;
-      background: #e8f5e9;
-      color: #2e7d32;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-right: 4px;
-    }
-    .tag.red { background: #fce4ec; color: #c62828; }
-    .tag.blue { background: #e3f2fd; color: #1565c0; }
+/* フロー番号リスト */
+.flow { list-style: none; padding: 0; counter-reset: flow; }
+.flow li { counter-increment: flow; padding: 8px 8px 8px 40px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.flow li:last-child { border-bottom: none; }
+.flow li::before { content: counter(flow); position: absolute; left: 6px; top: 50%; transform: translateY(-50%); background: #1a1a2e; color: #fff; font-size: 0.8rem; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-    .link-btn {
-      display: inline-block;
-      background: #1a1a2e;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-top: 8px;
-      transition: background 0.2s;
-    }
-    .link-btn:hover { background: #0f3460; }
+/* ルールリスト */
+.top5 { counter-reset: top5; list-style: none; padding: 0; }
+.top5 li { counter-increment: top5; padding: 10px 10px 10px 44px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.top5 li:last-child { border-bottom: none; }
+.top5 li::before { content: counter(top5); position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: #e94560; color: #fff; font-size: 0.8rem; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-    footer {
-      text-align: center;
-      padding: 20px 16px;
-      font-size: 0.8rem;
-      color: #999;
-    }
+/* 価格表注記 */
+.price-note { font-size: 0.78rem; color: #888; margin-top: 8px; line-height: 1.8; }
 
-    @media (max-width: 480px) {
-      header .logo { font-size: 1.2rem; }
-      h2 { font-size: 1rem; }
-      .card-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    </style>
-  <style>
-    #auth-overlay {
-      position: fixed;
-      inset: 0;
-      background: #1a1a2e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    #auth-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 32px 24px;
-      width: 90%;
-      max-width: 340px;
-      text-align: center;
-    }
-    #auth-box h1 {
-      font-size: 1.1rem;
-      color: #1a1a2e;
-      margin-bottom: 6px;
-    }
-    #auth-box p {
-      font-size: 0.82rem;
-      color: #888;
-      margin-bottom: 20px;
-    }
-    #auth-box input {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      font-family: inherit;
-      text-align: center;
-      letter-spacing: 0.1em;
-    }
-    #auth-box input:focus { outline: none; border-color: #e94560; }
-    #auth-box button {
-      width: 100%;
-      padding: 12px;
-      background: #e94560;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    #auth-box button:hover { background: #c73652; }
-    #auth-error {
-      color: #e94560;
-      font-size: 0.83rem;
-      margin-top: 10px;
-      min-height: 1.2em;
-    }
-  </style>
+/* データ料金 */
+.fee-free { color: #2e7d32; font-weight: 700; }
+.fee-paid { color: #c62828; font-weight: 700; }
+
+/* フッター */
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; margin-top: 20px; }
+
+@media (max-width: 480px) {
+  .site-brand { font-size: 1.1rem; }
+  .section-title { font-size: 1rem; }
+  th, td { font-size: 0.78rem; padding: 7px 6px; }
+}
+</style>
 </head>
 <body>
 
-<div id="auth-overlay">
-  <div id="auth-box">
-    <h1>株式会社ベスタ</h1>
-    <p>スタッフガイド（社内資料）</p>
-    <input type="password" id="pw-input" placeholder="パスワードを入力" autofocus>
-    <button onclick="checkPassword()">ログイン</button>
-    <div id="auth-error"></div>
+<header class="site-header">
+  <div class="breadcrumb" style="background:transparent;padding:0;margin-bottom:6px;text-align:center;">
+    <a href="../" style="color:#aaa;">スタッフガイド TOP</a> › Tシャツプリント業務マニュアル
   </div>
-</div>
-
-<script>
-  // セッション中は再入力不要
-  if (sessionStorage.getItem('besta_auth') === '1') {
-    document.getElementById('auth-overlay').style.display = 'none';
-  }
-  function checkPassword() {
-    const input = document.getElementById('pw-input').value;
-    if (input === 'besta2026') {
-      sessionStorage.setItem('besta_auth', '1');
-      document.getElementById('auth-overlay').style.display = 'none';
-    } else {
-      document.getElementById('auth-error').textContent = 'パスワードが違います';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
-    }
-  }
-  document.getElementById('pw-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') checkPassword();
-  });
-</script>
-
-<header>
-  <div class="logo">株式会社ベスタ スタッフガイド</div>
-  <div class="subtitle">宝塚市 阪急山本駅近く ／ 社内資料</div>
+  <div class="site-brand">👕 <span>Tシャツプリント</span>業務マニュアル</div>
+  <div class="header-sub">株式会社ベスタ スタッフ研修テキスト｜対象：印刷スタッフ全般</div>
 </header>
 
-<nav>
-  <a href="#company">会社概要</a>
-  <a href="#products">商品カテゴリ</a>
-  <a href="#philosophy">接客哲学</a>
-  <a href="#flow">接客フロー</a>
-  <a href="#staff">スタッフ</a>
-  <a href="#tools">ツール</a>
+<nav class="page-nav">
+  <a href="#flow-overview">🗺️流れ</a>
+  <a href="#step1">📱受付</a>
+  <a href="#price">💰概算</a>
+  <a href="#step2">🖼️データ</a>
+  <a href="#step3">👕準備</a>
+  <a href="#step4">🖨️印刷</a>
+  <a href="#step5">📦納品</a>
+  <a href="#trouble">⚠️トラブル</a>
+  <a href="#top5">✅ルール</a>
 </nav>
 
 <main>
 
-  <!-- 会社概要 -->
-  <section id="company">
-    <h2>会社概要</h2>
-    <table class="staff-table">
-      <tr>
-        <th>会社名</th>
-        <td>株式会社ベスタ</td>
-      </tr>
-      <tr>
-        <th>事業内容</th>
-        <td>印鑑・名刺・印刷・看板・防災用品</td>
-      </tr>
-      <tr>
-        <th>所在地</th>
-        <td>兵庫県宝塚市（阪急山本駅近く）</td>
-      </tr>
-      <tr>
-        <th>代表</th>
-        <td>五十嵐一生（イガラシ）</td>
-      </tr>
-    </table>
-  </section>
-
-  <!-- 商品カテゴリ -->
-  <section id="products">
-    <h2>商品カテゴリ　マニュアル一覧</h2>
-    <p style="font-size:0.85rem; color:#666; margin-bottom:12px;">各カテゴリをタップしてマニュアルを読もう。テスト付き。</p>
-    <div class="card-grid">
-      <a href="hanko/" style="text-decoration:none;">
-        <div class="card" style="border:2px solid #e94560; position:relative;">
-          <div style="position:absolute;top:6px;right:8px;background:#e94560;color:#fff;font-size:0.65rem;font-weight:700;padding:1px 6px;border-radius:10px;">公開中</div>
-          <div class="icon">🔴</div>
-          <div class="label">印鑑</div>
-          <div class="desc">実印・銀行印・認印</div>
-        </div>
-      </a>
-      <div class="card" style="opacity:0.5;">
-        <div class="icon">🖨️</div>
-        <div class="label">印刷</div>
-        <div class="desc">チラシ・冊子・伝票</div>
-      </div>
-      <div class="card" style="opacity:0.5;">
-        <div class="icon">🪧</div>
-        <div class="label">看板</div>
-        <div class="desc">店舗看板・屋外サイン</div>
-      </div>
-      <div class="card" style="opacity:0.5;">
-        <div class="icon">💼</div>
-        <div class="label">名刺</div>
-        <div class="desc">各種名刺・カード類</div>
-      </div>
-      <a href="tshirt/" class="card" style="opacity:1;">
-        <div class="icon">👕</div>
-        <div class="label">Tシャツプリント</div>
-        <div class="desc">オリジナルウェア</div>
-      </a>
-      <div class="card" style="opacity:0.5;">
-        <div class="icon">🎒</div>
-        <div class="label">防災</div>
-        <div class="desc">非常持出袋・防災グッズ</div>
-      </div>
-    </div>
-    <p style="font-size:0.78rem; color:#aaa; margin-top:10px;">※ グレーのカテゴリは順次公開予定</p>
-  </section>
-
-  <!-- 接客哲学 -->
-  <section id="philosophy">
-    <h2>接客哲学</h2>
-
-    <h3>基本方針</h3>
-    <div class="philosophy-box">
-      <p>お客様の言葉をそのまま信じるな。<br>
-      用途を聞いてから提案する。<br>
-      <strong>リピーターにすることがゴール。</strong></p>
-    </div>
-
-    <h3>⚠️ これが一番大事な話</h3>
-    <p>
-      お客様は「商品の正しい名前」を知らないまま来店することがほとんどです。<br>
-      「とりあえず認印で登録しておけばいい」と安直に考えているお客様も多く、<br>
-      そのまま売ってしまうのは<strong>専門店として失格</strong>です。
-    </p>
-
-    <h3>🔴 実際にある事例：「認印がほしい」</h3>
-    <div style="background:#fff3f3; border-left:4px solid #e94560; border-radius:0 8px 8px 0; padding:14px 16px; margin:10px 0;">
-      <p style="margin-bottom:8px;"><strong>❌ ダメな対応（よくある）</strong></p>
-      <p style="color:#666; margin-bottom:12px;">
-        「認印がほしいです」→「はい、こちらです」→ 数百円の認印を売って終わり。<br>
-        売上：数百円。お客様：あとで「使えなかった」とクレームになることも。
-      </p>
-      <p style="margin-bottom:8px;"><strong>✅ 専門店らしい対応</strong></p>
-      <p style="color:#1a5c1a;">
-        「認印がほしいです」→「<strong>何に使われますか？</strong>」と一言聞く。<br>
-        →「マンションの契約に…」→「それは実印が必要ですよ。認印でも押せますが、<br>
-        既製品は偽造されやすく、重要な書類には向きません」と説明。<br>
-        → お客様「知らなかった！ちゃんと作ります」<br>
-        売上：<strong>1万円前後の実印</strong>。お客様：本当に必要なものが手に入り満足。
-      </p>
-    </div>
-
-    <h3>🏪 専門店としての役割</h3>
-    <p>
-      印鑑には<strong>それぞれ明確な役割</strong>があります。
-    </p>
-    <ul style="font-size:0.93rem; padding-left:1.2em; margin-bottom:10px; line-height:2.2;">
-      <li><strong>実印</strong>：市区町村に登録。不動産・契約など法的効力が必要な場面に使用</li>
-      <li><strong>銀行印</strong>：金融機関に届け出。口座開設・引き落とし手続きに使用</li>
-      <li><strong>認印</strong>：日常的な確認・受領印。法的効力は弱い</li>
-    </ul>
-    <p>
-      既製品の認印（＝三文判。100円ショップ等でも売っている大量生産の印鑑）は
-      同じ形が無数に流通しており、<strong>偽造・悪用のリスクが非常に高い</strong>ため、
-      実印・銀行印には絶対に向きません。<br>
-      このことをお客様にきちんと伝えるのが、<strong>専門店・株式会社ベスタの役割</strong>です。
-    </p>
-
-    <h3>三方良し</h3>
-    <div class="philosophy-box">
-      <p>
-        正しい知識をお伝えすることで…<br><br>
-        👤 <strong>お客様</strong>：本当に必要なものが手に入り、リスクを回避できる<br>
-        🏪 <strong>お店</strong>：信頼される専門店になり、売上も上がる<br>
-        🔄 <strong>関係</strong>：「あのお店に行けば間違いない」とリピーターになる<br><br>
-        商品を売るだけでなく、<strong>役立つ情報を提供することが顧客満足・信用・売上</strong>のすべてにつながります。
-      </p>
-    </div>
-
-    <h3>リピーターにするために</h3>
-    <p>
-      一度の購入で終わらせない。名前を覚える。次回来店時に声をかける。<br>
-      「また来たくなるお店」をつくることが最大の営業活動。
-    </p>
-  </section>
-
-  <!-- 接客フロー -->
-  <section id="flow">
-    <h2>接客フロー（基本）</h2>
-    <ol class="step-list">
-      <li>来店時に笑顔で声かけ「いらっしゃいませ、何かお探しですか？」</li>
-      <li>商品カテゴリをざっくり確認（印鑑？印刷？名刺？看板？）</li>
-      <li><strong>用途をヒアリング</strong>（個人用？法人用？いつ使う？）</li>
-      <li>ヒアリング内容をもとに最適な商品・プランを提案</li>
-      <li>価格・納期・仕様を丁寧に説明し、不安を取り除く</li>
-      <li>購入後も「また何かあればいつでも」とフォローの言葉を添える</li>
+<!-- ✅ TOP5 先出し -->
+<section id="top5">
+  <div class="section-title">✅ スタッフ全員が必ず守る5つのルール</div>
+  <div class="card">
+    <ol class="top5">
+      <li>LINE・メールの返信は受付後すぐ</li>
+      <li>データ確認は印刷前に必ず（後戻りが最もコストが高い）</li>
+      <li>白インクは毎朝100回振る</li>
+      <li>GTX Proの電源は切らない（24時間ON）</li>
+      <li>熱プレスの設定は設定表を必ず見てから・作業後は電源オフ（🔴火事防止）</li>
     </ol>
-  </section>
+  </div>
+</section>
 
-  <!-- スタッフ -->
-  <section id="staff">
-    <h2>スタッフ一覧</h2>
-    <table class="staff-table">
+<!-- 全体の流れ -->
+<section id="flow-overview">
+  <div class="section-title">🗺️ 全体の流れ</div>
+  <div class="card">
+    <ol class="flow">
+      <li><strong>問い合わせ</strong>　LINE・メールで受付 → 内容確認・返信</li>
+      <li><strong>見積もり</strong>　<strong>みんなのTシャツ.comの各ウエアページから見積もりフォームを使って金額を出す</strong>（スタッフ共通ルール）<br>
+        <span style="font-size:12px;color:var(--text2)">枚数・サイズ・ボディ・印刷箇所を確認してから操作する</span>
+      </li>
+      <li><strong>入金</strong>　入金確認後に手配開始（入金前は動かない）
+        <table style="margin-top:8px;font-size:13px">
+          <tr>
+            <th>受付チャネル</th>
+            <th>利用可能な決済方法</th>
+          </tr>
+          <tr>
+            <td>店頭（株式会社ベスタ）</td>
+            <td>ベスタホームページ記載のすべての決済方法</td>
+          </tr>
+          <tr>
+            <td>みんなのTシャツ.com（ネット）</td>
+            <td>クレジットカード・銀行振込</td>
+          </tr>
+        </table>
+      </li>
+      <li><strong>手配</strong>　①校正（データ確認・お客様OK取り）　②ボディ手配（Toms）　③印刷（DTF）</li>
+      <li><strong>納品</strong>　店頭受け渡し または 発送</li>
+    </ol>
+  </div>
+  <div class="alert warn">
+    <strong>⚠️ 入金確認前に手配・印刷を始めない</strong>
+    トラブルのもと。必ず入金確認後に動く。
+  </div>
+</section>
+
+
+<section id="step1">
+  <div class="section-title">
+    <span class="step-badge">STEP 1</span>
+    📱 注文受付
+  </div>
+
+  <div class="card">
+    <div class="card-title">受付チャネル</div>
+    <ul class="checklist">
+      <li>LINE公式（最多）</li>
+      <li>メール</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">受付後すぐにLINE・メールで返信する</div>
+    <div class="alert info">
+      <strong>返信例文</strong>
+      「ご注文ありがとうございます。内容を確認いたします。少々お待ちください。」
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">確認すべき項目</div>
+    <ul class="checklist">
+      <li>枚数</li>
+      <li>サイズ（S / M / L / XL…）</li>
+      <li>ウエアの色</li>
+      <li>印刷箇所（前・後・袖など）</li>
+      <li>納期</li>
+      <li>データの有無</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 概算価格 -->
+<section id="price">
+  <div class="section-title">💰 概算価格の案内ルール</div>
+
+  <div class="alert warn">
+    <strong>⚠️ 枚数・サイズ・ボディが未確定の場合</strong>
+    社長に回さず、この一言で情報を引き出す：<br><br>
+    「<strong>枚数とおおよそのプリントサイズが決まりましたら、すぐにお出しできます。まずそこだけ教えていただけますか？</strong>」
+  </div>
+
+  <div class="alert info">
+    <strong>💬「Tシャツいくらですか？」「1枚いくら？」と聞かれたら</strong>
+    価格は①枚数 ②プリントサイズ ③ウエアの種類の3つで決まることを伝え、具体例を1つだけ出す。<br><br>
+    「価格は①枚数 ②プリントサイズ ③ウエアの種類で決まります。<br>
+    例えばドライTシャツ10枚・前面A4サイズ1か所プリントだと<strong>合計21,400円〜</strong>です。<br>
+    詳しい金額はみんなのTシャツ.comの各ウエアページから見積もりフォームでご確認いただけます。ぜひご覧ください。」<br><br>
+    → 例は<strong>1つだけ</strong>出して、あとはサイトへ誘導する
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 「じゃあ5枚は？」「2か所だと？」と質問がエスカレートしたら</strong>
+    個別に答え続けない。丁寧にサイトへ切り替える。<br><br>
+    「枚数や印刷箇所によって細かく変わりますので、みんなのTシャツ.comをご覧ください。<br>
+    お好みのウエアページから見積もりフォームに進めますので、よろしければURLをお送りします。」<br><br>
+    → URLを送って終わり。追加質問に個別対応しない。
+  </div>
+
+  <div class="card">
+    <div class="card-title">枚数・サイズが決まっている場合 → スタッフが案内してOK</div>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:10px">【合計目安金額（税込）｜ドライTシャツ＋印刷代・1箇所フルカラー】</p>
+    <table>
       <tr>
-        <th>五十嵐（代表）</th>
-        <td>全体統括・営業・商品企画</td>
+        <th>枚数</th>
+        <th>ワンポイント<br><small>(10cm角以内)</small></th>
+        <th>A4以内</th>
+        <th>A3以内</th>
+      </tr>
+      <tr><td>1枚</td><td>3,290円〜</td><td>3,510円〜</td><td>3,730円〜</td></tr>
+      <tr><td>5枚</td><td>10,550円〜</td><td>15,800円〜</td><td>17,100円〜</td></tr>
+      <tr><td>10枚</td><td>19,600円〜</td><td>21,400円〜</td><td>24,100円〜</td></tr>
+      <tr><td>20枚</td><td>31,800円〜</td><td>36,200円〜</td><td>40,600円〜</td></tr>
+      <tr><td>30枚</td><td>47,700円〜</td><td>54,300円〜</td><td>60,900円〜</td></tr>
+      <tr><td>50枚</td><td>76,000円〜</td><td>79,500円〜</td><td>87,500円〜</td></tr>
+      <tr><td>100枚</td><td>137,000円〜</td><td>143,000円〜</td><td>164,000円〜</td></tr>
+    </table>
+    <p class="price-note">※ウエア代はドライTシャツ（760円/枚）で試算<br>
+    ※綿Tシャツ・ポロシャツ等は別途ウエア代が変わります<br>
+    ※2箇所以上印刷・ナンバリングは別料金あり<br>
+    ※正確な金額はみんなのTシャツ.comの各ウエアページから見積もりフォームで確認</p>
+  </div>
+</section>
+
+<!-- STEP2 データ -->
+<section id="step2">
+  <div class="section-title">
+    <span class="step-badge">STEP 2</span>
+    🖼️ データ受け取りと確認
+  </div>
+
+  <div class="card">
+    <div class="card-title">受け取り方法</div>
+    <ul class="checklist">
+      <li>LINEで画像・写真が届くケースが大半（お客様は素人が多い）</li>
+      <li>メール添付の場合もあり</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">データチェック（必須）</div>
+    <ul class="checklist">
+      <li>解像度が低い場合 →「より大きいサイズのデータはありますか？」</li>
+      <li>PNG・AIが望ましい。JPEGは劣化あり</li>
+      <li>QRコード・細かい文字・ロゴは印刷後に読み取れないことがある</li>
+    </ul>
+    <div class="alert warn">
+      <strong>⚠️ QRコード・細かい文字の確認ルール</strong>
+      お客様自身にも「印刷後に読み取れるか」「文字が潰れないか」を事前に確認してもらう。
+      こちらでも印刷前にデータを拡大して確認する。
+      <br>事故が起きやすい箇所のため、確認の責任の所在を明確にしておく。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">データが使えない、もしくは無い場合のガイドライン</div>
+    <table>
+      <tr>
+        <th>ケース</th>
+        <th>具体例</th>
+        <th>対応</th>
+        <th>料金（税込）</th>
       </tr>
       <tr>
-        <th>福田さん</th>
-        <td>経理・事務</td>
+        <td>文字のみ・簡単な配置</td>
+        <td style="font-size:12px;color:var(--text2)">社名・名前・日付など文字だけ。フォントや色の指定があっても可</td>
+        <td>無料で対応</td>
+        <td class="fee-free">0円</td>
       </tr>
       <tr>
-        <th>野口さん</th>
-        <td>WEB・EC運営</td>
+        <td>トレースが必要</td>
+        <td style="font-size:12px;color:var(--text2)">手書きロゴ・名刺のロゴ・JPEGの画像をきれいなデータに変換</td>
+        <td>有料で対応</td>
+        <td class="fee-paid">3,300円</td>
+      </tr>
+      <tr>
+        <td>色調整・複雑な修正</td>
+        <td style="font-size:12px;color:var(--text2)">写真の切り抜き・背景削除・複数画像の合成・色の大幅変更</td>
+        <td>有料で対応</td>
+        <td class="fee-paid">5,500円</td>
+      </tr>
+      <tr>
+        <td>ゼロからデザイン作成</td>
+        <td style="font-size:12px;color:var(--text2)">「こんな感じで」からのイラスト・ロゴ・キャラクターの新規制作</td>
+        <td>有料で対応</td>
+        <td class="fee-paid">11,000円〜</td>
       </tr>
     </table>
-  </section>
+    <div class="alert info">判断に迷う場合は社長に確認</div>
+  </div>
 
-  <!-- ツール -->
-  <section id="tools">
-    <h2>スタッフ向けツール</h2>
+  <div class="card">
+    <div class="card-title">データ確認後</div>
+    <ul class="checklist">
+      <li>印刷イメージ・位置・サイズをお客様に確認してもらう</li>
+      <li>GOサインをもらってから印刷へ進む</li>
+    </ul>
+  </div>
+</section>
 
-    <h3>印鑑・はんこ知識テスト（51問）</h3>
-    <p>
-      印鑑の基礎知識を確認できるテスト。<br>
-      新人研修・自己学習に活用してください。
-    </p>
-    <a class="link-btn" href="vesta_hanko_quiz_v3_5.html">印鑑・はんこ知識テストをやってみる →</a>
-  </section>
+<!-- STEP3 準備 -->
+<section id="step3">
+  <div class="section-title">
+    <span class="step-badge">STEP 3</span>
+    👕 ウエア・フィルム準備
+  </div>
+  <div class="card">
+    <ul class="checklist">
+      <li>Tomsへ手配する（送料節約のため他の注文とできるだけまとめて・納期内に間に合うように）</li>
+      <li>白ボディの場合はダイレクトプリント優先</li>
+      <li>カラーボディの場合はDTF（どの色の生地にも転写可能・前処理剤不要）</li>
+      <li>フィルムに印刷するデータのサイズ・位置を最終確認</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STEP4 印刷 -->
+<section id="step4">
+  <div class="section-title">
+    <span class="step-badge">STEP 4</span>
+    🖨️ DTF印刷（GTX Pro使用）
+  </div>
+
+  <div class="card">
+    <div class="card-title">印刷前チェック（毎日確認）</div>
+    <ul class="checklist">
+      <li>電源は24時間常時ON（白インク循環のため・勝手に切らない）</li>
+      <li>印刷環境：温度18〜30℃・湿度35〜85%</li>
+      <li>白インクは1日1回・使用前に<strong>100回振る</strong></li>
+      <li>インクパウチは開封後6ヶ月以内に使い切る</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">① フィルムに印刷</div>
+    <ol class="flow">
+      <li>RIPソフトでデータを開き、サイズ・位置を確認</li>
+      <li>フィルムをセット（<strong>光沢面が下・マット面が上</strong>）</li>
+      <li>印刷実行</li>
+    </ol>
+    <div class="alert warn">動作中はカバーを開けない・電源を切らない</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">② パウダー散布</div>
+    <ol class="flow">
+      <li>印刷直後（インクが乾く前）にホットメルトパウダーを均一に散布</li>
+      <li>余分なパウダーを軽く払い落とす</li>
+    </ol>
+    <div class="alert warn">散布ムラがあると転写後に剥がれやすくなる</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">③ 熱プレスで加熱定着</div>
+    <div class="alert info">
+      設定 <span class="req">要確認</span>　温度：＿＿℃ ／ 時間：＿＿秒 ／ 圧力：＿＿<br>
+      <strong>⚠️ 設定表を必ず確認してから押す</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">④ Tシャツへ転写</div>
+    <ol class="flow">
+      <li>転写面を下にしてTシャツにセット</li>
+      <li>熱プレス実行</li>
+    </ol>
+    <div class="alert info">
+      設定 <span class="req">要確認</span>　温度：＿＿℃ ／ 時間：＿＿秒 ／ 圧力：＿＿
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⑤ 剥離</div>
+    <div class="alert info">
+      ホットピールまたはコールドピール <span class="req">要確認</span><br>
+      現場のルールに従う
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⑥ 仕上げプレス（必須）</div>
+    <div class="alert warn">
+      <strong>⚠️ 省略禁止</strong>
+      剥離後、もう一度熱プレスをかけて定着を強化する。省くと洗濯耐性が落ちる。
+    </div>
+    <div class="alert info">
+      設定 <span class="req">要確認</span>　温度：＿＿℃ ／ 時間：＿＿秒 ／ 圧力：＿＿
+    </div>
+  </div>
+
+  <div class="card" style="border-color:var(--red)">
+    <div class="card-title" style="color:var(--red)">🔴 作業終了後・必ずやること</div>
+    <ul class="checklist">
+      <li><strong style="color:var(--red)">熱プレス・周辺機器の電源をオフ（火事防止）</strong></li>
+      <li>GTX Proの電源は切らない（24時間ON継続）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STEP5 納品 -->
+<section id="step5">
+  <div class="section-title">
+    <span class="step-badge">STEP 5</span>
+    📦 納品・発送
+  </div>
+  <div class="card">
+    <ul class="checklist">
+      <li>店頭受け渡しが最多 → 梱包して来店日までに準備</li>
+      <li>発送の場合：梱包 → 送り状記入 → 発送</li>
+      <li>納品前に仕上がりを必ず確認する</li>
+    </ul>
+  </div>
+</section>
+
+<!-- トラブル -->
+<section id="trouble">
+  <div class="section-title">⚠️ よくあるミスと対処法</div>
+  <div class="card">
+    <table>
+      <tr><th>ミス</th><th>対処法</th></tr>
+      <tr><td>データ解像度不足でぼやける</td><td>受付時に必ず解像度を確認</td></tr>
+      <tr><td>QRコードが読み取れない</td><td>事前にお客様自身にも確認を依頼</td></tr>
+      <tr><td>パウダー散布ムラ</td><td>均一に散布。転写後の剥がれにつながる</td></tr>
+      <tr><td>フィルムのセット向き間違い</td><td>光沢面が下・マット面が上</td></tr>
+      <tr><td>熱プレス設定ミス</td><td>設定表を必ず確認してから押す</td></tr>
+      <tr><td>仕上げプレスを省いた</td><td>洗濯で剥がれやすくなる。必ず実施</td></tr>
+      <tr><td>作業後の電源消し忘れ</td><td>退出前に熱プレスの電源を確認</td></tr>
+    </table>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  &copy; 2025 株式会社ベスタ ／ このページは社内スタッフ向け資料です
+  © 2025 株式会社ベスタ ／ このページは社内スタッフ向け資料です
 </footer>
 
 </body>
