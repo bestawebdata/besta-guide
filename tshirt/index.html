@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tシャツプリント業務マニュアル｜株式会社ベスタ スタッフガイド</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#141414;
+  --bg3:#1c1c1c;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --red:#e05555;
+  --green:#4caf7d;
+  --blue:#4c8fe0;
+  --text:#e8e8e8;
+  --text2:#a0a0a0;
+  --border:#2a2a2a;
+}
+body{background:var(--bg);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Yu Gothic Medium','Meiryo',sans-serif;font-size:15px;line-height:1.7}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ヘッダー */
+.site-header{background:#060606;border-bottom:1px solid var(--border);padding:10px 16px;position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center}
+.site-brand{font-size:12px;color:var(--text2)}
+.site-brand span{color:var(--gold);font-weight:bold}
+
+/* パンくず */
+.breadcrumb{padding:10px 16px;font-size:12px;color:var(--text2);border-bottom:1px solid var(--border);background:var(--bg2)}
+.breadcrumb a{color:var(--text2)}
+
+/* ページヘッダー */
+.page-header{padding:28px 16px 20px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.page-header h1{font-size:22px;font-weight:bold;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.page-header .sub{font-size:12px;color:var(--text2);margin-top:6px}
+
+/* ナビ */
+.page-nav{background:var(--bg3);border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;padding:0 8px}
+.page-nav a{display:inline-block;padding:10px 10px;font-size:12px;color:var(--text2);border-bottom:2px solid transparent}
+.page-nav a:hover{color:var(--gold);border-bottom-color:var(--gold);text-decoration:none}
+
+/* メイン */
+main{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+
+/* セクション */
+section{margin-bottom:32px}
+.section-title{font-size:17px;font-weight:bold;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.section-title .step-badge{background:var(--gold);color:#000;font-size:11px;font-weight:bold;padding:2px 8px;border-radius:20px}
+
+/* カード */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px}
+.card-title{font-size:13px;font-weight:bold;color:var(--gold);margin-bottom:10px}
+
+/* テーブル */
+table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+th{background:var(--bg3);color:var(--text2);font-size:12px;font-weight:bold;padding:8px 10px;text-align:left;border:1px solid var(--border)}
+td{padding:8px 10px;border:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:#111}
+
+/* チェックリスト */
+.checklist{list-style:none;padding:0}
+.checklist li{padding:6px 0 6px 26px;position:relative;border-bottom:1px solid var(--border);font-size:14px}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:"□";position:absolute;left:4px;color:var(--gold);font-size:14px}
+
+/* 注意・重要 */
+.alert{border-radius:6px;padding:12px 14px;margin:10px 0;font-size:13px}
+.alert.warn{background:#2a1a1a;border-left:3px solid var(--red);color:#f0a0a0}
+.alert.info{background:#1a1f2a;border-left:3px solid var(--blue);color:#a0c0f0}
+.alert.ok{background:#1a2a1f;border-left:3px solid var(--green);color:#90d0a0}
+.alert strong{display:block;margin-bottom:4px}
+
+/* 要確認バッジ */
+.req{background:var(--red);color:#fff;font-size:11px;font-weight:bold;padding:1px 7px;border-radius:4px;vertical-align:middle;margin-left:6px}
+
+/* TOP5 */
+.top5{counter-reset:top5;list-style:none;padding:0}
+.top5 li{counter-increment:top5;padding:10px 10px 10px 44px;position:relative;border-bottom:1px solid var(--border);font-size:14px}
+.top5 li:last-child{border-bottom:none}
+.top5 li::before{content:counter(top5);position:absolute;left:10px;top:50%;transform:translateY(-50%);background:var(--gold);color:#000;font-size:13px;font-weight:bold;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* 価格表 */
+.price-note{font-size:12px;color:var(--text2);margin-top:8px}
+
+/* スクリプト対応フロー */
+.flow{list-style:none;padding:0;counter-reset:flow}
+.flow li{counter-increment:flow;padding:10px 10px 10px 44px;position:relative;border-bottom:1px solid var(--border);font-size:14px}
+.flow li:last-child{border-bottom:none}
+.flow li::before{content:counter(flow);position:absolute;left:10px;top:50%;transform:translateY(-50%);background:var(--bg3);color:var(--gold);border:1px solid var(--gold);font-size:12px;font-weight:bold;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
+
+/* データ料金 */
+.fee-free{color:var(--green);font-weight:bold}
+.fee-paid{color:var(--gold);font-weight:bold}
+
+/* フッター */
+footer{text-align:center;padding:20px;font-size:11px;color:var(--text2);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-brand"><span>株式会社ベスタ</span> スタッフガイド</div>
+  <div style="font-size:11px;color:var(--text2)">社内資料</div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../">スタッフガイド TOP</a> › Tシャツプリント業務マニュアル
+</div>
+
+<div class="page-header">
+  <h1>👕 Tシャツプリント業務マニュアル</h1>
+  <div class="sub">株式会社ベスタ スタッフ研修テキスト｜対象：印刷スタッフ全般</div>
+</div>
+
+<nav class="page-nav">
+  <a href="#flow-overview">🗺️流れ</a>
+  <a href="#step1">📱受付</a>
+  <a href="#price">💰概算</a>
+  <a href="#step2">🖼️データ</a>
+  <a href="#step3">👕準備</a>
+  <a href="#step4">🖨️印刷</a>
+  <a href="#step5">📦納品</a>
+  <a href="#trouble">⚠️トラブル</a>
+  <a href="#top5">✅ルール</a>
+</nav>
+
+<main>
+
+<!-- ✅ TOP5 先出し -->
+<section id="top5">
+  <div class="section-title">✅ スタッフ全員が必ず守る5つのルール</div>
+  <div class="card">
+    <ol class="top5">
+      <li>LINE・メールの返信は受付後すぐ</li>
+      <li>データ確認は印刷前に必ず（後戻りが最もコストが高い）</li>
+      <li>白インクは毎朝100回振る</li>
+      <li>GTX Proの電源は切らない（24時間ON）</li>
+      <li>熱プレスの設定は設定表を必ず見てから・作業後は電源オフ（🔴火事防止）</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 全体の流れ -->
+<section id="flow-overview">
+  <div class="section-title">🗺️ 全体の流れ</div>
+  <div class="card">
+    <ol class="flow">
+      <li><strong>問い合わせ</strong>　LINE・メールで受付 → 内容確認・返信</li>
+      <li><strong>見積もり</strong>　<strong>みんなのTシャツ.comの各ウエアページから見積もりフォームを使って金額を出す</strong>（スタッフ共通ルール）<br>
+        <span style="font-size:12px;color:var(--text2)">枚数・サイズ・ボディ・印刷箇所を確認してから操作する</span>
+      </li>
+      <li><strong>入金</strong>　入金確認後に手配開始（入金前は動かない）
+        <table style="margin-top:8px;font-size:13px">
+          <tr>
+            <th>受付チャネル</th>
+            <th>利用可能な決済方法</th>
+          </tr>
+          <tr>
+            <td>店頭（株式会社ベスタ）</td>
+            <td>ベスタホームページ記載のすべての決済方法</td>
+          </tr>
+          <tr>
+            <td>みんなのTシャツ.com（ネット）</td>
+            <td>クレジットカード・銀行振込</td>
+          </tr>
+        </table>
+      </li>
+      <li><strong>手配</strong>　①校正（データ確認・お客様OK取り）　②ボディ手配（Toms）　③印刷（DTF）</li>
+      <li><strong>納品</strong>　店頭受け渡し または 発送</li>
+    </ol>
+  </div>
+  <div class="alert warn">
+    <strong>⚠️ 入金確認前に手配・印刷を始めない</strong>
+    トラブルのもと。必ず入金確認後に動く。
+  </div>
+</section>
+
+
+<section id="step1">
+  <div class="section-title">
+    <span class="step-badge">STEP 1</span>
+    📱 注文受付
+  </div>
+
+  <div class="card">
+    <div class="card-title">受付チャネル</div>
+    <ul class="checklist">
+      <li>LINE公式（最多）</li>
+      <li>メール</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">受付後すぐにLINE・メールで返信する</div>
+    <div class="alert info">
+      <strong>返信例文</strong>
+      「ご注文ありがとうございます。内容を確認いたします。少々お待ちください。」
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">確認すべき項目</div>
+    <ul class="checklist">
+      <li>枚数</li>
+      <li>サイズ（S / M / L / XL…）</li>
+      <li>ウエアの色</li>
+      <li>印刷箇所（前・後・袖など）</li>
+      <li>納期</li>
+      <li>データの有無</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 概算価格 -->
+<section id="price">
+  <div class="section-title">💰 概算価格の案内ルール</div>
+
+  <div class="alert warn">
+    <strong>⚠️ 枚数・サイズ・ボディが未確定の場合</strong>
+    社長に回さず、この一言で情報を引き出す：<br><br>
+    「<strong>枚数とおおよそのプリントサイズが決まりましたら、すぐにお出しできます。まずそこだけ教えていただけますか？</strong>」
+  </div>
+
+  <div class="alert info">
+    <strong>💬「Tシャツいくらですか？」「1枚いくら？」と聞かれたら</strong>
+    価格は①枚数 ②プリントサイズ ③ウエアの種類の3つで決まることを伝え、具体例を1つだけ出す。<br><br>
+    「価格は①枚数 ②プリントサイズ ③ウエアの種類で決まります。<br>
+    例えばドライTシャツ10枚・前面A4サイズ1か所プリントだと<strong>合計21,400円〜</strong>です。<br>
+    詳しい金額はみんなのTシャツ.comの各ウエアページから見積もりフォームでご確認いただけます。ぜひご覧ください。」<br><br>
+    → 例は<strong>1つだけ</strong>出して、あとはサイトへ誘導する
+  </div>
+
+  <div class="alert warn">
+    <strong>⚠️ 「じゃあ5枚は？」「2か所だと？」と質問がエスカレートしたら</strong>
+    個別に答え続けない。丁寧にサイトへ切り替える。<br><br>
+    「枚数や印刷箇所によって細かく変わりますので、みんなのTシャツ.comをご覧ください。<br>
+    お好みのウエアページから見積もりフォームに進めますので、よろしければURLをお送りします。」<br><br>
+    → URLを送って終わり。追加質問に個別対応しない。
+  </div>
+
+  <div class="card">
+    <div class="card-title">枚数・サイズが決まっている場合 → スタッフが案内してOK</div>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:10px">【合計目安金額（税込）｜ドライTシャツ＋印刷代・1箇所フルカラー】</p>
+    <table>
+      <tr>
+        <th>枚数</th>
+        <th>ワンポイント<br><small>(10cm角以内)</small></th>
+        <th>A4以内</th>
+        <th>A3以内</th>
+      </tr>
+      <tr><td>1枚</td><td>3,290円〜</td><td>3,510円〜</td><td>3,730円〜</td></tr>
+      <tr><td>5枚</td><td>10,550円〜</td><td>15,800円〜</td><td>17,100円〜</td></tr>
+      <tr><td>10枚</td><td>19,600円〜</td><td>21,400円〜</td><td>24,100円〜</td></tr>
+      <tr><td>20枚</td><td>31,800円〜</td><td>36,200円〜</td><td>40,600円〜</td></tr>
+      <tr><td>30枚</td><td>47,700円〜</td><td>54,300円〜</td><td>60,900円〜</td></tr>
+      <tr><td>50枚</td><td>76,000円〜</td><td>79,500円〜</td><td>87,500円〜</td></tr>
+      <tr><td>100枚</td><td>137,000円〜</td><td>143,000円〜</td><td>164,000円〜</td></tr>
+    </table>
+    <p class="price-note">※ウエア代はドライTシャツ（760円/枚）で試算<br>
+    ※綿Tシャツ・ポロシャツ等は別途ウエア代が変わります<br>
+    ※2箇所以上印刷・ナンバリングは別料金あり<br>
+    ※正確な金額はみんなのTシャツ.comの各ウエアページから見積もりフォームで確認</p>
+  </div>
+</section>
+
+<!-- STEP2 データ -->
+<section id="step2">
+  <div class="section-title">
+    <span class="step-badge">STEP 2</span>
+    🖼️ データ受け取りと確認
+  </div>
+
+  <div class="card">
+    <div class="card-title">受け取り方法</div>
+    <ul class="checklist">
+      <li>LINEで画像・写真が届くケースが大半（お客様は素人が多い）</li>
+      <li>メール添付の場合もあり</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">データチェック（必須）</div>
+    <ul class="checklist">
+      <li>解像度が低い場合 →「より大きいサイズのデータはありますか？」</li>
+      <li>PNG・AIが望ましい。JPEGは劣化あり</li>
+      <li>QRコード・細かい文字・ロゴは印刷後に読み取れないことがある</li>
+    </ul>
+    <div class="alert warn">
+      <strong>⚠️ QRコード・細かい文字の確認ルール</strong>
+      お客様自身にも「印刷後に読み取れるか」「文字が潰れないか」を事前に確認してもらう。
+      こちらでも印刷前にデータを拡大して確認する。
+      <br>事故が起きやすい箇所のため、確認の責任の所在を明確にしておく。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">データが使えない、もしくは無い場合のガイドライン</div>
+    <table>
+      <tr>
+        <th>ケース</th>
+        <th>具体例</th>
+        <th>対応</th>
+        <th>料金（税込）</th>
+      </tr>
+      <tr>
+        <td>文字のみ・簡単な配置</td>
+        <td style="font-size:12px;color:var(--text2)">社名・名前・日付など文字だけ。フォントや色の指定があっても可</td>
+        <td>無料で対応</td>
+        <td class="fee-free">0円</td>
+      </tr>
+      <tr>
+        <td>トレースが必要</td>
+        <td style="font-size:12px;color:var(--text2)">手書きロゴ・名刺のロゴ・JPEGの画像をきれいなデータに変換</td>
+        <td>有料で対応</td>
+        <td class="fee-paid">3,300円</td>
+      </tr>
+      <tr>
+        <td>色調整・複雑な修正</td>
+        <td style="font-size:12px;color:var(--text2)">写真の切り抜き・背景削除・複数画像の合成・色の大幅変更</td>
+        <td>有料で対応</td>
+        <td class="fee-paid">5,500円</td>
+      </tr>
+      <tr>
+        <td>ゼロからデザイン作成</td>
+        <td style="font-size:12px;color:var(--text2)">「こんな感じで」からのイラスト・ロゴ・キャラクターの新規制作</td>
+        <td>有料で対応</td>
+        <td class="fee-paid">11,000円〜</td>
+      </tr>
+    </table>
+    <div class="alert info">判断に迷う場合は社長に確認</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">データ確認後</div>
+    <ul class="checklist">
+      <li>印刷イメージ・位置・サイズをお客様に確認してもらう</li>
+      <li>GOサインをもらってから印刷へ進む</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STEP3 準備 -->
+<section id="step3">
+  <div class="section-title">
+    <span class="step-badge">STEP 3</span>
+    👕 ウエア・フィルム準備
+  </div>
+  <div class="card">
+    <ul class="checklist">
+      <li>Tomsへ手配する（送料節約のため他の注文とできるだけまとめて・納期内に間に合うように）</li>
+      <li>白ボディの場合はダイレクトプリント優先</li>
+      <li>カラーボディの場合はDTF（どの色の生地にも転写可能・前処理剤不要）</li>
+      <li>フィルムに印刷するデータのサイズ・位置を最終確認</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STEP4 印刷 -->
+<section id="step4">
+  <div class="section-title">
+    <span class="step-badge">STEP 4</span>
+    🖨️ DTF印刷（GTX Pro使用）
+  </div>
+
+  <div class="card">
+    <div class="card-title">印刷前チェック（毎日確認）</div>
+    <ul class="checklist">
+      <li>電源は24時間常時ON（白インク循環のため・勝手に切らない）</li>
+      <li>印刷環境：温度18〜30℃・湿度35〜85%</li>
+      <li>白インクは1日1回・使用前に<strong>100回振る</strong></li>
+      <li>インクパウチは開封後6ヶ月以内に使い切る</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">① フィルムに印刷</div>
+    <ol class="flow">
+      <li>RIPソフトでデータを開き、サイズ・位置を確認</li>
+      <li>フィルムをセット（<strong>光沢面が下・マット面が上</strong>）</li>
+      <li>印刷実行</li>
+    </ol>
+    <div class="alert warn">動作中はカバーを開けない・電源を切らない</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">② パウダー散布</div>
+    <ol class="flow">
+      <li>印刷直後（インクが乾く前）にホットメルトパウダーを均一に散布</li>
+      <li>余分なパウダーを軽く払い落とす</li>
+    </ol>
+    <div class="alert warn">散布ムラがあると転写後に剥がれやすくなる</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">③ 熱プレスで加熱定着</div>
+    <div class="alert info">
+      設定 <span class="req">要確認</span>　温度：＿＿℃ ／ 時間：＿＿秒 ／ 圧力：＿＿<br>
+      <strong>⚠️ 設定表を必ず確認してから押す</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">④ Tシャツへ転写</div>
+    <ol class="flow">
+      <li>転写面を下にしてTシャツにセット</li>
+      <li>熱プレス実行</li>
+    </ol>
+    <div class="alert info">
+      設定 <span class="req">要確認</span>　温度：＿＿℃ ／ 時間：＿＿秒 ／ 圧力：＿＿
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⑤ 剥離</div>
+    <div class="alert info">
+      ホットピールまたはコールドピール <span class="req">要確認</span><br>
+      現場のルールに従う
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⑥ 仕上げプレス（必須）</div>
+    <div class="alert warn">
+      <strong>⚠️ 省略禁止</strong>
+      剥離後、もう一度熱プレスをかけて定着を強化する。省くと洗濯耐性が落ちる。
+    </div>
+    <div class="alert info">
+      設定 <span class="req">要確認</span>　温度：＿＿℃ ／ 時間：＿＿秒 ／ 圧力：＿＿
+    </div>
+  </div>
+
+  <div class="card" style="border-color:var(--red)">
+    <div class="card-title" style="color:var(--red)">🔴 作業終了後・必ずやること</div>
+    <ul class="checklist">
+      <li><strong style="color:var(--red)">熱プレス・周辺機器の電源をオフ（火事防止）</strong></li>
+      <li>GTX Proの電源は切らない（24時間ON継続）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STEP5 納品 -->
+<section id="step5">
+  <div class="section-title">
+    <span class="step-badge">STEP 5</span>
+    📦 納品・発送
+  </div>
+  <div class="card">
+    <ul class="checklist">
+      <li>店頭受け渡しが最多 → 梱包して来店日までに準備</li>
+      <li>発送の場合：梱包 → 送り状記入 → 発送</li>
+      <li>納品前に仕上がりを必ず確認する</li>
+    </ul>
+  </div>
+</section>
+
+<!-- トラブル -->
+<section id="trouble">
+  <div class="section-title">⚠️ よくあるミスと対処法</div>
+  <div class="card">
+    <table>
+      <tr><th>ミス</th><th>対処法</th></tr>
+      <tr><td>データ解像度不足でぼやける</td><td>受付時に必ず解像度を確認</td></tr>
+      <tr><td>QRコードが読み取れない</td><td>事前にお客様自身にも確認を依頼</td></tr>
+      <tr><td>パウダー散布ムラ</td><td>均一に散布。転写後の剥がれにつながる</td></tr>
+      <tr><td>フィルムのセット向き間違い</td><td>光沢面が下・マット面が上</td></tr>
+      <tr><td>熱プレス設定ミス</td><td>設定表を必ず確認してから押す</td></tr>
+      <tr><td>仕上げプレスを省いた</td><td>洗濯で剥がれやすくなる。必ず実施</td></tr>
+      <tr><td>作業後の電源消し忘れ</td><td>退出前に熱プレスの電源を確認</td></tr>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2025 株式会社ベスタ ／ このページは社内スタッフ向け資料です
+</footer>
+
+</body>
+</html>
