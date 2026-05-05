@@ -1,929 +1,635 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>名刺印刷マニュアル｜株式会社ベスタ スタッフガイド</title>
-<style>
-  :root {
-    --navy: #1a2744;
-    --navy-light: #243256;
-    --red: #c0392b;
-    --red-light: #e74c3c;
-    --gold: #d4a843;
-    --bg: #f4f5f7;
-    --white: #ffffff;
-    --text: #2c3e50;
-    --text-sub: #6b7280;
-    --border: #e2e6ea;
-    --radius: 10px;
-    --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>印鑑・はんこ マニュアル｜株式会社ベスタ スタッフガイド</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 20px 16px 16px;
+      text-align: center;
+    }
+    header .breadcrumb { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
+    header .breadcrumb a { color: #aaa; text-decoration: none; }
+    header .breadcrumb a:hover { color: #fff; }
+    header .logo { font-size: 1.4rem; font-weight: 700; }
+    header .subtitle { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
 
-  body {
-    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.7;
-  }
+    nav {
+      background: #16213e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a { color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; transition: background 0.2s; }
+    nav a:hover { background: #0f3460; color: #fff; }
 
-  /* ===== ヘッダー ===== */
-  header {
-    background: var(--navy);
-    color: var(--white);
-    padding: 0;
-  }
-  .header-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 28px 20px 24px;
-  }
-  .header-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 10px;
-  }
-  .header-badges {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 12px;
-  }
-  .badge {
-    font-size: 12px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.85);
-  }
-  .badge.highlight {
-    background: var(--gold);
-    color: var(--navy);
-    font-weight: 700;
-  }
+    main { max-width: 820px; margin: 0 auto; padding: 16px; }
 
-  /* ===== メインコンテンツ ===== */
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 20px 16px 60px;
-  }
+    .chapter-index {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+    .chapter-index h2 { font-size: 1rem; color: #1a1a2e; margin-bottom: 12px; }
+    .chapter-index ol { padding-left: 1.4em; font-size: 0.9rem; line-height: 2.2; }
+    .chapter-index a { color: #0f3460; text-decoration: none; }
+    .chapter-index a:hover { text-decoration: underline; }
 
-  /* ===== セクション ===== */
-  .section {
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-    overflow: hidden;
-  }
-  .section-header {
-    background: var(--navy);
-    color: var(--white);
-    padding: 13px 18px;
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-header .icon { font-size: 18px; }
-  .section-body { padding: 18px; }
+    section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 22px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
 
-  /* ===== 注文タイプカード ===== */
-  .order-types {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .order-type-card {
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    padding: 14px;
-    text-align: center;
-  }
-  .order-type-card.repeat { border-color: #2ecc71; }
-  .order-type-card.new { border-color: #3498db; }
-  .order-type-card .type-icon { font-size: 26px; margin-bottom: 6px; }
-  .order-type-card .type-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
-  .order-type-card .type-note { font-size: 12px; color: var(--text-sub); }
-  .order-type-card.repeat .type-name { color: #27ae60; }
-  .order-type-card.new .type-name { color: #2980b9; }
+    .chapter-label {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
 
-  /* ===== 納期バッジ ===== */
-  .delivery-badges {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 10px 0 4px;
-  }
-  .dbadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-  }
-  .dbadge.green { background: #e8f5e9; color: #2e7d32; }
-  .dbadge.blue { background: #e3f2fd; color: #1565c0; }
-  .dbadge.orange { background: #fff3e0; color: #e65100; }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-left: 4px solid #e94560;
+      padding-left: 10px;
+      margin-bottom: 16px;
+    }
+    h3 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin: 18px 0 8px; }
+    h4 { font-size: 0.93rem; font-weight: 700; color: #333; margin: 14px 0 6px; }
 
-  /* ===== フロー ===== */
-  .flow {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .flow-step {
-    display: flex;
-    gap: 14px;
-    position: relative;
-    padding-bottom: 18px;
-  }
-  .flow-step:last-child { padding-bottom: 0; }
-  .flow-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 36px;
-  }
-  .flow-num {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--navy);
-    color: var(--white);
-    font-size: 13px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .flow-num.green { background: #27ae60; }
-  .flow-num.blue { background: #2980b9; }
-  .flow-line {
-    width: 2px;
-    flex: 1;
-    background: var(--border);
-    margin-top: 4px;
-  }
-  .flow-step:last-child .flow-line { display: none; }
-  .flow-content {
-    padding-top: 5px;
-    flex: 1;
-  }
-  .flow-title {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 3px;
-  }
-  .flow-desc {
-    font-size: 13px;
-    color: var(--text-sub);
-    line-height: 1.6;
-  }
+    p { font-size: 0.93rem; margin-bottom: 10px; }
 
-  /* ===== テーブル ===== */
-  .info-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
-  }
-  .info-table th {
-    background: #f0f2f5;
-    color: var(--navy);
-    font-weight: 700;
-    padding: 9px 12px;
-    text-align: left;
-    white-space: nowrap;
-    width: 110px;
-  }
-  .info-table td {
-    padding: 9px 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .info-table tr:last-child td { border-bottom: none; }
-  .info-table tr { border-bottom: 1px solid var(--border); }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 12px 0;
+      overflow-x: auto;
+      display: block;
+    }
+    .data-table th {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 10px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: #f8f8ff; }
+    .data-table tr:hover td { background: #fff3f3; }
 
-  /* ===== チャンネルリスト ===== */
-  .channel-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .channel-item {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .channel-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
-  .channel-name { font-weight: 700; font-size: 14px; }
-  .channel-desc { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+    .warn-box {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 12px 0;
+      font-size: 0.9rem;
+    }
+    .warn-box strong { color: #e65100; }
 
-  /* ===== データ入稿テーブル ===== */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    text-align: center;
-  }
-  .data-table th {
-    background: var(--navy);
-    color: var(--white);
-    padding: 8px 10px;
-    font-weight: 700;
-    font-size: 12px;
-  }
-  .data-table td {
-    padding: 9px 10px;
-    border: 1px solid var(--border);
-  }
-  .data-table tr:nth-child(even) td { background: #f8f9fa; }
-  .ok { color: #27ae60; font-weight: 700; font-size: 16px; }
-  .warn { color: #e67e22; font-weight: 700; font-size: 16px; }
-  .ng { color: var(--red); font-weight: 700; font-size: 16px; }
+    .summary-box {
+      background: #e8f5e9;
+      border-left: 4px solid #43a047;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .summary-box ul { padding-left: 1.2em; line-height: 2.1; }
 
-  /* ===== アラートボックス ===== */
-  .alert {
-    border-radius: 8px;
-    padding: 12px 14px;
-    font-size: 13px;
-    margin-top: 12px;
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-  .alert.red { background: #fdf0ef; border-left: 3px solid var(--red); }
-  .alert.blue { background: #eff6ff; border-left: 3px solid #3498db; }
-  .alert.green { background: #f0faf4; border-left: 3px solid #27ae60; }
-  .alert.gold { background: #fffbf0; border-left: 3px solid var(--gold); }
-  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .alert-text { line-height: 1.6; }
-  .alert strong { display: block; margin-bottom: 2px; }
+    .rank-list { list-style: none; padding: 0; margin: 10px 0; }
+    .rank-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+    .rank-list li:last-child { border-bottom: none; }
+    .rank-num {
+      background: #1a1a2e;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rank-num.gold { background: #f9a825; }
+    .rank-num.silver { background: #90a4ae; }
+    .rank-num.bronze { background: #a1887f; }
+    .besta-badge {
+      background: #e94560;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-left: 4px;
+    }
 
-  /* ===== チェックリスト ===== */
-  .checklist {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .checklist li {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .checklist li::before {
-    content: '☐';
-    color: var(--navy);
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: -1px;
-  }
+    .test-section {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .test-section h3 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+    .test-section p { color: #ccc; font-size: 0.88rem; margin-bottom: 16px; }
+    .test-btn {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .test-btn:hover { background: #c73652; }
 
-  /* ===== トラブルアコーディオン風 ===== */
-  .trouble-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .trouble-item {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .trouble-q {
-    background: #fdf0ef;
-    padding: 11px 14px;
-    font-weight: 700;
-    font-size: 13.5px;
-    color: var(--red);
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-  .trouble-a {
-    padding: 11px 14px;
-    font-size: 13.5px;
-    color: var(--text);
-    line-height: 1.6;
-    background: var(--white);
-  }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-right: 4px;
+    }
+    .tag-red { background: #fce4ec; color: #c62828; }
+    .tag-blue { background: #e3f2fd; color: #1565c0; }
+    .tag-green { background: #e8f5e9; color: #2e7d32; }
 
-  /* ===== Top3カード ===== */
-  .top3 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .top3-item {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 13px 14px;
-  }
-  .top3-num {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-    min-width: 28px;
-  }
-  .top3-text .title { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
-  .top3-text .desc { font-size: 13px; color: var(--text-sub); }
+    footer { text-align: center; padding: 20px 16px; font-size: 0.8rem; color: #999; }
 
-  /* ===== 区切り ===== */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 14px 0;
-  }
+    @media (max-width: 480px) {
+      header .logo { font-size: 1.1rem; }
+      h2 { font-size: 1rem; }
+      .data-table th, .data-table td { font-size: 0.78rem; padding: 7px 6px; }
+    }
+  </style>
 
-  /* ===== 価格プレースホルダー ===== */
-  .price-placeholder {
-    background: #fffbf0;
-    border: 2px dashed var(--gold);
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    color: var(--text-sub);
-    font-size: 14px;
-  }
-  .price-placeholder strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 6px; }
-
-  /* ===== フッター ===== */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 20px;
-    font-size: 12px;
-    margin-top: 20px;
-  }
-
-  /* ===== レスポンシブ ===== */
-  @media (max-width: 480px) {
-    .order-types { grid-template-columns: 1fr; }
-    .channel-list { grid-template-columns: 1fr; }
-    header h1 { font-size: 18px; }
-  }
-  .breadcrumb { font-size: 0.78rem; color: #888; margin-bottom: 8px; }
-  .breadcrumb a { color: #aaa; text-decoration: none; }
-  .breadcrumb a:hover { color: #fff; }
-</style>
+  <style>
+    #auth-overlay {
+      position: fixed; inset: 0; background: #1a1a2e;
+      display: flex; align-items: center; justify-content: center; z-index: 9999;
+    }
+    #auth-box {
+      background: #fff; border-radius: 12px; padding: 32px 24px;
+      width: 90%; max-width: 340px; text-align: center;
+    }
+    #auth-box h1 { font-size: 1.1rem; color: #1a1a2e; margin-bottom: 6px; }
+    #auth-box p { font-size: 0.82rem; color: #888; margin-bottom: 20px; }
+    #auth-box input {
+      width: 100%; padding: 12px; font-size: 1rem;
+      border: 2px solid #ddd; border-radius: 8px; margin-bottom: 12px;
+      font-family: inherit; text-align: center; letter-spacing: 0.1em;
+    }
+    #auth-box input:focus { outline: none; border-color: #e94560; }
+    #auth-box button {
+      width: 100%; padding: 12px; background: #e94560; color: #fff;
+      border: none; border-radius: 8px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+    }
+    #auth-box button:hover { background: #c73652; }
+    #auth-error { color: #e94560; font-size: 0.83rem; margin-top: 10px; min-height: 1.2em; }
+  </style>
 </head>
 <body>
 
-<!-- ヘッダー -->
-<header>
-  <div class="header-inner">
-    <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> &rsaquo; 名刺マニュアル</div>
-    <h1>🪪 名刺印刷マニュアル</h1>
-    <p style="font-size:13px; color:rgba(255,255,255,0.7); margin-top:6px;">新規・リピート対応の流れ・価格・データ入稿・トラブル対応</p>
-    <div class="header-badges">
-      <span class="badge highlight">📋 全員対象</span>
-      <span class="badge">受付 全員対応</span>
-      <span class="badge">フルカラー名刺</span>
-    </div>
+<div id="auth-overlay">
+  <div id="auth-box">
+    <h1>株式会社ベスタ</h1>
+    <p>スタッフガイド（社内資料）</p>
+    <input type="password" id="pw-input" placeholder="パスワードを入力" autofocus>
+    <button onclick="checkPassword()">ログイン</button>
+    <div id="auth-error"></div>
   </div>
+</div>
+<script>
+  if (sessionStorage.getItem('besta_auth') === '1') {
+    document.getElementById('auth-overlay').style.display = 'none';
+  }
+  function checkPassword() {
+    const input = document.getElementById('pw-input').value;
+    if (input === 'besta2026') {
+      sessionStorage.setItem('besta_auth', '1');
+      document.getElementById('auth-overlay').style.display = 'none';
+    } else {
+      document.getElementById('auth-error').textContent = 'パスワードが違います';
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-input').focus();
+    }
+  }
+  document.getElementById('pw-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+</script>
+
+<header>
+  <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> &rsaquo; 印鑑マニュアル</div>
+  <div class="logo">🔴 印鑑・はんこ マニュアル</div>
+  <div class="subtitle">株式会社ベスタ スタッフ研修テキスト 第1巻｜対象：全スタッフ</div>
 </header>
+
+<nav>
+  <a href="#intro">はじめに</a>
+  <a href="#ch1">第1章 種類</a>
+  <a href="#ch2">第2章 素材</a>
+  <a href="#ch3">第3章 書体</a>
+  <a href="#ch4">第4章 サイズ</a>
+  <a href="#ch5">第5章 管理</a>
+  <a href="#ch6">第6章 法人</a>
+  <a href="#ref">付録</a>
+  <a href="#test">テスト</a>
+</nav>
 
 <main>
 
-  <!-- 顧客区分 -->
-  <div class="section">
-    <div class="section-header" style="background: var(--gold); color: var(--navy);">
-      <span class="icon">👥</span> 大前提：お客様の区分を確認する
-    </div>
-    <div class="section-body">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
-        <div style="border:2px solid var(--navy); border-radius:8px; padding:14px; text-align:center;">
-          <div style="font-size:24px; margin-bottom:6px;">🏪</div>
-          <div style="font-weight:700; font-size:14px; margin-bottom:4px;">店頭のお客様</div>
-          <div style="font-size:12px; color:var(--text-sub);">このマニュアルの対象<br>店頭・電話・LINE・Web経由</div>
-        </div>
-        <div style="border:2px solid var(--gold); border-radius:8px; padding:14px; text-align:center; background:#fffbf0;">
-          <div style="font-size:24px; margin-bottom:6px;">🏢</div>
-          <div style="font-weight:700; font-size:14px; margin-bottom:4px; color:#b8860b;">契約・売掛のお客様</div>
-          <div style="font-size:12px; color:var(--text-sub);">納期・金額が異なります<br>このマニュアルは適用外</div>
-        </div>
-      </div>
-      <div class="alert gold">
-        <span class="alert-icon">📁</span>
-        <span class="alert-text">
-          <strong>見分け方：共有フォルダで確認する</strong>
-          印刷データの保存場所が判断基準です。<br>
-          <span style="font-family: monospace; background:#e8f5e9; padding:2px 6px; border-radius:4px; font-size:13px;">共有フォルダ／重要データ／a01_名刺／c_店頭</span>　→ <strong style="color:#2e7d32;">店頭のお客様（このマニュアルの対象）</strong><br>
-          <span style="margin-top:6px; display:block;">
-          <span style="font-family: monospace; background:#fdecea; padding:2px 6px; border-radius:4px; font-size:13px;">共有フォルダ／重要データ／a01_名刺／それ以外</span>　→ <strong style="color:#c0392b;">契約・売掛のお客様（このマニュアル対象外）</strong>
-          </span>
-          <span style="margin-top:6px; display:block; color:var(--text-sub); font-size:13px;">売掛のお客様は納期・金額が異なります。対応は別途確認してください。</span>
-        </span>
-      </div>
+  <div class="chapter-index" id="intro">
+    <h2>📖 このテキストについて</h2>
+    <p>ベスタのスタッフが印鑑・はんこに関する基礎知識を身につけるための研修資料です。<br>
+    一般的な情報ではなく、<strong>ベスタの取扱い方針・推奨素材・サイズ基準</strong>に沿った内容です。</p>
+    <p style="margin-top:10px;">テストに合格することが目的ではなく、<strong>お客様に正しい知識でご提案できるようになること</strong>が目的です。</p>
+    <h2 style="margin-top:16px;">もくじ</h2>
+    <ol>
+      <li><a href="#ch1">第1章　印鑑の種類と用途（テスト Q1〜Q10）</a></li>
+      <li><a href="#ch2">第2章　素材・印材の知識（テスト Q11〜Q20）</a></li>
+      <li><a href="#ch3">第3章　書体の選び方（テスト Q21〜Q30）</a></li>
+      <li><a href="#ch4">第4章　印鑑のサイズ（テスト Q31〜Q40）</a></li>
+      <li><a href="#ch5">第5章　印鑑の管理と取扱い（テスト Q41〜Q45）</a></li>
+      <li><a href="#ch6">第6章　法人・会社印の知識（テスト Q46〜Q50）</a></li>
+      <li><a href="#ref">付録　ベスタ仕様 クイックリファレンス</a></li>
+    </ol>
+    <div style="background:#fff3f3; border-radius:8px; padding:12px 14px; margin-top:14px; font-size:0.88rem;">
+      <strong>🏷️ ベスタの基本3方針</strong><br>
+      推奨素材：<strong>黒水牛</strong>（コストと耐久性のバランスが最適）<br>
+      彫り方：<strong>すべて縦彫り</strong>に統一<br>
+      取扱い書体：篆書体・印相体・古印体・隷書体・楷書体の<strong>5種類</strong>
     </div>
   </div>
 
-  <!-- 注文の種類 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">🔀</span> まず確認：新規？リピート？
+  <section id="ch1">
+    <div class="chapter-label">第1章　テスト Q1〜Q10</div>
+    <h2>印鑑の種類と用途</h2>
+    <h3>1-1　印鑑には3種類あります</h3>
+    <p>個人が使う印鑑は「実印」「銀行印」「認印」の3種類です。登録先・使う場面がまったく違うので、正しく使い分けましょう。</p>
+    <table class="data-table">
+      <thead><tr><th>種類</th><th>どこに登録？</th><th>どんな時に使う？</th><th>何本持てる？</th></tr></thead>
+      <tbody>
+        <tr><td><strong>実印</strong></td><td>市区町村の役所</td><td>不動産・ローン・相続など重要な契約</td><td>1人1本だけ</td></tr>
+        <tr><td><strong>銀行印</strong></td><td>銀行・信用金庫など</td><td>口座開設・銀行での手続き</td><td>複数持てる</td></tr>
+        <tr><td><strong>認印</strong></td><td>どこにも登録しない</td><td>宅配便の受取・社内書類の確認など</td><td>何本でもOK</td></tr>
+      </tbody>
+    </table>
+    <h3>1-2　実印とは？</h3>
+    <p>市区町村の役所に登録した印鑑です。「印鑑証明書」と一緒に使うことで、「本人が押した書類」と公式に証明できます。</p>
+    <h4>実印が必要な主な場面</h4>
+    <ul style="font-size:0.9rem; padding-left:1.3em; line-height:2.2;">
+      <li>土地・建物（不動産）の売買</li>
+      <li>住宅ローン・自動車ローンの契約</li>
+      <li>遺産相続の手続き</li>
+      <li>会社を設立するとき</li>
+      <li>公正証書を作るとき</li>
+    </ul>
+    <div class="warn-box">⚠️ 一人につき1本しか登録できません。夫婦でも別々の実印が必要です。</div>
+    <h3>1-3　銀行印とは？</h3>
+    <p>銀行や信用金庫などに口座を開設するときに登録する印鑑です。<strong>実印と同じ印鑑で兼用することはリスクが高いため、必ず別々に作りましょう。</strong></p>
+    <h3>1-4　認印とは？</h3>
+    <p>役所や銀行に登録しない普段使いの印鑑です。宅配便の受け取りや、社内書類の確認欄に押すときに使います。</p>
+    <div class="warn-box">
+      <strong>⚠️ 注意：シャチハタ不可の書類に注意</strong><br>
+      公的な届出書・契約書・銀行の書類などには「シャチハタ不可」と書かれていることが多いです。そういう書類には朱肉を使うタイプの認印を押してください。
     </div>
-    <div class="section-body">
-      <div class="order-types">
-        <div class="order-type-card repeat">
-          <div class="type-icon">🔁</div>
-          <div class="type-name">リピート注文</div>
-          <div class="type-note">以前作った名刺の再注文<br>オーダー番号で管理</div>
-        </div>
-        <div class="order-type-card new">
-          <div class="type-icon">✨</div>
-          <div class="type-name">新規注文</div>
-          <div class="type-note">初めて作る・デザイン変更<br>校正あり・3営業日以降</div>
-        </div>
-      </div>
-      <div class="alert blue">
-        <span class="alert-icon">💡</span>
-        <span class="alert-text">「以前作ったことある」と言われたらまずオーダー番号を確認。名刺に同梱のリピート再注文用紙か、以前の控えで番号がわかります。</span>
-      </div>
+    <h3>1-5　シャチハタが実印・銀行印に使えない理由</h3>
+    <p>シャチハタはゴム製のため、長い間使うとゴムが変形して印影が変わってしまいます。印鑑登録では「ずっと同じ印影であること」が必要なため、<strong>実印・銀行印として登録できません。</strong></p>
+    <h3>1-6　法人（会社）が使う印鑑</h3>
+    <table class="data-table">
+      <thead><tr><th>種類</th><th>形</th><th>どこに登録？</th><th>主な用途</th></tr></thead>
+      <tbody>
+        <tr><td><strong>代表者印（会社実印）</strong></td><td>丸い印鑑</td><td>法務局に登録必須</td><td>重要な契約書</td></tr>
+        <tr><td><strong>会社銀行印</strong></td><td>丸い印鑑</td><td>銀行に登録必須</td><td>口座・金融手続き</td></tr>
+        <tr><td><strong>角印（社印）</strong></td><td>四角い印鑑</td><td>登録不要</td><td>請求書・領収書など</td></tr>
+        <tr><td><strong>会社認印</strong></td><td>丸い印鑑</td><td>登録不要</td><td>代表者印ほどでない書類</td></tr>
+      </tbody>
+    </table>
+    <div class="summary-box">
+      <strong>📌 第1章まとめ</strong>
+      <ul>
+        <li>実印＝役所登録・最重要</li>
+        <li>銀行印＝銀行登録・財産管理</li>
+        <li>認印＝登録なし・日常使い</li>
+        <li>3種類は必ず別々に持つ</li>
+        <li>シャチハタは重要書類には使えない</li>
+      </ul>
     </div>
-  </div>
+  </section>
 
-  <!-- 受付チャネル -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">📡</span> 受付チャネル
+  <section id="ch2">
+    <div class="chapter-label">第2章　テスト Q11〜Q20</div>
+    <h2>素材・印材の知識</h2>
+    <h3>2-1　ベスタが推奨する印材：黒水牛</h3>
+    <p>印鑑を作る素材のことを「印材（いんざい）」と呼びます。ベスタでは、コストと耐久性のバランスに優れた<strong>「黒水牛」</strong>をお客様に最初にご提案しています。</p>
+    <h4>黒水牛を推奨する理由</h4>
+    <ul style="font-size:0.9rem; padding-left:1.3em; line-height:2.2;">
+      <li>水牛の角を加工した素材で、適度な硬度と粘りがある</li>
+      <li>耐久性が高く、長期間使い続けられる</li>
+      <li>漆黒の美しい見た目で高級感がある</li>
+      <li>価格と品質のバランスが優れており、幅広いお客様に提案しやすい</li>
+      <li>朱肉の乗りが良く、美しい印影が押せる</li>
+    </ul>
+    <h3>2-2　主な印材の種類と特徴</h3>
+    <table class="data-table">
+      <thead><tr><th>素材名</th><th>何でできている？</th><th>丈夫さ</th><th>特徴・注意点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>黒水牛</strong> <span class="besta-badge">ベスタ推奨</span></td><td>水牛の角</td><td>○ 高い</td><td>漆黒の高級感。硬度と粘りのバランスが良い</td></tr>
+        <tr><td><strong>白水牛（オランダ水牛）</strong></td><td>水牛の角</td><td>○ 高い</td><td>茶色い模様（ふ）が入る。女性に人気。耐摩耗性がやや上</td></tr>
+        <tr><td><strong>象牙（ぞうげ）</strong></td><td>象の牙</td><td>○ 高い</td><td>朱肉の乗りが最良。ワシントン条約による取引規制あり</td></tr>
+        <tr><td><strong>薩摩本柘（さつまほんつげ）</strong></td><td>鹿児島産の木</td><td>△ 普通</td><td>木製の中では最高品質。<strong style="color:#c62828;">水洗い厳禁。</strong>価格が手頃</td></tr>
+        <tr><td><strong>彩樺（さいか）</strong></td><td>白樺＋樹脂</td><td>○</td><td>環境に優しいエコ素材。通常の木より丈夫</td></tr>
+      </tbody>
+    </table>
+    <h3>2-3　耐久性ランキング</h3>
+    <ul class="rank-list">
+      <li><span class="rank-num gold">①</span> 象牙</li>
+      <li><span class="rank-num silver">②</span> 白水牛（オランダ水牛）</li>
+      <li><span class="rank-num bronze">③</span> 黒水牛　<span class="besta-badge">ベスタ推奨　コスト×耐久性のバランス最良</span></li>
+      <li><span class="rank-num">④</span> 柘（つげ）などの木材</li>
+    </ul>
+    <div class="warn-box"><strong>⚠️ 木製印鑑の注意点</strong><br>柘（つげ）などの木製印鑑は、水で洗うと木が水を吸って膨らみ、乾燥するときにひび割れてしまいます。使い終わったら、柔らかい布やティッシュで朱肉をそっと拭き取るだけにしてください。</div>
+    <div class="warn-box"><strong>⚠️ 象牙についての注意</strong><br>象牙は印材として高品質ですが、「ワシントン条約」という国際的なルールによって売買が厳しく規制されています。お客様からご質問があった場合は、詳しいことは先輩に確認してください。</div>
+    <div class="summary-box">
+      <strong>📌 第2章まとめ</strong>
+      <ul>
+        <li>ベスタの推奨印材は「黒水牛」。コストと耐久性のバランスが最良</li>
+        <li>木製（柘）は水洗い禁止</li>
+        <li>象牙は規制あり。詳細は先輩へ</li>
+        <li>お客様の用途と予算に合わせ、まず黒水牛をご提案しよう</li>
+      </ul>
     </div>
-    <div class="section-body">
-      <div class="channel-list">
-        <div class="channel-item">
-          <div class="channel-icon">📞</div>
-          <div>
-            <div class="channel-name">電話</div>
-            <div class="channel-desc">0797-91-5225<br>平日 10:00〜18:00</div>
-          </div>
-        </div>
-        <div class="channel-item">
-          <div class="channel-icon">📠</div>
-          <div>
-            <div class="channel-name">FAX</div>
-            <div class="channel-desc">0797-89-9084<br>再注文用紙を送ってもらう</div>
-          </div>
-        </div>
-        <div class="channel-item">
-          <div class="channel-icon">💬</div>
-          <div>
-            <div class="channel-name">LINE公式</div>
-            <div class="channel-desc">オーダー番号・枚数・変更内容を送ってもらう</div>
-          </div>
-        </div>
-        <div class="channel-item">
-          <div class="channel-icon">🌐</div>
-          <div>
-            <div class="channel-name">Webフォーム</div>
-            <div class="channel-desc">besta-order.com<br>リピート再注文専用フォーム</div>
-          </div>
-        </div>
-      </div>
-      <div class="alert gold" style="margin-top:12px;">
-        <span class="alert-icon">👥</span>
-        <span class="alert-text">電話・FAX・LINEはスタッフ全員が対応。対応したスタッフが注文内容を控えて処理すること。</span>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- リピート注文フロー -->
-  <div class="section">
-    <div class="section-header" style="background:#27ae60;">
-      <span class="icon">🔁</span> リピート注文フロー
+  <section id="ch3">
+    <div class="chapter-label">第3章　テスト Q21〜Q30</div>
+    <h2>書体の選び方</h2>
+    <h3>3-1　書体（書き文字のデザイン）とは？</h3>
+    <p>印鑑に彫る文字のデザインのことを「書体（しょたい）」と呼びます。書体によって「読みやすさ」と「偽造されにくさ」が変わります。</p>
+    <div style="background:#fff3f3; border-left:4px solid #e94560; border-radius:0 8px 8px 0; padding:12px 16px; margin:10px 0; font-size:0.9rem;">
+      <strong>基本ルール：重要な印鑑ほど読みにくい書体を使う</strong><br>
+      読みにくいほど偽造（コピー）されにくいからです。
     </div>
-    <div class="section-body">
+    <h3>3-2　ベスタが取り扱う5つの書体</h3>
+    <table class="data-table">
+      <thead><tr><th>書体名</th><th>読みやすさ</th><th>偽造しにくさ</th><th>向いている印鑑</th></tr></thead>
+      <tbody>
+        <tr><td><strong>篆書体（てんしょたい）</strong></td><td>読みにくい</td><td>◎</td><td>実印・銀行印・法人印の王道。日本銀行のお札にも使用</td></tr>
+        <tr><td><strong>印相体（いんそうたい）</strong><br><small>別名：吉相体</small></td><td>読みにくい</td><td>◎</td><td>実印・銀行印。縁起が良いとして人気</td></tr>
+        <tr><td><strong>古印体（こいんたい）</strong></td><td>読みやすい</td><td>△</td><td>認印の定番。親しみやすい日本独自の書体</td></tr>
+        <tr><td><strong>隷書体（れいしょたい）</strong></td><td>読みやすい</td><td>△</td><td>認印向け。お札の「日本銀行券」の文字に使用</td></tr>
+        <tr><td><strong>楷書体（かいしょたい）</strong></td><td>とても読みやすい</td><td>低い</td><td>ゴム印・住所印など内容を読ませたい印鑑向け</td></tr>
+      </tbody>
+    </table>
+    <h3>3-3　用途別・おすすめ書体まとめ</h3>
+    <table class="data-table">
+      <thead><tr><th>用途</th><th>おすすめ書体</th></tr></thead>
+      <tbody>
+        <tr><td>個人の実印</td><td>篆書体 または 印相体</td></tr>
+        <tr><td>個人の銀行印</td><td>篆書体 または 印相体</td></tr>
+        <tr><td>個人の認印</td><td>古印体・楷書体・隷書体</td></tr>
+        <tr><td>法人の代表者印（丸印）</td><td>篆書体・印相体</td></tr>
+        <tr><td>角印（社印）</td><td>篆書体</td></tr>
+        <tr><td>ゴム印・住所印</td><td>楷書体</td></tr>
+      </tbody>
+    </table>
+    <h3>3-4　篆書体と印相体の違い</h3>
+    <p><strong>篆書体：</strong>紀元前から続く最も歴史のある書体。お札に押されている印鑑もこの書体。線の太さが均一で重厚な印象。</p>
+    <p><strong>印相体（吉相体）：</strong>篆書体をベースに、文字が8方向に枠まで広がるデザイン。縁起が良いとされる開運書体として人気が高い。</p>
+    <h3>3-5　ベスタの彫り方：縦彫りに統一</h3>
+    <div style="background:#e8f5e9; border-left:4px solid #43a047; border-radius:0 8px 8px 0; padding:12px 16px; margin:10px 0; font-size:0.9rem;">
+      <strong>🏷️ ベスタの方針</strong><br>
+      実印：縦彫り　／　銀行印：縦彫り（実印と同じ）<br>
+      「銀行印は横彫り」という慣習のお店もありますが、<strong>ベスタでは行っていません。</strong>
+    </div>
+    <div class="summary-box">
+      <strong>📌 第3章まとめ</strong>
+      <ul>
+        <li>重要な印鑑（実印・銀行印）は篆書体か印相体で偽造対策</li>
+        <li>日常使いの認印は古印体か楷書体</li>
+        <li>ゴム印は楷書体</li>
+        <li>ベスタでは縦彫りに統一</li>
+        <li>「重要なほど読みにくく」が書体選びの基本</li>
+      </ul>
+    </div>
+  </section>
 
-      <p style="font-weight:700; margin-bottom:10px;">● 変更なし（そのまま同じ内容で増刷）</p>
-      <div class="delivery-badges" style="margin-bottom:12px;">
-        <span class="dbadge green">⚡ 最短 当日</span>
-        <span class="dbadge green">通常 翌営業日</span>
+  <section id="ch4">
+    <div class="chapter-label">第4章　テスト Q31〜Q40</div>
+    <h2>印鑑のサイズ</h2>
+    <h3>4-1　個人印鑑のサイズ（ベスタ基準）</h3>
+    <p>重要な印鑑ほど大きく作るのが慣習です。<strong>実印 ＞ 銀行印 ＞ 認印</strong>の順に大きくします。</p>
+    <table class="data-table">
+      <thead><tr><th>種類</th><th>法律で決まっている範囲</th><th>男性のご案内サイズ</th><th>女性のご案内サイズ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>実印</strong></td><td>直径8mmより大きく25mm未満</td><td>15〜18mm</td><td>13.5〜16.5mm</td></tr>
+        <tr><td><strong>銀行印</strong></td><td>特に決まりはない</td><td>12〜13.5mm</td><td>12〜13.5mm</td></tr>
+        <tr><td><strong>認印</strong></td><td>特に決まりはない</td><td>10.5〜12mm</td><td>10.5〜12mm</td></tr>
+      </tbody>
+    </table>
+    <div class="warn-box">⚠️ 個人の実印として役所に登録できるのは「直径8mmより大きく、25mm未満」のものだけです。これより大きいまたは小さいと登録できません。</div>
+    <h3>4-2　法人（会社）印鑑のサイズ（ベスタ基準）</h3>
+    <div style="background:#fff3cd; border-left:4px solid #f9a825; border-radius:0 8px 8px 0; padding:12px 16px; margin:10px 0; font-size:0.9rem;">
+      <strong>⚠️ ここが間違えやすいポイント！</strong><br>
+      会社の印鑑は個人と逆で、「銀行印 ＜ 代表者印 ＜ 角印」の順に大きくなります。
+    </div>
+    <table class="data-table">
+      <thead><tr><th>種類</th><th>ベスタのご案内サイズ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>代表者印（会社実印）</strong></td><td>16.5mm または 18mm</td></tr>
+        <tr><td><strong>会社銀行印</strong></td><td>15mm または 16.5mm</td></tr>
+        <tr><td><strong>角印（社印）</strong></td><td>21mm</td></tr>
+      </tbody>
+    </table>
+    <h3>サイズ序列の覚え方（絶対に覚える）</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0;">
+      <div style="background:#e3f2fd; border-radius:8px; padding:14px; font-size:0.88rem; text-align:center;">
+        <strong style="color:#1565c0;">個人</strong><br><br>
+        実印（大）<br>↓<br>銀行印（中）<br>↓<br>認印（小）
       </div>
-      <div class="flow">
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num green">1</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">オーダー番号・枚数・印刷色を確認</div>
-            <div class="flow-desc">リピート再注文用紙 or Webフォーム or LINE で受け取る</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num green">2</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">データを呼び出して印刷</div>
-            <div class="flow-desc">オーダー番号から過去データを確認 → そのまま印刷実行</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num green">3</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">完成連絡 → 引き渡し</div>
-            <div class="flow-desc">電話 or LINE で完成を連絡。店頭受け渡し or 発送（送料別）</div>
-          </div>
-        </div>
+      <div style="background:#fce4ec; border-radius:8px; padding:14px; font-size:0.88rem; text-align:center;">
+        <strong style="color:#c62828;">法人　←個人と逆！</strong><br><br>
+        角印（大）<br>↓<br>代表者印（中）<br>↓<br>銀行印（小）
       </div>
+    </div>
+    <h3>4-3　サイズ選びのコツ</h3>
+    <ul style="font-size:0.9rem; padding-left:1.3em; line-height:2.2;">
+      <li>実印は必ず銀行印より大きく、銀行印は認印より大きく作る</li>
+      <li>フルネームを彫る場合は大きめのサイズが見栄えが良い</li>
+      <li>女性の実印は将来の名前変更（結婚など）に備えて名前のみで作ることが多い</li>
+      <li>社名が長い法人の場合は大きめのサイズが適切</li>
+    </ul>
+    <div class="summary-box">
+      <strong>📌 第4章まとめ</strong>
+      <ul>
+        <li>個人は「実印＞銀行印＞認印」の順に大きく</li>
+        <li>法人は「銀行印＜代表者印＜角印」（個人と逆！）</li>
+        <li>実印の登録可能サイズは直径8mm超〜25mm未満</li>
+        <li>ベスタのサイズ基準を正確に覚えよう</li>
+      </ul>
+    </div>
+  </section>
 
-      <hr class="divider">
+  <section id="ch5">
+    <div class="chapter-label">第5章　テスト Q41〜Q45</div>
+    <h2>印鑑の管理と取扱い</h2>
+    <h3>5-1　実印と銀行印は必ず別々に</h3>
+    <p>実印と銀行印を同じ印鑑にすることは法律では禁止されていませんが、<strong>絶対におすすめできません。</strong>もし紛失や盗難にあったとき、「土地・建物の契約」と「銀行口座のお金」の両方が同時に危険にさらされるからです。</p>
+    <p>実印・銀行印・認印は必ず別々に作り、別々の場所に保管しましょう。</p>
+    <h3>5-2　日常のお手入れ方法</h3>
+    <ul style="font-size:0.9rem; padding-left:1.3em; line-height:2.2;">
+      <li>使い終わったら、柔らかい布やティッシュで朱肉をそっと拭き取る</li>
+      <li>朱肉が残ったまま放置すると、印面が傷んで印影が汚くなる</li>
+      <li><strong>水洗いは原則禁止</strong>（素材を傷める原因になる）</li>
+      <li>使用後は必ずケースに入れて保管する</li>
+      <li>直射日光・高温・湿気の多い場所での保管は避ける</li>
+    </ul>
+    <h3>5-3　紛失・盗難のときどうする？</h3>
+    <table class="data-table">
+      <thead><tr><th>なくした印鑑</th><th>まず最初にすること</th><th>その後</th></tr></thead>
+      <tbody>
+        <tr><td><strong>実印</strong></td><td>すぐに市区町村の役所へ連絡し、印鑑登録を取り消す（抹消）</td><td>新しい印鑑を作り、改めて登録する</td></tr>
+        <tr><td><strong>銀行印</strong></td><td>すぐに銀行に電話し、その印鑑での取引を止めてもらう</td><td>新しい印鑑を作り、改めて登録する</td></tr>
+        <tr><td><strong>認印</strong></td><td>新しいものを用意するだけでOK（登録不要）</td><td>―</td></tr>
+      </tbody>
+    </table>
+    <div class="warn-box"><strong>⚠️ 実印・銀行印をなくしたときは「様子を見る」は厳禁！</strong><br>気づいた瞬間にすぐ役所または銀行に連絡して、手続きを止めてもらいましょう。</div>
+    <div class="summary-box">
+      <strong>📌 第5章まとめ</strong>
+      <ul>
+        <li>実印・銀行印・認印は必ず別々に保管</li>
+        <li>使用後はティッシュで拭いてケースへ。水洗いは原則禁止</li>
+        <li>紛失したらすぐ役所or銀行に連絡することが最優先</li>
+      </ul>
+    </div>
+  </section>
 
-      <p style="font-weight:700; margin-bottom:10px;">● 変更あり（内容・デザイン修正あり）</p>
-      <div class="delivery-badges" style="margin-bottom:12px;">
-        <span class="dbadge blue">📋 最短 翌々営業日</span>
-        <span class="dbadge blue">校正確認が必要</span>
-      </div>
-      <div class="flow">
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num blue">1</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">変更内容を正確に受け取る</div>
-            <div class="flow-desc">文字・電話番号・役職など変更箇所を書面 or メモで確認。口頭だけはミスのもと。</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num blue">2</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">データ修正 → 校正を送付</div>
-            <div class="flow-desc">修正後、メール or FAX で校正確認を送る</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num blue">3</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">お客様の校正OK → 印刷</div>
-            <div class="flow-desc">必ず返信確認を受けてから印刷。口頭OKのみでの印刷開始は厳禁。</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num blue">4</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">完成連絡 → 引き渡し</div>
-            <div class="flow-desc">店頭受け渡し or 発送（送料別）</div>
-          </div>
-        </div>
-      </div>
+  <section id="ch6">
+    <div class="chapter-label">第6章　テスト Q46〜Q50</div>
+    <h2>法人・会社印の知識</h2>
+    <h3>6-1　会社で使う印鑑は4種類</h3>
+    <table class="data-table">
+      <thead><tr><th>種類</th><th>形</th><th>登録</th><th>主な使い方</th></tr></thead>
+      <tbody>
+        <tr><td><strong>代表者印（会社実印）</strong></td><td>丸い印鑑</td><td>法務局に登録必須</td><td>重要な契約書に押す</td></tr>
+        <tr><td><strong>会社銀行印</strong></td><td>丸い印鑑</td><td>銀行に登録必須</td><td>口座開設・お金の手続き</td></tr>
+        <tr><td><strong>角印（社印）</strong></td><td>四角い印鑑</td><td>登録しなくてよい</td><td>請求書・領収書・見積書など</td></tr>
+        <tr><td><strong>会社認印</strong></td><td>丸い印鑑</td><td>登録しなくてよい</td><td>代表者印ほどでない日常書類</td></tr>
+      </tbody>
+    </table>
+    <h3>6-2　代表者印（会社実印）について</h3>
+    <p>会社を設立するときに、法務局（登記所）に登録する最も重要な印鑑です。「丸印」「法人印」とも呼ばれます。<br>印鑑の外側の枠に会社名、内側の小さい円の中に「代表取締役印」などと彫られています。</p>
+    <h3>6-3　会社銀行印について</h3>
+    <p>銀行口座を作るときに登録する印鑑です。内側の円の中に「銀行之印」と彫られているのが一般的です。<strong>代表者印と銀行印を同じにすると紛失・盗難時にリスクが倍増するため、必ず別々に作ります。</strong></p>
+    <h3>6-4　角印（社印）について</h3>
+    <p>四角い形をした印鑑で、会社名が彫られています。役所への登録は不要です。「この書類は○○会社が発行したものです」と示すために使います。請求書・見積書・領収書などによく押されています。</p>
+    <h3>6-5　法人印鑑のサイズは個人と逆！</h3>
+    <div class="warn-box">
+      <strong>混同しないように注意！</strong><br>
+      個人印：実印（大）＞ 銀行印（中）＞ 認印（小）<br>
+      法人印：角印（大）＞ 代表者印（中）＞ 銀行印（小）<br>
+      <strong>法人では「登録不要な角印」が最も大きい！</strong>
     </div>
-  </div>
+    <div class="summary-box">
+      <strong>📌 第6章まとめ</strong>
+      <ul>
+        <li>法人印は代表者印・会社銀行印・角印・会社認印の4種類</li>
+        <li>代表者印は法務局登録、銀行印は銀行登録、角印は登録不要</li>
+        <li>法人のサイズ順は個人とは逆</li>
+        <li>代表者印と銀行印の兼用は厳禁</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- 新規注文フロー -->
-  <div class="section">
-    <div class="section-header" style="background:#2980b9;">
-      <span class="icon">✨</span> 新規注文フロー
+  <section id="ref">
+    <h2>付録　ベスタ仕様 クイックリファレンス</h2>
+    <h3>■ おすすめサイズ一覧</h3>
+    <table class="data-table">
+      <thead><tr><th>種類</th><th>男性（法人）</th><th>女性</th></tr></thead>
+      <tbody>
+        <tr><td>個人 実印</td><td>15〜18mm</td><td>13.5〜16.5mm</td></tr>
+        <tr><td>個人 銀行印</td><td>12〜13.5mm</td><td>12〜13.5mm</td></tr>
+        <tr><td>個人 認印</td><td>10.5〜12mm</td><td>10.5〜12mm</td></tr>
+        <tr><td>法人 代表者印</td><td colspan="2">16.5mm または 18mm</td></tr>
+        <tr><td>法人 銀行印</td><td colspan="2">15mm または 16.5mm</td></tr>
+        <tr><td>法人 角印</td><td colspan="2">21mm</td></tr>
+      </tbody>
+    </table>
+    <h3>■ ベスタ3大方針（必ず覚えること）</h3>
+    <div style="background:#1a1a2e; color:#fff; border-radius:8px; padding:16px 18px; margin:12px 0; font-size:0.9rem; line-height:2.2;">
+      推奨素材 → <strong style="color:#ffd700;">黒水牛</strong>（コスト×耐久性のバランス最良）<br>
+      彫り方 → <strong style="color:#ffd700;">すべて縦彫り</strong>に統一<br>
+      取扱い書体 → 篆書体・印相体・古印体・隷書体・楷書体の<strong style="color:#ffd700;">5種類</strong>
     </div>
-    <div class="section-body">
-      <div class="delivery-badges" style="margin-bottom:14px;">
-        <span class="dbadge orange">📅 3営業日以降（校正あり）</span>
-      </div>
-      <div class="alert red" style="margin-bottom:14px;">
-        <span class="alert-icon">⚠️</span>
-        <span class="alert-text"><strong>「いつできますか？」に日付の約束はしない</strong>校正確認の往復があるため、お渡し日の確約はできません。「3営業日以降」とお伝えし、「校正のご返信後に印刷します」と説明してください。</span>
-      </div>
-      <div class="flow">
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num">1</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">ヒアリング：追加か新規か確認</div>
-            <div class="flow-desc">まず「以前ご注文いただいたことはありますか？」と必ず聞く</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num">2</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">デザイン方向性の確認</div>
-            <div class="flow-desc">
-              既存の名刺・デザインサンプルはあるか確認。<br>
-              ない場合 → ベスタのサンプル帳を見せて選んでもらう
-            </div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num">3</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">原稿・情報の受け取り</div>
-            <div class="flow-desc">手書き・既存名刺・写真・メールなどどんな形でも受け取り可。ロゴがある場合は品質確認（低解像度はトレース版代が発生）</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num">4</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">枚数・用紙・印刷色を確認</div>
-            <div class="flow-desc">用紙：白／クリーム／白厚口　|　印刷色：片面黒 / 片面カラー / 両面</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num">5</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">データ作成 → 校正送付</div>
-            <div class="flow-desc">メール or FAX で校正を送る。「ご確認後に返信をお願いします」と必ず添える</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-left"><div class="flow-num">6</div><div class="flow-line"></div></div>
-          <div class="flow-content">
-            <div class="flow-title">校正OK → 印刷 → 完成連絡</div>
-            <div class="flow-desc">返信確認後に印刷。完成したら電話 or LINE で連絡。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <h3>■ 全章まとめ</h3>
+    <table class="data-table">
+      <thead><tr><th>章</th><th>テーマ</th><th>テスト</th><th>ひとことポイント</th></tr></thead>
+      <tbody>
+        <tr><td>第1章</td><td>種類と用途</td><td>Q1〜10</td><td>実印・銀行印・認印の3種類を使い分け</td></tr>
+        <tr><td>第2章</td><td>素材・印材</td><td>Q11〜20</td><td>ベスタ推奨は黒水牛。木製は水洗い禁止</td></tr>
+        <tr><td>第3章</td><td>書体</td><td>Q21〜30</td><td>実印・銀行印は篆書体か印相体。縦彫りに統一</td></tr>
+        <tr><td>第4章</td><td>サイズ</td><td>Q31〜40</td><td>個人は実印が最大。法人は角印が最大</td></tr>
+        <tr><td>第5章</td><td>管理・取扱い</td><td>Q41〜45</td><td>紛失したらすぐ連絡。3種は別々に保管</td></tr>
+        <tr><td>第6章</td><td>法人・会社印</td><td>Q46〜50</td><td>法人4種類。代表者印と銀行印は兼用禁止</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <!-- データ入稿 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">💾</span> データ持ち込み入稿
-    </div>
-    <div class="section-body">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>ファイル形式</th>
-            <th>判定</th>
-            <th>対応</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Illustrator（.ai）</td>
-            <td><span class="ok">○</span></td>
-            <td style="text-align:left; font-size:12px;">そのまま印刷可能</td>
-          </tr>
-          <tr>
-            <td>Photoshop（.psd）</td>
-            <td><span class="ok">○</span></td>
-            <td style="text-align:left; font-size:12px;">そのまま印刷可能</td>
-          </tr>
-          <tr>
-            <td>PDF＋元データ</td>
-            <td><span class="ok">○</span></td>
-            <td style="text-align:left; font-size:12px;">PDFと元データをセットで送付。校正確認のうえ対応</td>
-          </tr>
-          <tr>
-            <td>Word / Excel</td>
-            <td><span class="warn">△</span></td>
-            <td style="text-align:left; font-size:12px;">PDFに書き出して元データと一緒に送付。内容確認後に対応</td>
-          </tr>
-          <tr>
-            <td>PowerPoint</td>
-            <td><span class="warn">△</span></td>
-            <td style="text-align:left; font-size:12px;">PDFに書き出して送付。版下作成が必要な場合あり（別途見積）</td>
-          </tr>
-          <tr>
-            <td>AI生成画像</td>
-            <td><span class="warn">△</span></td>
-            <td style="text-align:left; font-size:12px;">受け付け可。解像度・塗り足し・縦横比を修正後、校正で確認</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="alert blue" style="margin-top:12px;">
-        <span class="alert-icon">📤</span>
-        <span class="alert-text"><strong>データの送り方（メール or アップローダー）</strong>メール添付：info@besta-web.com　／　ベスタWebサイトのお問い合わせフォームのアップローダーからも送付可</span>
-      </div>
-      <div class="alert green">
-        <span class="alert-icon">🤖</span>
-        <span class="alert-text"><strong>AI生成画像について</strong>解像度不足・塗り足しなし・縦横比ズレがある場合でも、AI補正で対応できるケースが多い。修正後は必ず校正でお客様に確認してもらうこと。他店に流れる前に「AI画像でも受け付けます」と一声かけるのが大事。</span>
-      </div>
-      <div class="alert red">
-        <span class="alert-icon">⚠️</span>
-        <span class="alert-text">データ持ち込みの場合、内容のミスはベスタでは責任を負えません。必ず校正でお客様に確認を取ってから印刷すること。</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 価格・用紙 -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">💴</span> 価格・用紙
-    </div>
-    <div class="section-body">
-      <table class="info-table">
-        <tr>
-          <th>用紙の種類</th>
-          <td>
-            白／クリーム／白厚口（標準3種）<br>
-            <span style="font-size:12px; color:var(--text-sub);">※ オプション用紙はそれぞれの追加料金を加算</span>
-          </td>
-        </tr>
-        <tr>
-          <th>印刷色</th>
-          <td>片面黒・片面カラー・両面黒/黒・両面カラー/黒・両面カラー/カラー</td>
-        </tr>
-        <tr>
-          <th>枚数単位</th>
-          <td>100枚〜（100枚単位）</td>
-        </tr>
-        <tr>
-          <th>版下作成</th>
-          <td>片面 ¥1,200〜（手書き原稿からのデータ作成）</td>
-        </tr>
-        <tr>
-          <th>消費税</th>
-          <td>全て税抜価格に別途消費税</td>
-        </tr>
-      </table>
-      <div style="margin-top:14px;">
-        <a href="https://besta-web.com/02_print/02_meishi/index.html" target="_blank"
-          style="display:block; background:var(--navy); color:var(--white); text-align:center; padding:13px 16px; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px;">
-          📋 名刺印刷 価格表はこちら →
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 加工オプション -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">✂️</span> 加工オプション
-    </div>
-    <div class="section-body">
-      <table class="info-table">
-        <tr><th>プレス加工</th><td>エンボス（凹凸）加工</td></tr>
-        <tr><th>2つ折名刺</th><td>折り加工（情報量多い方向け）</td></tr>
-        <tr><th>角丸加工</th><td>名刺の四隅を丸くする</td></tr>
-        <tr><th>文字浮き出し</th><td>立体的な文字表現</td></tr>
-        <tr><th>レーザー切り抜き</th><td>形状の切り抜き加工</td></tr>
-      </table>
-      <div class="alert gold" style="margin-top:12px;">
-        <span class="alert-icon">💡</span>
-        <span class="alert-text">加工オプションは別途お見積り。「こういう名刺を作りたい」と相談があればガラッチさんに確認してください。</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 渡し方・支払い -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">🚚</span> 渡し方・支払い
-    </div>
-    <div class="section-body">
-      <table class="info-table">
-        <tr>
-          <th>基本</th>
-          <td>店頭引き取り・お支払いは引き取り時（現金）</td>
-        </tr>
-        <tr>
-          <th>郵送発送</th>
-          <td>
-            お支払い済みの場合のみ発送可<br>
-            クリックポスト ¥200 / 宅配便 要相談（送料お客様負担）
-          </td>
-        </tr>
-        <tr>
-          <th>保管期限</th>
-          <td>完成連絡後1ヶ月を超えたら商品代金を先に請求</td>
-        </tr>
-        <tr>
-          <th>キャンセル</th>
-          <td>商品の性質上、キャンセル・返品不可</td>
-        </tr>
-        <tr>
-          <th>不良品対応</th>
-          <td>ベスタのミスによる場合は速やかに良品と交換</td>
-        </tr>
-      </table>
-      <div class="alert red" style="margin-top:12px;">
-        <span class="alert-icon">📦</span>
-        <span class="alert-text">発送する場合は先払いが原則。「完成したら送って」という場合でも、支払い確認後に発送すること。</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- よくあるトラブル -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">🆘</span> よくあるトラブルと対応
-    </div>
-    <div class="section-body">
-      <div class="trouble-list">
-        <div class="trouble-item">
-          <div class="trouble-q">❓ 「急ぎで今日中にほしい」と言われた</div>
-          <div class="trouble-a">リピート変更なしなら最短当日対応可。新規・変更ありは校正がある旨を説明し「最短でも翌々営業日以降」とお伝えする。特急料金設定はなし。</div>
-        </div>
-        <div class="trouble-item">
-          <div class="trouble-q">❓ オーダー番号が見当たらない</div>
-          <div class="trouble-a">以前の納品袋・同梱の再注文用紙を確認してもらう。見つからない場合は氏名・会社名で社内データを検索して対応。</div>
-        </div>
-        <div class="trouble-item">
-          <div class="trouble-q">❓ ロゴや写真のデータが粗い・小さい</div>
-          <div class="trouble-a">印刷に使えない場合はトレース（書き起こし）が必要。別途版代が発生することをお客様に事前説明してから進める。</div>
-        </div>
-        <div class="trouble-item">
-          <div class="trouble-q">❓ 校正OKと言ったのに「内容が違う」とクレーム</div>
-          <div class="trouble-a">校正の返信メール or FAXを確認。お客様確認済みの記録がある場合は、丁寧にその旨を説明。口頭のみのOKで印刷したケースは再対応が必要になる場合も。→ 必ず書面・メールでOKを受けること。</div>
-        </div>
-        <div class="trouble-item">
-          <div class="trouble-q">❓ 「郵送してほしい」と言われた</div>
-          <div class="trouble-a">先払いが条件。「お支払い確認後に発送いたします」と伝え、入金確認してから発送。未払いのまま発送しない。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 電話対応ルール -->
-  <div class="section">
-    <div class="section-header" style="background: var(--red);">
-      <span class="icon">📞</span> 電話対応の鉄則：必ず書面に残す
-    </div>
-    <div class="section-body">
-      <div class="alert red">
-        <span class="alert-icon">⚠️</span>
-        <span class="alert-text"><strong>電話でのやり取りだけで進めない</strong>間違いのもとになるため、内容確認・校正OK・変更指示はすべてメール・LINE・FAXで記録を残すこと。</span>
-      </div>
-      <div style="background:#f8f9fa; border-radius:8px; padding:14px; margin-top:12px; font-size:14px; line-height:1.8;">
-        <strong>📝 お客様への伝え方（そのまま使えるフレーズ）</strong><br>
-        <span style="color:var(--navy);">「口頭でのやり取りは間違いのもとになりますので、お手数ですがメール・LINE・FAXでご連絡いただけますか？」</span>
-      </div>
-      <div class="alert gold" style="margin-top:12px;">
-        <span class="alert-icon">💡</span>
-        <span class="alert-text">電話で内容を聞いた場合は、その場でメールやLINEに要点を打ち返して「この内容でよろしいですか？」と確認を取る習慣をつけること。</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- まず覚えること -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">⭐</span> まず覚えること
-    </div>
-    <div class="section-body">
-      <div class="top3">
-        <div class="top3-item">
-          <div class="top3-num">1</div>
-          <div class="top3-text">
-            <div class="title">「新規かリピートか」を最初に確認する</div>
-            <div class="desc">対応フローが全然違う。これを間違えると納期や価格の説明がずれてしまう。まずこの一言から始めること。</div>
-          </div>
-        </div>
-        <div class="top3-item">
-          <div class="top3-num">2</div>
-          <div class="top3-text">
-            <div class="title">納期の約束は「3営業日以降」と伝える</div>
-            <div class="desc">新規は校正があるので日付の確約はしない。「校正のご返信後に印刷します」が正しい説明。</div>
-          </div>
-        </div>
-        <div class="top3-item">
-          <div class="top3-num">3</div>
-          <div class="top3-text">
-            <div class="title">校正OKは必ずメール・LINE・FAXで受け取る</div>
-            <div class="desc">口頭のOKだけで印刷するとトラブルのもと。「メールかLINEで返信いただけますか？」と必ず確認する。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 再注文フォームリンク -->
-  <div class="section">
-    <div class="section-header">
-      <span class="icon">🔗</span> よく使うリンク
-    </div>
-    <div class="section-body">
-      <table class="info-table">
-        <tr>
-          <th>再注文フォーム</th>
-          <td><a href="https://besta-order.com/bizcard/a/order.html" style="color:#2980b9;">besta-order.com/bizcard/a/order.html</a></td>
-        </tr>
-        <tr>
-          <th>名刺ページ</th>
-          <td><a href="https://besta-web.com/02_print/02_meishi/index.html" style="color:#2980b9;">besta-web.com 名刺印刷ページ</a></td>
-        </tr>
-        <tr>
-          <th>お問い合わせ</th>
-          <td><a href="https://besta-web.com/06_query/index.html" style="color:#2980b9;">besta-web.com お問い合わせ</a></td>
-        </tr>
-      </table>
-    </div>
+  <div class="test-section" id="test">
+    <h3>📝 印鑑・はんこ 知識テスト（51問）</h3>
+    <p>マニュアルを読んだら、テストで理解度を確認しましょう。<br>目標：Aランク（70%以上）／最高：Sランク（90%以上）</p>
+    <a class="test-btn" href="../vesta_hanko_quiz_v3_5.html">知識テストをスタート →</a>
   </div>
 
 </main>
 
 <footer>
-  株式会社ベスタ スタッフガイド｜名刺印刷マニュアル<br>
-  TEL：0797-91-5225　平日 10:00〜18:00
+  &copy; 2025 株式会社ベスタ ／ このページは社内スタッフ向け資料です
 </footer>
 
 </body>
