@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>名刺印刷マニュアル｜株式会社ベスタ スタッフガイド</title>
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243256;
+    --red: #c0392b;
+    --red-light: #e74c3c;
+    --gold: #d4a843;
+    --bg: #f4f5f7;
+    --white: #ffffff;
+    --text: #2c3e50;
+    --text-sub: #6b7280;
+    --border: #e2e6ea;
+    --radius: 10px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ===== ヘッダー ===== */
+  header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0;
+  }
+  .header-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 20px 24px;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .badge {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+  }
+  .badge.highlight {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ===== メインコンテンツ ===== */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* ===== セクション ===== */
+  .section {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 13px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-header .icon { font-size: 18px; }
+  .section-body { padding: 18px; }
+
+  /* ===== 注文タイプカード ===== */
+  .order-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .order-type-card {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .order-type-card.repeat { border-color: #2ecc71; }
+  .order-type-card.new { border-color: #3498db; }
+  .order-type-card .type-icon { font-size: 26px; margin-bottom: 6px; }
+  .order-type-card .type-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .order-type-card .type-note { font-size: 12px; color: var(--text-sub); }
+  .order-type-card.repeat .type-name { color: #27ae60; }
+  .order-type-card.new .type-name { color: #2980b9; }
+
+  /* ===== 納期バッジ ===== */
+  .delivery-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0 4px;
+  }
+  .dbadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .dbadge.green { background: #e8f5e9; color: #2e7d32; }
+  .dbadge.blue { background: #e3f2fd; color: #1565c0; }
+  .dbadge.orange { background: #fff3e0; color: #e65100; }
+
+  /* ===== フロー ===== */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 14px;
+    position: relative;
+    padding-bottom: 18px;
+  }
+  .flow-step:last-child { padding-bottom: 0; }
+  .flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 36px;
+  }
+  .flow-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .flow-num.green { background: #27ae60; }
+  .flow-num.blue { background: #2980b9; }
+  .flow-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 4px;
+  }
+  .flow-step:last-child .flow-line { display: none; }
+  .flow-content {
+    padding-top: 5px;
+    flex: 1;
+  }
+  .flow-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+  .flow-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.6;
+  }
+
+  /* ===== テーブル ===== */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .info-table th {
+    background: #f0f2f5;
+    color: var(--navy);
+    font-weight: 700;
+    padding: 9px 12px;
+    text-align: left;
+    white-space: nowrap;
+    width: 110px;
+  }
+  .info-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-table tr:last-child td { border-bottom: none; }
+  .info-table tr { border-bottom: 1px solid var(--border); }
+
+  /* ===== チャンネルリスト ===== */
+  .channel-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .channel-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .channel-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .channel-name { font-weight: 700; font-size: 14px; }
+  .channel-desc { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+
+  /* ===== データ入稿テーブル ===== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: center;
+  }
+  .data-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 10px;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .data-table td {
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+  }
+  .data-table tr:nth-child(even) td { background: #f8f9fa; }
+  .ok { color: #27ae60; font-weight: 700; font-size: 16px; }
+  .warn { color: #e67e22; font-weight: 700; font-size: 16px; }
+  .ng { color: var(--red); font-weight: 700; font-size: 16px; }
+
+  /* ===== アラートボックス ===== */
+  .alert {
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .alert.red { background: #fdf0ef; border-left: 3px solid var(--red); }
+  .alert.blue { background: #eff6ff; border-left: 3px solid #3498db; }
+  .alert.green { background: #f0faf4; border-left: 3px solid #27ae60; }
+  .alert.gold { background: #fffbf0; border-left: 3px solid var(--gold); }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .alert-text { line-height: 1.6; }
+  .alert strong { display: block; margin-bottom: 2px; }
+
+  /* ===== チェックリスト ===== */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .checklist li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .checklist li::before {
+    content: '☐';
+    color: var(--navy);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+
+  /* ===== トラブルアコーディオン風 ===== */
+  .trouble-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .trouble-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .trouble-q {
+    background: #fdf0ef;
+    padding: 11px 14px;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--red);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .trouble-a {
+    padding: 11px 14px;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--white);
+  }
+
+  /* ===== Top3カード ===== */
+  .top3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .top3-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 13px 14px;
+  }
+  .top3-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 28px;
+  }
+  .top3-text .title { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+  .top3-text .desc { font-size: 13px; color: var(--text-sub); }
+
+  /* ===== 区切り ===== */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 14px 0;
+  }
+
+  /* ===== 価格プレースホルダー ===== */
+  .price-placeholder {
+    background: #fffbf0;
+    border: 2px dashed var(--gold);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 14px;
+  }
+  .price-placeholder strong { display: block; color: var(--navy); font-size: 15px; margin-bottom: 6px; }
+
+  /* ===== フッター ===== */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 480px) {
+    .order-types { grid-template-columns: 1fr; }
+    .channel-list { grid-template-columns: 1fr; }
+    header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="header-inner">
+    <div class="header-label">Besta Staff Guide</div>
+    <h1>🪪 名刺印刷マニュアル</h1>
+    <p style="font-size:13px; color:rgba(255,255,255,0.7); margin-top:6px;">新規・リピート対応の流れ・価格・データ入稿・トラブル対応</p>
+    <div class="header-badges">
+      <span class="badge highlight">📋 新人必読</span>
+      <span class="badge">受付 全員対応</span>
+      <span class="badge">フルカラー名刺</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 顧客区分 -->
+  <div class="section">
+    <div class="section-header" style="background: var(--gold); color: var(--navy);">
+      <span class="icon">👥</span> 大前提：お客様の区分を確認する
+    </div>
+    <div class="section-body">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div style="border:2px solid var(--navy); border-radius:8px; padding:14px; text-align:center;">
+          <div style="font-size:24px; margin-bottom:6px;">🏪</div>
+          <div style="font-weight:700; font-size:14px; margin-bottom:4px;">店頭のお客様</div>
+          <div style="font-size:12px; color:var(--text-sub);">このマニュアルの対象<br>店頭・電話・LINE・Web経由</div>
+        </div>
+        <div style="border:2px solid var(--gold); border-radius:8px; padding:14px; text-align:center; background:#fffbf0;">
+          <div style="font-size:24px; margin-bottom:6px;">🏢</div>
+          <div style="font-weight:700; font-size:14px; margin-bottom:4px; color:#b8860b;">契約・売掛のお客様</div>
+          <div style="font-size:12px; color:var(--text-sub);">納期・金額が異なります<br>このマニュアルは適用外</div>
+        </div>
+      </div>
+      <div class="alert gold">
+        <span class="alert-icon">📁</span>
+        <span class="alert-text">
+          <strong>見分け方：共有フォルダで確認する</strong>
+          印刷データの保存場所が判断基準です。<br>
+          <span style="font-family: monospace; background:#e8f5e9; padding:2px 6px; border-radius:4px; font-size:13px;">共有フォルダ／重要データ／a01_名刺／c_店頭</span>　→ <strong style="color:#2e7d32;">店頭のお客様（このマニュアルの対象）</strong><br>
+          <span style="margin-top:6px; display:block;">
+          <span style="font-family: monospace; background:#fdecea; padding:2px 6px; border-radius:4px; font-size:13px;">共有フォルダ／重要データ／a01_名刺／それ以外</span>　→ <strong style="color:#c0392b;">契約・売掛のお客様（このマニュアル対象外）</strong>
+          </span>
+          <span style="margin-top:6px; display:block; color:var(--text-sub); font-size:13px;">売掛のお客様は納期・金額が異なります。対応は別途確認してください。</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注文の種類 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔀</span> まず確認：新規？リピート？
+    </div>
+    <div class="section-body">
+      <div class="order-types">
+        <div class="order-type-card repeat">
+          <div class="type-icon">🔁</div>
+          <div class="type-name">リピート注文</div>
+          <div class="type-note">以前作った名刺の再注文<br>オーダー番号で管理</div>
+        </div>
+        <div class="order-type-card new">
+          <div class="type-icon">✨</div>
+          <div class="type-name">新規注文</div>
+          <div class="type-note">初めて作る・デザイン変更<br>校正あり・3営業日以降</div>
+        </div>
+      </div>
+      <div class="alert blue">
+        <span class="alert-icon">💡</span>
+        <span class="alert-text">「以前作ったことある」と言われたらまずオーダー番号を確認。名刺に同梱のリピート再注文用紙か、以前の控えで番号がわかります。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 受付チャネル -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📡</span> 受付チャネル
+    </div>
+    <div class="section-body">
+      <div class="channel-list">
+        <div class="channel-item">
+          <div class="channel-icon">📞</div>
+          <div>
+            <div class="channel-name">電話</div>
+            <div class="channel-desc">0797-91-5225<br>平日 10:00〜18:00</div>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon">📠</div>
+          <div>
+            <div class="channel-name">FAX</div>
+            <div class="channel-desc">0797-89-9084<br>再注文用紙を送ってもらう</div>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon">💬</div>
+          <div>
+            <div class="channel-name">LINE公式</div>
+            <div class="channel-desc">オーダー番号・枚数・変更内容を送ってもらう</div>
+          </div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon">🌐</div>
+          <div>
+            <div class="channel-name">Webフォーム</div>
+            <div class="channel-desc">besta-order.com<br>リピート再注文専用フォーム</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert gold" style="margin-top:12px;">
+        <span class="alert-icon">👥</span>
+        <span class="alert-text">電話・FAX・LINEはスタッフ全員が対応。対応したスタッフが注文内容を控えて処理すること。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- リピート注文フロー -->
+  <div class="section">
+    <div class="section-header" style="background:#27ae60;">
+      <span class="icon">🔁</span> リピート注文フロー
+    </div>
+    <div class="section-body">
+
+      <p style="font-weight:700; margin-bottom:10px;">● 変更なし（そのまま同じ内容で増刷）</p>
+      <div class="delivery-badges" style="margin-bottom:12px;">
+        <span class="dbadge green">⚡ 最短 当日</span>
+        <span class="dbadge green">通常 翌営業日</span>
+      </div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num green">1</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">オーダー番号・枚数・印刷色を確認</div>
+            <div class="flow-desc">リピート再注文用紙 or Webフォーム or LINE で受け取る</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num green">2</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">データを呼び出して印刷</div>
+            <div class="flow-desc">オーダー番号から過去データを確認 → そのまま印刷実行</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num green">3</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">完成連絡 → 引き渡し</div>
+            <div class="flow-desc">電話 or LINE で完成を連絡。店頭受け渡し or 発送（送料別）</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <p style="font-weight:700; margin-bottom:10px;">● 変更あり（内容・デザイン修正あり）</p>
+      <div class="delivery-badges" style="margin-bottom:12px;">
+        <span class="dbadge blue">📋 最短 翌々営業日</span>
+        <span class="dbadge blue">校正確認が必要</span>
+      </div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num blue">1</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">変更内容を正確に受け取る</div>
+            <div class="flow-desc">文字・電話番号・役職など変更箇所を書面 or メモで確認。口頭だけはミスのもと。</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num blue">2</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">データ修正 → 校正を送付</div>
+            <div class="flow-desc">修正後、メール or FAX で校正確認を送る</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num blue">3</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">お客様の校正OK → 印刷</div>
+            <div class="flow-desc">必ず返信確認を受けてから印刷。口頭OKのみでの印刷開始は厳禁。</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num blue">4</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">完成連絡 → 引き渡し</div>
+            <div class="flow-desc">店頭受け渡し or 発送（送料別）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新規注文フロー -->
+  <div class="section">
+    <div class="section-header" style="background:#2980b9;">
+      <span class="icon">✨</span> 新規注文フロー
+    </div>
+    <div class="section-body">
+      <div class="delivery-badges" style="margin-bottom:14px;">
+        <span class="dbadge orange">📅 3営業日以降（校正あり）</span>
+      </div>
+      <div class="alert red" style="margin-bottom:14px;">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-text"><strong>「いつできますか？」に日付の約束はしない</strong>校正確認の往復があるため、お渡し日の確約はできません。「3営業日以降」とお伝えし、「校正のご返信後に印刷します」と説明してください。</span>
+      </div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num">1</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">ヒアリング：追加か新規か確認</div>
+            <div class="flow-desc">まず「以前ご注文いただいたことはありますか？」と必ず聞く</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num">2</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">デザイン方向性の確認</div>
+            <div class="flow-desc">
+              既存の名刺・デザインサンプルはあるか確認。<br>
+              ない場合 → ベスタのサンプル帳を見せて選んでもらう
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num">3</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">原稿・情報の受け取り</div>
+            <div class="flow-desc">手書き・既存名刺・写真・メールなどどんな形でも受け取り可。ロゴがある場合は品質確認（低解像度はトレース版代が発生）</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num">4</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">枚数・用紙・印刷色を確認</div>
+            <div class="flow-desc">用紙：白／クリーム／白厚口　|　印刷色：片面黒 / 片面カラー / 両面</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num">5</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">データ作成 → 校正送付</div>
+            <div class="flow-desc">メール or FAX で校正を送る。「ご確認後に返信をお願いします」と必ず添える</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-num">6</div><div class="flow-line"></div></div>
+          <div class="flow-content">
+            <div class="flow-title">校正OK → 印刷 → 完成連絡</div>
+            <div class="flow-desc">返信確認後に印刷。完成したら電話 or LINE で連絡。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- データ入稿 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💾</span> データ持ち込み入稿
+    </div>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ファイル形式</th>
+            <th>判定</th>
+            <th>対応</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Illustrator（.ai）</td>
+            <td><span class="ok">○</span></td>
+            <td style="text-align:left; font-size:12px;">そのまま印刷可能</td>
+          </tr>
+          <tr>
+            <td>Photoshop（.psd）</td>
+            <td><span class="ok">○</span></td>
+            <td style="text-align:left; font-size:12px;">そのまま印刷可能</td>
+          </tr>
+          <tr>
+            <td>PDF＋元データ</td>
+            <td><span class="ok">○</span></td>
+            <td style="text-align:left; font-size:12px;">PDFと元データをセットで送付。校正確認のうえ対応</td>
+          </tr>
+          <tr>
+            <td>Word / Excel</td>
+            <td><span class="warn">△</span></td>
+            <td style="text-align:left; font-size:12px;">PDFに書き出して元データと一緒に送付。内容確認後に対応</td>
+          </tr>
+          <tr>
+            <td>PowerPoint</td>
+            <td><span class="warn">△</span></td>
+            <td style="text-align:left; font-size:12px;">PDFに書き出して送付。版下作成が必要な場合あり（別途見積）</td>
+          </tr>
+          <tr>
+            <td>AI生成画像</td>
+            <td><span class="warn">△</span></td>
+            <td style="text-align:left; font-size:12px;">受け付け可。解像度・塗り足し・縦横比を修正後、校正で確認</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert blue" style="margin-top:12px;">
+        <span class="alert-icon">📤</span>
+        <span class="alert-text"><strong>データの送り方（メール or アップローダー）</strong>メール添付：info@besta-web.com　／　ベスタWebサイトのお問い合わせフォームのアップローダーからも送付可</span>
+      </div>
+      <div class="alert green">
+        <span class="alert-icon">🤖</span>
+        <span class="alert-text"><strong>AI生成画像について</strong>解像度不足・塗り足しなし・縦横比ズレがある場合でも、AI補正で対応できるケースが多い。修正後は必ず校正でお客様に確認してもらうこと。他店に流れる前に「AI画像でも受け付けます」と一声かけるのが大事。</span>
+      </div>
+      <div class="alert red">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-text">データ持ち込みの場合、内容のミスはベスタでは責任を負えません。必ず校正でお客様に確認を取ってから印刷すること。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 価格・用紙 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💴</span> 価格・用紙
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>用紙の種類</th>
+          <td>
+            白／クリーム／白厚口（標準3種）<br>
+            <span style="font-size:12px; color:var(--text-sub);">※ オプション用紙はそれぞれの追加料金を加算</span>
+          </td>
+        </tr>
+        <tr>
+          <th>印刷色</th>
+          <td>片面黒・片面カラー・両面黒/黒・両面カラー/黒・両面カラー/カラー</td>
+        </tr>
+        <tr>
+          <th>枚数単位</th>
+          <td>100枚〜（100枚単位）</td>
+        </tr>
+        <tr>
+          <th>版下作成</th>
+          <td>片面 ¥1,200〜（手書き原稿からのデータ作成）</td>
+        </tr>
+        <tr>
+          <th>消費税</th>
+          <td>全て税抜価格に別途消費税</td>
+        </tr>
+      </table>
+      <div style="margin-top:14px;">
+        <a href="https://besta-web.com/02_print/02_meishi/index.html" target="_blank"
+          style="display:block; background:var(--navy); color:var(--white); text-align:center; padding:13px 16px; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px;">
+          📋 名刺印刷 価格表はこちら →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 加工オプション -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">✂️</span> 加工オプション
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr><th>プレス加工</th><td>エンボス（凹凸）加工</td></tr>
+        <tr><th>2つ折名刺</th><td>折り加工（情報量多い方向け）</td></tr>
+        <tr><th>角丸加工</th><td>名刺の四隅を丸くする</td></tr>
+        <tr><th>文字浮き出し</th><td>立体的な文字表現</td></tr>
+        <tr><th>レーザー切り抜き</th><td>形状の切り抜き加工</td></tr>
+      </table>
+      <div class="alert gold" style="margin-top:12px;">
+        <span class="alert-icon">💡</span>
+        <span class="alert-text">加工オプションは別途お見積り。「こういう名刺を作りたい」と相談があればガラッチさんに確認してください。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 渡し方・支払い -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🚚</span> 渡し方・支払い
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>基本</th>
+          <td>店頭引き取り・お支払いは引き取り時（現金）</td>
+        </tr>
+        <tr>
+          <th>郵送発送</th>
+          <td>
+            お支払い済みの場合のみ発送可<br>
+            クリックポスト ¥200 / 宅配便 要相談（送料お客様負担）
+          </td>
+        </tr>
+        <tr>
+          <th>保管期限</th>
+          <td>完成連絡後1ヶ月を超えたら商品代金を先に請求</td>
+        </tr>
+        <tr>
+          <th>キャンセル</th>
+          <td>商品の性質上、キャンセル・返品不可</td>
+        </tr>
+        <tr>
+          <th>不良品対応</th>
+          <td>ベスタのミスによる場合は速やかに良品と交換</td>
+        </tr>
+      </table>
+      <div class="alert red" style="margin-top:12px;">
+        <span class="alert-icon">📦</span>
+        <span class="alert-text">発送する場合は先払いが原則。「完成したら送って」という場合でも、支払い確認後に発送すること。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- よくあるトラブル -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🆘</span> よくあるトラブルと対応
+    </div>
+    <div class="section-body">
+      <div class="trouble-list">
+        <div class="trouble-item">
+          <div class="trouble-q">❓ 「急ぎで今日中にほしい」と言われた</div>
+          <div class="trouble-a">リピート変更なしなら最短当日対応可。新規・変更ありは校正がある旨を説明し「最短でも翌々営業日以降」とお伝えする。特急料金設定はなし。</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-q">❓ オーダー番号が見当たらない</div>
+          <div class="trouble-a">以前の納品袋・同梱の再注文用紙を確認してもらう。見つからない場合は氏名・会社名で社内データを検索して対応。</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-q">❓ ロゴや写真のデータが粗い・小さい</div>
+          <div class="trouble-a">印刷に使えない場合はトレース（書き起こし）が必要。別途版代が発生することをお客様に事前説明してから進める。</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-q">❓ 校正OKと言ったのに「内容が違う」とクレーム</div>
+          <div class="trouble-a">校正の返信メール or FAXを確認。お客様確認済みの記録がある場合は、丁寧にその旨を説明。口頭のみのOKで印刷したケースは再対応が必要になる場合も。→ 必ず書面・メールでOKを受けること。</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-q">❓ 「郵送してほしい」と言われた</div>
+          <div class="trouble-a">先払いが条件。「お支払い確認後に発送いたします」と伝え、入金確認してから発送。未払いのまま発送しない。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 電話対応ルール -->
+  <div class="section">
+    <div class="section-header" style="background: var(--red);">
+      <span class="icon">📞</span> 電話対応の鉄則：必ず書面に残す
+    </div>
+    <div class="section-body">
+      <div class="alert red">
+        <span class="alert-icon">⚠️</span>
+        <span class="alert-text"><strong>電話でのやり取りだけで進めない</strong>間違いのもとになるため、内容確認・校正OK・変更指示はすべてメール・LINE・FAXで記録を残すこと。</span>
+      </div>
+      <div style="background:#f8f9fa; border-radius:8px; padding:14px; margin-top:12px; font-size:14px; line-height:1.8;">
+        <strong>📝 お客様への伝え方（そのまま使えるフレーズ）</strong><br>
+        <span style="color:var(--navy);">「口頭でのやり取りは間違いのもとになりますので、お手数ですがメール・LINE・FAXでご連絡いただけますか？」</span>
+      </div>
+      <div class="alert gold" style="margin-top:12px;">
+        <span class="alert-icon">💡</span>
+        <span class="alert-text">電話で内容を聞いた場合は、その場でメールやLINEに要点を打ち返して「この内容でよろしいですか？」と確認を取る習慣をつけること。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- まず覚えること -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">⭐</span> まず覚えること
+    </div>
+    <div class="section-body">
+      <div class="top3">
+        <div class="top3-item">
+          <div class="top3-num">1</div>
+          <div class="top3-text">
+            <div class="title">「新規かリピートか」を最初に確認する</div>
+            <div class="desc">対応フローが全然違う。これを間違えると納期や価格の説明がずれてしまう。まずこの一言から始めること。</div>
+          </div>
+        </div>
+        <div class="top3-item">
+          <div class="top3-num">2</div>
+          <div class="top3-text">
+            <div class="title">納期の約束は「3営業日以降」と伝える</div>
+            <div class="desc">新規は校正があるので日付の確約はしない。「校正のご返信後に印刷します」が正しい説明。</div>
+          </div>
+        </div>
+        <div class="top3-item">
+          <div class="top3-num">3</div>
+          <div class="top3-text">
+            <div class="title">校正OKは必ずメール・LINE・FAXで受け取る</div>
+            <div class="desc">口頭のOKだけで印刷するとトラブルのもと。「メールかLINEで返信いただけますか？」と必ず確認する。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 再注文フォームリンク -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔗</span> よく使うリンク
+    </div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr>
+          <th>再注文フォーム</th>
+          <td><a href="https://besta-order.com/bizcard/a/order.html" style="color:#2980b9;">besta-order.com/bizcard/a/order.html</a></td>
+        </tr>
+        <tr>
+          <th>名刺ページ</th>
+          <td><a href="https://besta-web.com/02_print/02_meishi/index.html" style="color:#2980b9;">besta-web.com 名刺印刷ページ</a></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ</th>
+          <td><a href="https://besta-web.com/06_query/index.html" style="color:#2980b9;">besta-web.com お問い合わせ</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  株式会社ベスタ スタッフガイド｜名刺印刷マニュアル<br>
+  TEL：0797-91-5225　平日 10:00〜18:00
+</footer>
+
+</body>
+</html>
