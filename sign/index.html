@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ベスタbot（制作中）｜サイン・看板 教育ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
+.site-header { background: #1a1a2e; color: #fff; padding: 20px 16px 16px; text-align: center; }
+.site-brand { font-size: 1.35rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
+.breadcrumb { background: transparent; padding: 0; margin-bottom: 6px; font-size: 0.78rem; color: #888; text-align: center; }
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.breadcrumb a:hover { color: #fff; }
+.page-nav { background: #16213e; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 8px 12px; position: sticky; top: 0; z-index: 100; }
+.page-nav a { color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; transition: background 0.2s; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
+main { max-width: 960px; margin: 0 auto; padding: 16px; }
+section { margin-bottom: 24px; }
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.section-title { font-size: 1.2rem; font-weight: 700; color: #1a1a2e; border-left: 4px solid #e94560; padding-left: 10px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.card-title { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+p { font-size: 0.92rem; margin-bottom: 10px; }
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.danger { background: #fff3f3; border-left: 4px solid #e94560; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.photo-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.07); border: 1px solid #eee; }
+.photo-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #eee; image-rendering: auto; }
+.photo-body { padding: 12px; }
+.photo-title { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+.photo-name { font-size: 0.76rem; color: #777; margin-bottom: 8px; }
+.photo-body p { font-size: 0.84rem; line-height: 1.65; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.tag { display: inline-block; background: #e8f5e9; color: #2e7d32; font-size: 0.7rem; font-weight: 700; padding: 1px 7px; border-radius: 12px; }
+.tag.blue { background: #e3f2fd; color: #1565c0; }
+.tag.red { background: #fce4ec; color: #c62828; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; white-space: nowrap; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+.question-list { list-style: none; padding: 0; counter-reset: q; }
+.question-list li { counter-increment: q; padding: 8px 8px 8px 40px; position: relative; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.question-list li::before { content: counter(q); position: absolute; left: 6px; top: 9px; background: #e94560; color: #fff; font-size: 0.8rem; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.script { background: #f6f6fb; border: 1px solid #e4e4ee; border-radius: 8px; padding: 12px 14px; font-size: 0.88rem; margin: 8px 0 14px; }
+.bot { background: #e3f2fd; border-left: 4px solid #1565c0; border-radius: 0 8px 8px 0; padding: 12px 14px; margin: 10px 0; font-size: 0.86rem; }
+.mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.mini-card { background: #fff; border: 1px solid #e8e8ee; border-radius: 8px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.mini-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; margin-bottom: 9px; background: #eee; image-rendering: auto; }
+.mini-title { font-size: 0.92rem; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.mini-card p { font-size: 0.82rem; line-height: 1.65; margin-bottom: 6px; }
+.machine-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+.machine-card { background: #fff; border: 1px solid #e8e8ee; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.machine-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: #eee; image-rendering: auto; }
+.machine-body { padding: 14px; }
+.machine-name { font-size: 0.98rem; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+.machine-body ul { padding-left: 18px; font-size: 0.84rem; line-height: 1.7; }
+.process-table td:first-child { font-weight: 700; color: #1a1a2e; white-space: nowrap; }
+.flow { color: #555; }
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; margin-top: 20px; }
+@media (max-width: 480px) {
+  .site-brand { font-size: 1.08rem; }
+  .section-title { font-size: 1rem; }
+  th, td { font-size: 0.78rem; padding: 7px 6px; }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> › ベスタbot（制作中）</div>
+  <div class="site-brand">🤖 <span>ベスタbot</span>（制作中）</div>
+  <div class="header-sub">サイン・看板の聞き分け、制作事例、機械設備、作り方を学ぶスタッフ用ページ</div>
+</header>
+<nav class="page-nav">
+  <a href="#rule">考え方</a>
+  <a href="#photos">写真で選ぶ</a>
+  <a href="#cases">制作事例</a>
+  <a href="#machines">設備</a>
+  <a href="#process">作り方</a>
+  <a href="#words">曖昧語</a>
+  <a href="#questions">聞くこと</a>
+  <a href="#reply">返答例</a>
+  <a href="#bot">botに聞く</a>
+</nav>
+<main>
+  <section id="rule">
+    <div class="section-title">✅ 最初に守るルール</div>
+    <div class="card">
+      <p>お客様の「シール」「看板」「プレート」は、正しい商品名とは限りません。スタッフも最初から分類できなくてOKです。</p>
+      <div class="alert warn"><strong>基本方針:</strong> 商品名を決めつけず、写真で近いものを確認してから用途を聞く。</div>
+      <div class="alert danger"><strong>禁止:</strong> 金額・納期を電話で即答しない。商品名を決めつけて見積に進まない。</div>
+      <div class="alert info"><strong>ゴール:</strong> スタッフが詳しくなることではなく、正しく聞いて、ベスタbotへ投げられること。</div>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="section-title">📷 写真で選ぶサイン図鑑</div>
+    <div class="photo-grid">
+      <article class="photo-card">
+        <img src="https://www.besta-web.com/03_kanban/02_kanban_chu/ziturei/20240529_hiromoto/image/001.jpg" alt="屋外で使う板の看板">
+        <div class="photo-body">
+          <div class="photo-title">屋外で使う板の看板</div>
+          <div class="photo-name">アルミ複合板看板 / 塩ビシート貼り</div>
+          <p>外壁、フェンス、工場、駐車場などに設置する板状の看板。設置方法の確認が必要。</p>
+          <div class="tags"><span class="tag">屋外</span><span class="tag blue">板もの</span><span class="tag red">施工確認</span></div>
+        </div>
+      </article>
+      <article class="photo-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20160112_dump/image/001.jpg" alt="ガラスや車に貼る文字シール">
+        <div class="photo-body">
+          <div class="photo-title">ガラスや車に貼る文字シール</div>
+          <div class="photo-name">カッティングシート / 切り文字</div>
+          <p>文字やロゴの形だけを切り抜いて貼る。写真やフルカラー柄とは別物。</p>
+          <div class="tags"><span class="tag">文字</span><span class="tag blue">ガラス</span><span class="tag blue">車</span></div>
+        </div>
+      </article>
+      <article class="photo-card">
+        <img src="https://www.besta-web.com/03_kanban/06_acryl_plate/ziturei/20240507_kyoto/image/001.jpg" alt="会社名や案内用のプレート">
+        <div class="photo-body">
+          <div class="photo-title">会社名や案内用のプレート</div>
+          <div class="photo-name">アクリルプレート / サインプレート</div>
+          <p>室名札、案内板、受付プレート、表示札など。厚みと取付方法を確認する。</p>
+          <div class="tags"><span class="tag">屋内</span><span class="tag blue">プレート</span><span class="tag red">取付方法</span></div>
+        </div>
+      </article>
+      <article class="photo-card">
+        <img src="https://www.besta-web.com/03_kanban/11_odanmaku/ziturei/20260403_rugby/image/001.webp" alt="店頭やイベントで使う布の販促物">
+        <div class="photo-body">
+          <div class="photo-title">店頭やイベントで使う布の販促物</div>
+          <div class="photo-name">のぼり / タペストリー / 大判出力</div>
+          <p>イベント、店頭、壁面掲示など。サイズ、屋外使用、ハトメや棒袋の確認が必要。</p>
+          <div class="tags"><span class="tag">布</span><span class="tag blue">イベント</span><span class="tag red">加工確認</span></div>
+        </div>
+      </article>
+      <article class="photo-card">
+        <img src="https://www.besta-web.com/03_kanban/10_magnet/ziturei/20240919_evergreen/image/001.jpg" alt="車に貼って外せるマグネット">
+        <div class="photo-body">
+          <div class="photo-title">車に貼って外せる看板</div>
+          <div class="photo-name">マグネットシート</div>
+          <p>営業車や軽トラックに貼る。鉄面かどうか、貼りっぱなしにするかを確認する。</p>
+          <div class="tags"><span class="tag">車</span><span class="tag blue">着脱可</span><span class="tag red">貼る面確認</span></div>
+        </div>
+      </article>
+      <article class="photo-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20130303_aliril/image/001.jpg" alt="板にシートを貼った小型サイン">
+        <div class="photo-body">
+          <div class="photo-title">板にシートを貼った小型サイン</div>
+          <div class="photo-name">アクリル板 + UVプリント</div>
+          <p>アクリル板に直接UVプリントするタイプ。小さな表示板や案内プレートに多い。</p>
+          <div class="tags"><span class="tag">小型</span><span class="tag blue">表示</span><span class="tag red">素材確認</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <section id="cases">
+    <div class="section-title">🖼️ 制作事例を多めに見る</div>
+    <div class="card">
+      <p>スタッフ教育では、正式名称よりも「どんな用途で、何に貼る・付ける・吊るすのか」を先に見ます。お客様名は覚えなくてOK。写真の種類と聞くべき条件だけを覚えます。</p>
+    </div>
+    <div class="mini-grid">
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20240126_mochan/image/001.jpg" alt="車両用カッティングステッカー">
+        <div class="mini-title">車両用フルカラーステッカー</div>
+        <p>塩ビシートにフルカラープリントして、形に合わせてカットするタイプ。貼りっぱなし用途。</p>
+        <div class="tags"><span class="tag blue">車</span><span class="tag">文字</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20251028_partager/image/001.webp" alt="店舗ウィンドウの切り文字">
+        <div class="mini-title">店舗ウィンドウの切り文字</div>
+        <p>カッティングシートを文字やロゴの形に切って貼る。内貼り・外貼り、ガラスの色、貼る位置を確認。</p>
+        <div class="tags"><span class="tag blue">ガラス</span><span class="tag">店舗</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20200818_hibari/image/S__11730947.jpg" alt="ガラス面の切り文字">
+        <div class="mini-title">ガラス面の案内表示</div>
+        <p>カッティングシートで施設名・注意書き・入口表示などを貼る。白文字、黒文字、すりガラス調など見え方の確認が必要。</p>
+        <div class="tags"><span class="tag blue">ガラス</span><span class="tag red">視認性</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20200615_huzimoto/image/S__10231820.jpg" alt="案内板">
+        <div class="mini-title">案内板・表示板</div>
+        <p>ステンレス板にカッティングシートを貼り付けるタイプ。素材、サイズ、屋内外、ビス止めか両面テープかを確認。</p>
+        <div class="tags"><span class="tag blue">板もの</span><span class="tag red">取付</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/06_acryl_plate/ziturei/20200909_teiken/image/001.jpg" alt="アクリルプレート">
+        <div class="mini-title">アクリルプレート</div>
+        <p>アクリルプレートにUVプリントするタイプ。受付・室名札・許可票などに多く、透明、白、黒、厚みを確認。</p>
+        <div class="tags"><span class="tag">屋内</span><span class="tag blue">プレート</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/06_acryl_plate/ziturei/20230529_bohan/image/S__8814598.jpg" alt="防犯や注意喚起のプレート">
+        <div class="mini-title">注意喚起・表示プレート</div>
+        <p>アクリルプレートにUVプリントするタイプ。防犯、案内、禁止表示など。屋外なら耐候性、穴あけ、角丸を確認。</p>
+        <div class="tags"><span class="tag red">屋外確認</span><span class="tag blue">表示</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/02_kanban_chu/ziturei/20231016_next/image/S__11305000_0.jpg" alt="アルミ複合板看板">
+        <div class="mini-title">アルミ複合板看板</div>
+        <p>屋外看板の定番。軽くて丈夫。サイズ、設置場所、穴あけ、施工の有無で見積条件が変わる。</p>
+        <div class="tags"><span class="tag">屋外</span><span class="tag blue">看板</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/10_magnet/ziturei/20210804_world/image/S__20693031.jpg" alt="車両用マグネット">
+        <div class="mini-title">車両用マグネット</div>
+        <p>マグネットシートに塩ビシートを貼り付けるタイプ。貼る面が鉄か、曲面が強くないか確認。</p>
+        <div class="tags"><span class="tag blue">車</span><span class="tag">着脱可</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/10_magnet/ziturei/20130228_whiteboard/image/001.jpg" alt="ホワイトボード用マグネット">
+        <div class="mini-title">ホワイトボード用マグネット</div>
+        <p>繰り返し貼る・外す用途。書いて消す用途か、通常マグネットかを分けて確認。</p>
+        <div class="tags"><span class="tag">屋内</span><span class="tag blue">マグネット</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/04_nobori/ziturei/20240819_nijiren_odan/image/001.jpg" alt="横断幕">
+        <div class="mini-title">横断幕</div>
+        <p>イベントや応援幕。サイズ、屋外、ハトメ、ロープ、取り付ける場所を確認。</p>
+        <div class="tags"><span class="tag blue">幕</span><span class="tag red">加工</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/04_nobori/ziturei/20250818_crea/image/001.webp" alt="のぼり">
+        <div class="mini-title">のぼり</div>
+        <p>店頭・イベントの目印。枚数、サイズ、ポール・注水台の有無、屋外使用を確認。</p>
+        <div class="tags"><span class="tag blue">布</span><span class="tag">販促</span></div>
+      </article>
+      <article class="mini-card">
+        <img src="https://www.besta-web.com/03_kanban/05_led_acryl/ziturei/20211124_cafe/image/S__22503436.jpg" alt="LEDアクリル看板">
+        <div class="mini-title">LEDアクリルサイン</div>
+        <p>光らせる看板。電源、屋内外、設置場所、明るさ、点灯時間の確認が必要。</p>
+        <div class="tags"><span class="tag red">電源</span><span class="tag blue">光る</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="machines">
+    <div class="section-title">⚙️ 制作する機械設備を知る</div>
+    <div class="machine-grid">
+      <article class="machine-card">
+        <img src="https://www.besta-web.com/03_kanban/image/uv_001.jpg" alt="UVプリンター">
+        <div class="machine-body">
+          <div class="machine-name">UVプリンター</div>
+          <ul>
+            <li>紫外線でインクをすぐ硬化させ、アクリルなどの平面素材へ直接印刷する。</li>
+            <li>アクリルプレート、案内板、許可票、小型サインに向く。</li>
+            <li>厚み・素材・印刷面が平らかどうかを確認する。</li>
+          </ul>
+        </div>
+      </article>
+      <article class="machine-card">
+        <img src="https://www.besta-web.com/03_kanban/image/oban_ink.jpg" alt="大判インクジェットプリンター">
+        <div class="machine-body">
+          <div class="machine-name">大判インクジェットプリンター</div>
+          <ul>
+            <li>塩ビシートなどへ大きく印刷する機械。写真・フルカラー看板に使う。</li>
+            <li>屋外ステッカー、アルミ複合板看板、ポスター、大判出力の入口になる。</li>
+            <li>サイズ、屋外使用、貼る素材、色数ではなくフルカラーかを確認する。</li>
+          </ul>
+        </div>
+      </article>
+      <article class="machine-card">
+        <img src="https://www.besta-web.com/03_kanban/image/oban_rami.jpg" alt="大判ラミネーター">
+        <div class="machine-body">
+          <div class="machine-name">大判ラミネーター</div>
+          <ul>
+            <li>印刷したシートの表面を保護する透明フィルムを貼る。</li>
+            <li>屋外看板、車両ステッカー、マグネットなどの耐候性を上げる。</li>
+            <li>つやあり、つやなし、長期使用か短期使用かを確認する。</li>
+          </ul>
+        </div>
+      </article>
+      <article class="machine-card">
+        <img src="https://www.besta-web.com/03_kanban/03_cutting/ziturei/20200818_hibari/image/S__11730947.jpg" alt="カッティングシート加工">
+        <div class="machine-body">
+          <div class="machine-name">カッティングプロッター</div>
+          <ul>
+            <li>色付きシートを文字やロゴの形に切る。写真印刷とは別の作り方。</li>
+            <li>ガラス文字、車名入れ、入口表示、注意表示に使う。</li>
+            <li>細かすぎる文字、グラデーション、写真は苦手。データの形が重要。</li>
+          </ul>
+        </div>
+      </article>
+      <article class="machine-card">
+        <img src="https://www.besta-web.com/03_kanban/image/oban_003.jpg" alt="のぼりと横断幕">
+        <div class="machine-body">
+          <div class="machine-name">のぼり・横断幕の出力加工</div>
+          <ul>
+            <li>布や幕素材へ印刷し、ハトメ、棒袋、ロープなどの加工を行う。</li>
+            <li>店頭販促、イベント、応援幕、壁面掲示に使う。</li>
+            <li>設置方法を聞かないと、必要な加工や付属品が決められない。</li>
+          </ul>
+        </div>
+      </article>
+      <article class="machine-card">
+        <img src="https://www.besta-web.com/03_kanban/10_magnet/ziturei/20210804_world/image/S__20693033.jpg" alt="マグネットシート加工">
+        <div class="machine-body">
+          <div class="machine-name">マグネットシート加工</div>
+          <ul>
+            <li>印刷シートをマグネットへ貼り、必要な形にカットする。</li>
+            <li>営業車、仮設表示、ホワイトボード用の表示に使う。</li>
+            <li>車に使う場合は、貼る面が磁石につくかを必ず確認する。</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-title">🛠️ 商品の作り方をざっくり知る</div>
+    <div class="card">
+      <p>スタッフは職人レベルまで覚えなくてOKです。ただし、作り方を少し知ると「なぜ確認が必要か」が分かります。</p>
+      <table class="process-table">
+        <tr><th>商品</th><th>ざっくりした流れ</th><th>見積前に大事な確認</th></tr>
+        <tr>
+          <td>アルミ複合板看板</td>
+          <td class="flow">デザイン作成 → 塩ビシートに印刷 → ラミネート → 板に貼る → カット・穴あけ → 納品または施工</td>
+          <td>サイズ、屋外、取付場所、穴あけ、施工の有無。</td>
+        </tr>
+        <tr>
+          <td>カッティングシート</td>
+          <td class="flow">データ作成 → シートを機械でカット → 不要部分を剥がす → 転写シートを貼る → 貼付または納品</td>
+          <td>貼る場所、色、文字サイズ、細かさ、内貼り・外貼り。</td>
+        </tr>
+        <tr>
+          <td>アクリルプレート</td>
+          <td class="flow">素材選定 → デザイン作成 → UV印刷またはシート貼り → カット・穴あけ → 金具や両面テープ準備</td>
+          <td>透明/白/黒、厚み、屋内外、取付方法。</td>
+        </tr>
+        <tr>
+          <td>のぼり・横断幕</td>
+          <td class="flow">サイズと生地を決める → データ作成 → 出力 → ハトメ・棒袋など加工 → 付属品確認</td>
+          <td>屋外、設置方法、ハトメ位置、ポールやロープの有無。</td>
+        </tr>
+        <tr>
+          <td>マグネットシート</td>
+          <td class="flow">デザイン作成 → 印刷 → ラミネート → マグネットへ貼る → カット → 使用面の確認</td>
+          <td>貼る面が鉄か、車両用か、サイズ、貼りっぱなしにするか。</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="words">
+    <div class="section-title">🔁 お客様の曖昧語を翻訳する</div>
+    <div class="card">
+      <table>
+        <tr><th>お客様の言葉</th><th>候補</th><th>最初に聞くこと</th></tr>
+        <tr><td>シール</td><td>カッティングシート、ステッカー、看板用シート、マグネット</td><td>どこに貼るか。文字だけか、写真・フルカラーか。何枚必要か。</td></tr>
+        <tr><td>看板</td><td>アルミ複合板、アクリルプレート、横断幕、のぼり、マグネット</td><td>どこに設置するか。屋内/屋外。板か布か、貼るだけか。</td></tr>
+        <tr><td>プレート</td><td>アクリルプレート、表札、案内板、許可票、アルミ複合板</td><td>サイズ、厚み、取付方法、屋内/屋外、表示内容。</td></tr>
+        <tr><td>幕</td><td>横断幕、タペストリー、のぼり、大判出力</td><td>吊るす場所、サイズ、ハトメ・棒袋、屋外使用か。</td></tr>
+        <tr><td>車に貼るやつ</td><td>カッティングシート、マグネットシート、ステッカー</td><td>貼りっぱなしにするか、外せるようにするか。貼る車の面。</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="section-title">❓ まず聞くこと</div>
+    <div class="card">
+      <ol class="question-list">
+        <li>どこに使いますか？ 店舗、車、窓、壁、屋外、イベントなど。</li>
+        <li>屋内ですか、屋外ですか？</li>
+        <li>一時的ですか、長期使用ですか？</li>
+        <li>貼る面・取り付ける面は何ですか？ ガラス、壁、車、鉄、看板、商品、紙など。</li>
+        <li>サイズはどれくらいですか？ 縦横の目安でOK。</li>
+        <li>何枚、何個、何本必要ですか？</li>
+        <li>文字だけですか、ロゴや写真、フルカラーがありますか？</li>
+        <li>データはありますか？ イラストレーター、PDF、画像、手書きなど。</li>
+        <li>自分で貼りますか、施工も必要ですか？</li>
+        <li>希望納期はいつですか？ 使用日が決まっているか確認する。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="reply">
+    <div class="section-title">💬 お客様への返答例</div>
+    <div class="card">
+      <div class="card-title">「シールを作りたい」と言われた時</div>
+      <div class="script">「シール」といっても、商品に貼るステッカー、窓ガラスに貼る文字、看板用のシート、車に貼るマグネットなど種類が分かれます。まず、どこに貼る用途か教えていただけますか？</div>
+      <div class="card-title">「看板はいくら？」と言われた時</div>
+      <div class="script">看板は、使う場所、サイズ、素材、取付方法、データの有無で金額が大きく変わります。お電話口では正確に判断しにくいため、設置場所・サイズ・使用目的をフォームからお送りください。</div>
+      <div class="card-title">写真で確認する時</div>
+      <div class="script">この中だと、どの写真に一番近いですか？ 近いものが分かれば、必要な確認項目を絞ってご案内できます。</div>
+    </div>
+  </section>
+
+  <section id="bot">
+    <div class="section-title">🤖 ベスタbot（制作中）に聞く文</div>
+    <div class="card">
+      <p>スタッフは判断しきらなくてよい。分かった条件だけをbotに投げる。</p>
+      <div class="bot">お客さんが「シールを作りたい」と言っています。分かっている条件は、貼る場所: 〇〇、屋内/屋外: 〇〇、サイズ: 〇〇、枚数: 〇〇、データ: 〇〇です。商品候補と、次に確認すること、お客様への返答例を出してください。</div>
+      <div class="bot">お客さんが「看板はいくら？」と電話で聞いてきました。まだサイズと設置場所が不明です。即答せずフォームへ誘導する短い返答文を作ってください。</div>
+      <div class="bot">写真で見ると「カッティングシート」に近そうです。屋外ガラスに文字を貼りたい、サイズは横900mmくらい、色は白、枚数1枚。見積前に不足している確認項目を教えてください。</div>
+    </div>
+  </section>
+</main>
+<footer>&copy; 2025 株式会社ベスタ ／ ベスタbot（制作中）社内スタッフ向け資料</footer>
+</body>
+</html>
