@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公開用サンプル | 小さな会社のスタッフ確認マニュアル</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: #2d2f33;
+      background: #f4f1ea;
+      line-height: 1.75;
+    }
+
+    header {
+      background: #263238;
+      color: #fff;
+      padding: 28px 18px 22px;
+    }
+
+    .header-inner,
+    main {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #e7f0ed;
+      color: #245247;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    header .label {
+      background: rgba(255,255,255,0.16);
+      color: #dfeee9;
+    }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-size: clamp(1.55rem, 4vw, 2.45rem);
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: #d8e2df;
+      font-size: 0.98rem;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      border-bottom: 1px solid #ddd8cc;
+    }
+
+    .nav-inner {
+      width: min(960px, calc(100% - 32px));
+      min-height: 48px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    nav a {
+      flex: 0 0 auto;
+      color: #37474f;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      background: #edf4f1;
+    }
+
+    main {
+      padding: 22px 0 36px;
+    }
+
+    section {
+      background: #fff;
+      border: 1px solid #e1dccc;
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding-left: 12px;
+      border-left: 4px solid #2f7d68;
+      font-size: 1.22rem;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid #b98d2d;
+      border-radius: 0 8px 8px 0;
+      background: #fff7e6;
+      font-size: 0.92rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .mini-card {
+      min-height: 132px;
+      padding: 16px;
+      border: 1px solid #d7e3df;
+      border-radius: 8px;
+      background: #f8fbfa;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #245247;
+      font-size: 0.96rem;
+    }
+
+    .mini-card span {
+      display: block;
+      color: #5f6669;
+      font-size: 0.88rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      overflow: hidden;
+      border: 1px solid #dde3df;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #dde3df;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    th {
+      width: 30%;
+      background: #edf4f1;
+      color: #245247;
+      font-weight: 700;
+    }
+
+    .flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid #dde3df;
+      border-radius: 8px;
+      background: #fbfcfb;
+    }
+
+    .number {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #2f7d68;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .flow-step span {
+      color: #5f6669;
+      font-size: 0.9rem;
+    }
+
+    .sample-reply {
+      padding: 16px;
+      border-radius: 8px;
+      background: #f5f6f4;
+      border: 1px solid #deded8;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      padding: 22px 16px 32px;
+      color: #777;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      table,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      th {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <span class="label">公開用サンプル</span>
+      <h1>小さな会社のスタッフ確認マニュアル</h1>
+      <p class="lead">社長の頭の中にあった判断基準を、AIに相談しながらWebページとして整理したサンプルです。実際の社内情報は含めず、公開用に内容を簡略化しています。</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#purpose">目的</a>
+      <a href="#check">確認項目</a>
+      <a href="#flow">判断フロー</a>
+      <a href="#reply">返信例</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="purpose">
+      <h2>このページの目的</h2>
+      <p>スタッフが毎回社長に確認しなくても、まず何を見ればよいか分かるようにするためのページです。</p>
+      <p>以前は、仕事の手順が多すぎて、きれいなマニュアルを作る余裕がありませんでした。「見て覚えて」「やって覚えて」「分からなかったら聞いて」と言うしかない場面も多くありました。</p>
+      <p>今はAIに相談しながら、問い合わせ対応、見積前確認、社長確認が必要なケースを少しずつ文章にできます。それをWebページにしておけば、スタッフが同じ判断基準を見られます。</p>
+      <div class="note">これは実際の社内マニュアルではなく、note掲載用に作った公開サンプルです。顧客名、スタッフ名、原価、外注先、社内パスワードなどは含めていません。</div>
+    </section>
+
+    <section id="check">
+      <h2>問い合わせ時に先に確認すること</h2>
+      <div class="grid">
+        <div class="mini-card">
+          <strong>数量</strong>
+          <span>何個、何枚、何セット必要か。数量で価格も納期も大きく変わります。</span>
+        </div>
+        <div class="mini-card">
+          <strong>希望納期</strong>
+          <span>いつ必要か。急ぎの場合は、通常対応ではなく社長確認に回します。</span>
+        </div>
+        <div class="mini-card">
+          <strong>データの有無</strong>
+          <span>入稿データがあるのか、こちらで作成するのかを分けて確認します。</span>
+        </div>
+        <div class="mini-card">
+          <strong>仕様</strong>
+          <span>サイズ、色数、素材、加工内容など。曖昧なまま金額を約束しません。</span>
+        </div>
+        <div class="mini-card">
+          <strong>発注前提か</strong>
+          <span>正式な相談なのか、相見積もり目的なのかで対応の深さを変えます。</span>
+        </div>
+        <div class="mini-card">
+          <strong>記録に残す</strong>
+          <span>金額、納期、仕様は口頭だけで約束せず、メールやフォームで残します。</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <h2>社長確認に回す判断フロー</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="number">1</div>
+          <div>
+            <strong>必要条件は揃っているか</strong>
+            <span>数量、納期、仕様、データ有無が不足している場合は、先に追加確認します。</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="number">2</div>
+          <div>
+            <strong>標準対応で判断できるか</strong>
+            <span>通常納期、通常仕様、過去に似た案件がある場合は、標準テンプレで返答します。</span>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="number">3</div>
+          <div>
+            <strong>例外やリスクがあるか</strong>
+            <span>短納期、高額案件、追加費用、クレーム、仕様不明、例外値引きは社長確認にします。</span>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <tr>
+          <th>標準対応</th>
+          <td>条件が揃っていて、通常納期・通常仕様で進められる相談。</td>
+        </tr>
+        <tr>
+          <th>追加確認</th>
+          <td>数量、納期、データ、仕様など、見積に必要な情報が足りない相談。</td>
+        </tr>
+        <tr>
+          <th>社長確認</th>
+          <td>短納期、高額、クレーム、例外対応、追加費用説明など、判断ミスがトラブルになりやすい相談。</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="reply">
+      <h2>公開用の返信文サンプル</h2>
+      <p>お客様にそのまま使う文章ではなく、スタッフが考え方を揃えるためのたたき台です。</p>
+      <div class="sample-reply">
+        正確な確認のため、数量、希望納期、データの有無、仕様を先にお知らせください。内容を確認したうえで、対応可否と概算または正式見積の流れをご案内いたします。<br><br>
+        仕様が未確定の場合は、現時点では正確な金額をお伝えできません。必要条件が揃い次第、改めて確認いたします。
+      </div>
+      <div class="note">AIは、文章を整えるだけでなく、「どの条件が足りないと判断できないのか」を洗い出す相手として使えます。</div>
+    </section>
+  </main>
+
+  <footer>
+    株式会社ベスタ | AIで作るスタッフ確認マニュアル 公開用サンプル
+  </footer>
+</body>
+</html>
