@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>印刷用雛形｜社長確認の前にまとめること</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #222; line-height: 1.6; }
+header { background: #1a1a2e; color: #fff; padding: 18px 16px; text-align: center; }
+header a { color: #ccc; text-decoration: none; font-size: 0.8rem; }
+h1 { font-size: 1.25rem; margin-top: 4px; }
+main { max-width: 900px; margin: 0 auto; padding: 16px; }
+.toolbar { background: #fff; border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+button { background: #e94560; color: #fff; border: none; border-radius: 6px; padding: 10px 16px; font-family: inherit; font-weight: 700; cursor: pointer; }
+.sheet { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-after: always; }
+.sheet:last-child { page-break-after: auto; }
+h2 { font-size: 1.1rem; color: #1a1a2e; border-bottom: 2px solid #1a1a2e; padding-bottom: 6px; margin-bottom: 12px; }
+h3 { font-size: 0.95rem; margin: 12px 0 6px; color: #1a1a2e; }
+p, li { font-size: 0.9rem; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.field { border: 1px solid #bbb; min-height: 38px; padding: 6px 8px; font-size: 0.82rem; }
+.field.large { min-height: 86px; }
+.field.xlarge { min-height: 120px; }
+.label { display: block; font-weight: 700; color: #333; margin-bottom: 2px; }
+.checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 12px; margin: 8px 0; }
+.check { border-bottom: 1px solid #ccc; min-height: 28px; padding: 3px 0; font-size: 0.86rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 8px; }
+th, td { border: 1px solid #999; padding: 7px; vertical-align: top; }
+th { background: #eee; }
+.note { font-size: 0.8rem; color: #555; margin-top: 8px; }
+@media print {
+  body { background: #fff; }
+  header, .toolbar { display: none; }
+  main { max-width: none; padding: 0; }
+  .sheet { border: none; border-radius: 0; box-shadow: none; margin: 0; padding: 8mm; }
+}
+@media (max-width: 640px) {
+  .grid, .checks { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="./">社長確認の前にまとめることへ戻る</a>
+  <h1>印刷用雛形</h1>
+</header>
+<main>
+  <div class="toolbar">
+    <p>必要なページだけ印刷して、店頭や電話横で使ってください。</p>
+    <button onclick="window.print()">印刷する</button>
+  </div>
+
+  <section class="sheet">
+    <h2>1. 受付メモ</h2>
+    <div class="grid">
+      <div class="field"><span class="label">受付日・担当</span></div>
+      <div class="field"><span class="label">お客様名</span></div>
+      <div class="field"><span class="label">商品・作りたいもの</span></div>
+      <div class="field"><span class="label">数量</span></div>
+      <div class="field"><span class="label">希望納期</span></div>
+      <div class="field"><span class="label">使用日</span></div>
+      <div class="field"><span class="label">予算感</span></div>
+      <div class="field"><span class="label">納品先</span></div>
+      <div class="field"><span class="label">データ</span>あり・なし・不明</div>
+      <div class="field"><span class="label">前回注文</span>あり・なし・不明</div>
+    </div>
+    <div class="field large" style="margin-top:10px;"><span class="label">相談内容</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">足りない情報・次に確認すること</span></div>
+  </section>
+
+  <section class="sheet">
+    <h2>2. 社長確認シート</h2>
+    <div class="grid">
+      <div class="field"><span class="label">お客様名</span></div>
+      <div class="field"><span class="label">担当</span></div>
+    </div>
+    <div class="field large" style="margin-top:10px;"><span class="label">内容</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">現時点で分かっていること</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">足りない情報</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">自分の案</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">そう考えた理由</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">不安な点</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">確認してほしい点</span></div>
+  </section>
+
+  <section class="sheet">
+    <h2>3. A/B/C判断メモ</h2>
+    <table>
+      <tr><th>区分</th><th>判断の目安</th><th>対応</th></tr>
+      <tr><td>A</td><td>定番、前回と同じ、金額が小さい、納期に余裕がある</td><td>必要に応じて一言報告して進める</td></tr>
+      <tr><td>B</td><td>初めての仕様、価格表にない、外注、データ不明、追加費用で迷う</td><td>自分の案と不安点を添えて相談する</td></tr>
+      <tr><td>C</td><td>クレーム、返金、補償、無料対応、高額、短納期、言った言わないになりそう</td><td>その場で約束せず社長へ上げる</td></tr>
+    </table>
+    <div class="field large" style="margin-top:10px;"><span class="label">今回の案件は A / B / C のどれか。理由は何か</span></div>
+    <p class="note">C案件で使う言葉：「内容を確認のうえ、責任者よりご連絡いたします。」</p>
+  </section>
+
+  <section class="sheet">
+    <h2>4. お客様に出す前チェック</h2>
+    <div class="checks">
+      <div class="check">□ お客様が次に何をすればよいか分かる</div>
+      <div class="check">□ 金額・納期・数量が分かる</div>
+      <div class="check">□ 返信してほしい内容が分かる</div>
+      <div class="check">□ 校了後の変更について書いている</div>
+      <div class="check">□ データ作成費・送料・追加費用を書いている</div>
+      <div class="check">□ 無料対応や値引きを約束していない</div>
+      <div class="check">□ 文章が失礼・雑・長すぎになっていない</div>
+      <div class="check">□ 社長に見てほしい点を絞れている</div>
+    </div>
+    <div class="field large"><span class="label">確認してほしい点</span></div>
+  </section>
+
+  <section class="sheet">
+    <h2>5. クレーム・不具合メモ</h2>
+    <div class="grid">
+      <div class="field"><span class="label">お客様名</span></div>
+      <div class="field"><span class="label">案件名</span></div>
+      <div class="field"><span class="label">納品日</span></div>
+      <div class="field"><span class="label">使用予定日</span></div>
+      <div class="field"><span class="label">写真・現物</span>あり・なし・依頼中</div>
+      <div class="field"><span class="label">急ぎ度</span>高・中・低</div>
+    </div>
+    <div class="field xlarge" style="margin-top:10px;"><span class="label">何が問題か・いつ気づいたか</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">お客様の希望</span></div>
+    <p class="note">言わない言葉：「すぐ作り直します」「返金します」「無料で対応します」「こちらのミスです」</p>
+  </section>
+
+  <section class="sheet">
+    <h2>6. 人が少ない時の受付メモ</h2>
+    <p>その場で全部解決しない。受付して、記録して、後で返す。</p>
+    <div class="checks">
+      <div class="check">□ お客様を放置していない</div>
+      <div class="check">□ 必要な情報を預かった</div>
+      <div class="check">□ 納期を確約していない</div>
+      <div class="check">□ 無料対応を約束していない</div>
+      <div class="check">□ 担当者確認後に返すと伝えた</div>
+      <div class="check">□ 折り返し方法を確認した</div>
+    </div>
+    <div class="field large"><span class="label">お客様へ伝えたこと</span></div>
+    <div class="field large" style="margin-top:10px;"><span class="label">後で対応すること</span></div>
+  </section>
+</main>
+</body>
+</html>
