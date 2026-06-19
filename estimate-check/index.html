@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>見積もり前チェックリスト｜株式会社ベスタ スタッフガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
+.site-header { background: #1a1a2e; color: #fff; padding: 20px 16px 16px; text-align: center; }
+.site-brand { font-size: 1.35rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
+.breadcrumb { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.page-nav { background: #16213e; display: flex; gap: 4px; padding: 8px 12px; overflow-x: auto; position: sticky; top: 0; z-index: 100; }
+.page-nav a { flex: 0 0 auto; color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
+main { max-width: 920px; margin: 0 auto; padding: 16px; }
+section { margin-bottom: 24px; scroll-margin-top: 58px; }
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.section-title { font-size: 1.2rem; color: #1a1a2e; border-left: 4px solid #e94560; padding-left: 10px; margin: 0 0 14px; }
+.card-title { font-size: 1rem; color: #1a1a2e; margin: 18px 0 8px; }
+p { margin: 0 0 10px; font-size: 0.94rem; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 6px; font-size: 0.92rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+.check-col { width: 58px; text-align: center; }
+input[type="checkbox"] { width: 20px; height: 20px; accent-color: #e94560; cursor: pointer; }
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.bad { background: #fff3f3; border-left: 4px solid #e94560; }
+.alert strong { display: block; margin-bottom: 4px; color: #1a1a2e; }
+.template { background: #f7f9ff; border: 1px solid #dfe5ff; border-radius: 8px; padding: 14px 16px; font-size: 0.9rem; }
+.action-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+button, .button-link { border: 0; border-radius: 7px; padding: 10px 14px; font: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: none; }
+.primary { background: #e94560; color: #fff; }
+.secondary { background: #e8ebf3; color: #1a1a2e; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.summary div { padding: 12px; border-radius: 8px; background: #f8f8f8; border-top: 4px solid #999; }
+.summary strong { display: block; color: #1a1a2e; }
+.summary .ok { border-color: #43a047; }
+.summary .wait { border-color: #f9a825; }
+.summary .ask { border-color: #e94560; }
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; }
+@media (max-width: 700px) {
+  .summary { grid-template-columns: 1fr; }
+  .card { padding: 16px 12px; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 8px 6px; }
+  .check-col { width: 44px; }
+}
+@media print {
+  body { background: #fff; }
+  .site-header, .page-nav, .action-bar, footer { display: none; }
+  main { max-width: none; padding: 0; }
+  .card { box-shadow: none; border: 1px solid #bbb; break-inside: avoid; }
+  section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> › 見積もり前チェックリスト</div>
+  <div class="site-brand">🧾 <span>見積もり前</span>チェックリスト</div>
+  <div class="header-sub">株式会社ベスタ スタッフ研修テキスト｜条件をそろえてから金額・納期を判断する</div>
+</header>
+
+<nav class="page-nav">
+  <a href="#rule">基本ルール</a>
+  <a href="#common">共通項目</a>
+  <a href="#tshirt">ウェア</a>
+  <a href="#disaster">防災</a>
+  <a href="#print">印刷物</a>
+  <a href="#sign">看板</a>
+  <a href="#estimate-type">概算と正式見積</a>
+  <a href="#delivery">納期</a>
+  <a href="#president">社長確認</a>
+</nav>
+
+<main>
+  <section id="rule">
+    <h2 class="section-title">最初に確認すること</h2>
+    <div class="card">
+      <p>このチェックリストは、お客様を断るためのものではありません。見積もりに必要な条件をそろえ、発注を考えているお客様へ、正確で早い案内をするためのものです。</p>
+      <div class="alert info">
+        <strong>基本ルール</strong>
+        情報が不足している時は、すぐ金額を出さず、先に確認します。分からない項目は勝手に補わず「未確認」として残します。
+      </div>
+      <div class="summary">
+        <div class="ok"><strong>条件がそろった</strong>通常案件なら見積もり作成へ進む。</div>
+        <div class="wait"><strong>情報が不足</strong>不足項目をお客様へ確認する。</div>
+        <div class="ask"><strong>例外・リスクあり</strong>整理してから社長へ確認する。</div>
+      </div>
+      <div class="action-bar">
+        <button class="primary" type="button" onclick="window.print()">印刷する</button>
+        <button class="secondary" type="button" onclick="resetChecks()">チェックをすべて外す</button>
+        <a class="button-link secondary" href="../staff-confirm/">社長確認のまとめ方へ</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="common">
+    <h2 class="section-title">1．すべての見積もりに共通する確認項目</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>確認項目</th><th>確認する内容</th><th class="check-col">確認</th></tr></thead>
+        <tbody>
+          <tr><td>作りたいもの</td><td>Tシャツ、印刷物、防災グッズ、看板、ステッカーなど</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>数量</td><td>何個、何枚、何部必要か。サイズ別などの内訳も確認</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>希望納期・使用日</td><td>いつまでに必要か。実際に使う日はいつか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>予算感</td><td>全体予算、1個あたりの予算、まず相場を知りたいのか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>データの有無</td><td>ロゴ、画像、PDF、Illustratorデータ、前回データなどがあるか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>データの状態</td><td>そのまま使えるか、修正・作成・画像の確認が必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>名入れ内容</td><td>会社名、個人名、ロゴ、文字内容、番号など</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>納品方法・場所</td><td>店頭受取、発送、配達。納品先は1か所か複数か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>相談の段階</td><td>正式発注を検討中か、概算・比較検討の段階か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>支払い条件</td><td>店頭支払い、振込、請求書対応など</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>校正確認</td><td>仕上がりイメージや文字内容の確認が必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="tshirt">
+    <h2 class="section-title">2．Tシャツ・ウェア関係</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>確認項目</th><th>確認する内容</th><th class="check-col">確認</th></tr></thead>
+        <tbody>
+          <tr><td>商品</td><td>Tシャツ、ポロシャツ、パーカー、ブルゾンなど。品番があれば確認</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>枚数・サイズ内訳</td><td>合計枚数と、S・M・L・LL・3Lなどの内訳</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>本体カラー</td><td>白、黒、ネイビーなど。カラー別の枚数</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>商品の手配</td><td>当社手配か、お客様の持ち込みか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>プリント位置</td><td>左胸、前面、背中、袖など。複数箇所か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>サイズ・色数</td><td>A4程度、ワンポイント、1色、フルカラーなど</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>内容・データ</td><td>ロゴ、文字、個人名、番号。データ修正や作成が必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>仕上げ</td><td>たたみ、個別袋入れ、サイズ分けが必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>使用日</td><td>イベント日。納品希望日だけでなく実際の使用日も確認</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+      <div class="alert warn"><strong>持ち込み商品</strong>素材、状態、予備枚数、加工失敗時の扱いを確認せず、加工できると約束しません。社長確認へ回します。</div>
+    </div>
+  </section>
+
+  <section id="disaster">
+    <h2 class="section-title">3．防災グッズ関係</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>確認項目</th><th>確認する内容</th><th class="check-col">確認</th></tr></thead>
+        <tbody>
+          <tr><td>対象人数</td><td>何人分必要か。配布対象に大人・子どもの違いがあるか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>想定日数</td><td>1日分、3日分など</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>用途</td><td>会社備蓄、自治会、学校、イベント配布など</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>必要カテゴリ</td><td>食品、水、衛生用品、トイレ、防寒、ライトなど</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>予算</td><td>1人あたりの予算と全体予算</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>名入れ・包装</td><td>会社名・団体名の名入れ、セット組み、袋入れの有無</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>納品</td><td>1か所か複数か。一括納品か分納か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>在庫・期限</td><td>在庫、賞味期限、外注先納期の確認が必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="print">
+    <h2 class="section-title">4．印刷物関係</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>確認項目</th><th>確認する内容</th><th class="check-col">確認</th></tr></thead>
+        <tbody>
+          <tr><td>種類</td><td>チラシ、名刺、封筒、パンフレット、ポスター、伝票など</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>サイズ・部数</td><td>A4、A3、B5、名刺サイズなど。何部必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>紙</td><td>紙の種類、厚さ。分からない場合は用途と希望の質感</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>印刷面・色</td><td>片面・両面、カラー・モノクロ</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>入稿データ</td><td>完成データ、前回データ、原稿のみのどれか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>修正・作成</td><td>文字修正、画像差し替え、レイアウト作成が必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>加工</td><td>折り、ミシン目、穴あけ、製本、ラミネートなど</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>校正・使用日</td><td>印刷前の確認方法と、配布・使用する日</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="sign">
+    <h2 class="section-title">5．看板・ステッカー・カッティング関係</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>確認項目</th><th>確認する内容</th><th class="check-col">確認</th></tr></thead>
+        <tbody>
+          <tr><td>作りたいもの</td><td>看板、ステッカー、カッティングシート、マグネットなど</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>サイズ・数量</td><td>縦×横の寸法、枚数・個数</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>使用環境</td><td>屋内・屋外、一時使用・長期使用</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>貼る場所</td><td>ガラス、壁、車、既存看板面など。写真があるか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>施工</td><td>商品だけか、貼り付け・取付まで必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>デザイン</td><td>完成データがあるか、作成が必要か。色数はどうするか</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>現地確認</td><td>寸法、下地、施工方法の現地確認が必要か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>納期</td><td>いつまでに必要か。施工日が決まっているか</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="estimate-type">
+    <h2 class="section-title">6．概算と正式見積を分ける</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>区分</th><th>案内する内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>概算</strong></td><td>条件が未確定の段階で伝える目安。前提条件と、金額が変わる可能性を必ず伝えます。</td></tr>
+          <tr><td><strong>正式見積</strong></td><td>仕様、数量、データ状態、納期、納品方法などを確認したうえで作成します。</td></tr>
+        </tbody>
+      </table>
+      <div class="template">
+        <strong>概算回答の文例</strong><br>
+        現時点では詳細条件が未確定のため、概算でのご案内となります。正式な金額は、数量・データ内容・納期・仕様確認後に改めてお見積もりいたします。
+      </div>
+      <h3 class="card-title">情報が不足している場合</h3>
+      <div class="template">
+        お問い合わせありがとうございます。お見積もりにあたり、数量、希望納期、データの有無、ご予算感、納品方法を確認させてください。内容が確認できましたら、正式なお見積もりを作成いたします。
+      </div>
+    </div>
+  </section>
+
+  <section id="delivery">
+    <h2 class="section-title">7．納期を答える前の確認</h2>
+    <div class="card">
+      <p>納期は、お客様の希望日だけを見て答えません。次の前提がそろっているか確認します。</p>
+      <table>
+        <thead><tr><th>前提条件</th><th class="check-col">確認</th></tr></thead>
+        <tbody>
+          <tr><td>正式発注をいただいている</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>仕様と数量が確定している</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>データが確定し、校正確認が完了している</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>入金確認が必要な案件は確認済み</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>商品在庫と外注先の納期を確認済み</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>発送・配達・店頭受取の方法が確定している</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+      <div class="template">
+        <strong>納期回答の文例</strong><br>
+        納期につきましては、正式発注・データ確定・在庫確認後の確定となります。現時点では目安でのご案内となりますので、確認後に改めてご連絡いたします。
+      </div>
+    </div>
+  </section>
+
+  <section id="president">
+    <h2 class="section-title">8．社長確認が必要なケース</h2>
+    <div class="card">
+      <p>次の場合は、その場で金額や納期を約束しません。何が分かっていて、どこが危ないのかを整理してから社長へ確認します。</p>
+      <table>
+        <thead><tr><th>ケース</th><th>整理すること</th><th class="check-col">該当</th></tr></thead>
+        <tbody>
+          <tr><td>数量が多い・高額</td><td>数量、予算、支払い条件、外注の必要性</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>希望納期が短い</td><td>使用日、データ状況、在庫、外注先の状況</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>仕様があいまい</td><td>何が決まり、何が未確認か</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>持ち込み加工</td><td>素材、状態、予備、失敗時の扱い</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>外注・施工が必要</td><td>原価、利益、納期、検品、責任範囲</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>値引き・無料対応の希望</td><td>値引き理由、数量、継続性、代替仕様</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>クレームや補償の可能性</td><td>事実、時系列、写真・現物、希望内容</td><td class="check-col"><input type="checkbox"></td></tr>
+          <tr><td>過去に問題があった案件</td><td>過去履歴と今回違う条件</td><td class="check-col"><input type="checkbox"></td></tr>
+        </tbody>
+      </table>
+      <div class="alert bad">
+        <strong>社長へ「これ、どうしますか？」だけで渡さない</strong>
+        何が未確認か、どこがリスクか、自分ではどう考えるか、何を判断してほしいかを添えます。
+      </div>
+      <div class="template">
+        <strong>社長確認の型</strong><br>
+        内容：<br>
+        分かっていること：<br>
+        足りない情報：<br>
+        自分の案：<br>
+        不安な点：<br>
+        確認してほしい点：
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>株式会社ベスタ｜スタッフガイド｜見積もり前チェックリスト</footer>
+<script>
+function resetChecks() {
+  document.querySelectorAll('input[type="checkbox"]').forEach(function (box) {
+    box.checked = false;
+  });
+}
+</script>
+</body>
+</html>
