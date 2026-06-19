@@ -50,9 +50,15 @@ button, .button-link { border: 0; border-radius: 7px; padding: 10px 14px; font: 
 .summary .ok { border-color: #43a047; }
 .summary .wait { border-color: #f9a825; }
 .summary .ask { border-color: #e94560; }
+.print-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.print-card { display: block; padding: 15px; border: 2px solid #dfe5ee; border-radius: 9px; background: #fafbfe; color: #1a1a2e; text-decoration: none; }
+.print-card:hover { border-color: #e94560; background: #fff7f8; }
+.print-card strong { display: block; margin-bottom: 4px; color: #b92f48; }
+.print-card span { display: block; color: #666; font-size: 0.82rem; }
 footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; }
 @media (max-width: 700px) {
   .summary { grid-template-columns: 1fr; }
+  .print-grid { grid-template-columns: 1fr; }
   .card { padding: 16px 12px; }
   table { font-size: 0.78rem; }
   th, td { padding: 8px 6px; }
@@ -77,6 +83,7 @@ footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; bord
 
 <nav class="page-nav">
   <a href="#rule">基本ルール</a>
+  <a href="#print-sheets">印刷用PDF</a>
   <a href="#common">共通項目</a>
   <a href="#tshirt">ウェア</a>
   <a href="#disaster">防災</a>
@@ -88,6 +95,36 @@ footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; bord
 </nav>
 
 <main>
+  <section id="print-sheets">
+    <h2 class="section-title">商品ごとのA4受付シート</h2>
+    <div class="card">
+      <p><strong>必要な商品シートを印刷して、電話・店頭での受付時に使ってください。</strong></p>
+      <p>あらかじめ何枚か印刷して受付に置いておけば、接客のたびにこのWebページを開く必要はありません。各PDFはA4用紙1枚です。</p>
+      <div class="print-grid">
+        <a class="print-card" href="pdf/tshirt-estimate-check-a4.pdf" target="_blank">
+          <strong>👕 Tシャツ・ウェア</strong>
+          <span>A4受付シートを開く・印刷する</span>
+        </a>
+        <a class="print-card" href="pdf/disaster-estimate-check-a4.pdf" target="_blank">
+          <strong>🎒 防災グッズ</strong>
+          <span>A4受付シートを開く・印刷する</span>
+        </a>
+        <a class="print-card" href="pdf/print-estimate-check-a4.pdf" target="_blank">
+          <strong>🖨️ 印刷物</strong>
+          <span>A4受付シートを開く・印刷する</span>
+        </a>
+        <a class="print-card" href="pdf/sign-estimate-check-a4.pdf" target="_blank">
+          <strong>🪧 看板・ステッカー</strong>
+          <span>A4受付シートを開く・印刷する</span>
+        </a>
+      </div>
+      <div class="alert info">
+        <strong>おすすめの使い方</strong>
+        各シートを10枚程度ずつ印刷して受付へ置き、記入後は案件資料やメールの記録と一緒に保管してください。
+      </div>
+    </div>
+  </section>
+
   <section id="rule">
     <h2 class="section-title">最初に確認すること</h2>
     <div class="card">
