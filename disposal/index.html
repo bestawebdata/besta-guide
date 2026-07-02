@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>廃棄物・機密書類の処理ルール｜株式会社ベスタ スタッフガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
+.site-header { background: #1a1a2e; color: #fff; padding: 20px 16px 16px; text-align: center; }
+.site-brand { font-size: 1.35rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
+.breadcrumb { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.page-nav { background: #16213e; display: flex; gap: 4px; padding: 8px 12px; overflow-x: auto; position: sticky; top: 0; z-index: 100; }
+.page-nav a { flex: 0 0 auto; color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
+main { max-width: 920px; margin: 0 auto; padding: 16px; }
+section { margin-bottom: 24px; scroll-margin-top: 58px; }
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.section-title { font-size: 1.2rem; color: #1a1a2e; border-left: 4px solid #e94560; padding-left: 10px; margin: 0 0 14px; }
+.card-title { font-size: 1rem; color: #1a1a2e; margin: 18px 0 8px; }
+p { margin: 0 0 10px; font-size: 0.94rem; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 6px; font-size: 0.92rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.bad { background: #fff3f3; border-left: 4px solid #e94560; }
+.alert strong { display: block; margin-bottom: 4px; color: #1a1a2e; }
+.step-list { list-style: none; counter-reset: step; margin: 10px 0 0; padding: 0; }
+.step-list li { counter-increment: step; display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.92rem; }
+.step-list li:last-child { border-bottom: none; }
+.step-list li::before { content: counter(step); background: #e94560; color: #fff; font-weight: 700; font-size: 0.8rem; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+.compare .bad-box, .compare .good-box { border-radius: 8px; padding: 14px 16px; font-size: 0.9rem; }
+.compare .bad-box { background: #fff3f3; border: 2px solid #e94560; }
+.compare .good-box { background: #edf9ee; border: 2px solid #43a047; }
+.compare strong { display: block; margin-bottom: 6px; }
+.discipline-box { background: #1a1a2e; color: #fff; border-radius: 10px; padding: 20px; }
+.discipline-box p { color: #eee; margin-bottom: 8px; }
+.discipline-box strong { color: #ffb3c1; }
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; }
+@media (max-width: 700px) {
+  .card { padding: 16px 12px; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 8px 6px; }
+  .compare { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> › 廃棄物・機密書類の処理ルール</div>
+  <div class="site-brand">🗑️ <span>廃棄物・機密書類</span>の処理ルール</div>
+  <div class="header-sub">株式会社ベスタ スタッフ研修テキスト｜「なぜ普通に捨ててはいけないのか」を全員が同じ基準で理解する</div>
+</header>
+
+<nav class="page-nav">
+  <a href="#why">基本ルール</a>
+  <a href="#risk">法律・損害のリスク</a>
+  <a href="#manifest">なぜお金を払って捨てるのか</a>
+  <a href="#rule">正しい処理手順</a>
+  <a href="#discipline">周知と違反時の扱い</a>
+</nav>
+
+<main>
+  <section id="why">
+    <h2 class="section-title">基本ルール</h2>
+    <div class="card">
+      <div class="alert bad">
+        <strong>個人情報・取引先情報が含まれる書類・資料を、通常のゴミと一緒に捨てない。</strong>
+        丸めて捨てる、シュレッダーを通さず袋にまとめる、決められた業者・手順を通さない廃棄は、すべて禁止です。
+      </div>
+      <h3 class="card-title">対象となる情報は「個人情報」だけではない</h3>
+      <p>このルールが対象とする情報は2種類あります。日常の業務では②の方が圧倒的に多いことを理解してください。</p>
+      <ul>
+        <li><strong>① 個人情報</strong>　氏名・住所・電話番号・身分証コピーなど、個人を特定できる情報。</li>
+        <li><strong>② 会社名・店舗名・団体名・ロゴなど、取引先を特定できる情報</strong>　見積書、伝票、発注書、名刺など、業務で日常的に扱う書類のほとんどはこちらです。社名や氏名がそのまま書かれていなくても、ロゴマークなど「どこの・誰の書類か」が分かるものはすべて同じ扱いです。</li>
+      </ul>
+      <p>①②どちらも「不要になった紙」ではなく、会社が責任を持って処分方法まで管理しなければならない情報資産です。「捨てるだけだから」「丸めておけば中身は見えない」という考え方は誤りです。理由は次のセクションで具体的に説明します。</p>
+    </div>
+  </section>
+
+  <section id="risk">
+    <h2 class="section-title">法律・損害のリスク</h2>
+    <div class="card">
+      <h3 class="card-title">個人情報保護法上の罰則</h3>
+      <p>個人情報の不適切な取り扱い・漏えいが発覚し、個人情報保護委員会の是正命令に従わなかった場合や、データベースを不正に提供・盗用した場合、法律上は次のような罰則が定められています。</p>
+      <table>
+        <tr><th>対象</th><th>内容</th></tr>
+        <tr><td>行為者（個人）</td><td>1年以下の懲役、または50万〜100万円以下の罰金</td></tr>
+        <tr><td>会社（法人）</td><td>両罰規定により最大1億円以下の罰金（法人重科）</td></tr>
+      </table>
+      <p style="font-size:0.82rem;color:#888;">※ 違反の種類・程度によって金額・刑罰は変わります。あくまで「会社と本人の双方が刑事責任を問われうる」という水準感を理解するための目安です。</p>
+
+      <h3 class="card-title">民事の損害賠償</h3>
+      <p>過去の個人情報漏えい事件では、裁判所が1人あたり数千円〜2万円程度の慰謝料を認めた例があります。数百人・数千人分の情報が絡めば、賠償総額は数百万円〜数千万円規模になり得ます。加えて謝罪対応、調査費用、信用回復のための費用も会社が負担することになります。</p>
+
+      <h3 class="card-title">会社名・取引先名の漏えいは「個人情報保護法の対象外」でもリスクがある</h3>
+      <p>個人情報保護法が直接対象とするのは「個人を特定できる情報」です。会社名・団体名・ロゴだけの情報は、法律上は個人情報に当たらない場合もあります。しかし実務で毎日扱う書類の大半はこちらであり、リスクが小さいわけではありません。取引先の社名・取引内容・発注内容が漏れれば、契約上の守秘義務違反、信用毀損による損害賠償、取引停止につながります。</p>
+
+      <h3 class="card-title">生協様との25年の信頼関係</h3>
+      <div class="alert warn">
+        <strong>数百円分の廃棄コストを惜しんで、25年分の取引関係を失うリスクを負う。</strong>
+        生協様からお預かりする書類には、組合員様の個人情報だけでなく「生協様と取引している」という事実、取引内容そのものも含まれます。処理の不備が組合員様や生協様に知られれば、長年築いてきた信頼関係そのものが崩れます。取引停止になれば、失う売上は今回の作業とは比較にならない規模です。
+      </div>
+    </div>
+  </section>
+
+  <section id="manifest">
+    <h2 class="section-title">なぜお金を払ってゴミを捨てているのか</h2>
+    <div class="card">
+      <p>「お金を払ってゴミを処分業者に出すくらいなら、自分たちで捨てた方が早い」と思うかもしれません。しかし、お金を払っているのは「捨てる作業」に対してではなく、<strong>「誰が・いつ・何を・どう処分したかを証明できる記録」</strong>に対してです。</p>
+
+      <h3 class="card-title">マニフェスト＝証拠</h3>
+      <p>産業廃棄物には、排出から最終処分まで追跡する「マニフェスト（産業廃棄物管理票）」という制度があります。許可を持つ処分業者に委託すると、いつ・何を・どの業者が・どの方法で処分したかが記録として残ります。万が一「情報が漏れたのでは」と疑われても、このマニフェストが「正規の手順で確実に処分した」ことを証明する会社の防御材料になります。</p>
+
+      <h3 class="card-title">逆説：丸めて捨てるのが一番危ない処分方法</h3>
+      <div class="compare">
+        <div class="bad-box">
+          <strong>❌ 丸めて捨てる／自己判断で処分</strong>
+          文字も形も残ったまま一般ゴミに入るため、誰でも拾って中身を確認できる状態になる。記録も残らず、後から「本当にちゃんと処分したのか」を証明する手段がない。一見ラクだが、最もリスクが高い方法。
+        </div>
+        <div class="good-box">
+          <strong>✅ 許可業者・マニフェスト経由で処分</strong>
+          シュレッダー・溶解・焼却など管理された方法で処分され、記録が残る。会社として「適切に処理した」ことを証明できる。
+        </div>
+      </div>
+      <p>「丸めておけば読めないだろう」は思い込みです。広げれば元に戻り、内容もロゴも読めてしまいます。処分費用は、この「確実に読めない状態にして、それを証明できる記録」を買っています。</p>
+    </div>
+  </section>
+
+  <section id="rule">
+    <h2 class="section-title">正しい処理手順</h2>
+    <div class="card">
+      <ol class="step-list">
+        <li>個人情報が含まれる書類かどうか迷ったら、含まれる前提で扱う。</li>
+        <li>指定の廃棄用ボックス・シュレッダーにのみ入れる。一般ゴミ箱に入れない。</li>
+        <li>自分の判断で外に持ち出して捨てない。廃棄は決められた業者・手順に一本化する。</li>
+        <li>社名や氏名がなくても、ロゴなど相手が特定できる書類は同じルールを適用する。</li>
+        <li>迷った場合は、勝手に処理せず先に社長・担当者に確認する。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="discipline">
+    <h2 class="section-title">周知と違反時の扱い</h2>
+    <div class="discipline-box">
+      <p>このルールは、感情的な注意ではなく、会社として明文化した社内規定です。本ページの内容は全スタッフに周知済みとします。</p>
+      <p><strong>周知した上でこのルールに違反した場合は、就業規則に定める服務規律違反として懲戒の対象となります。</strong></p>
+      <p style="font-size:0.85rem;color:#bbb;">「知らなかった」を理由にできないよう、このページを研修時に読み合わせてください。</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 株式会社ベスタ ／ このページは社内スタッフ向け資料です
+</footer>
+</body>
+</html>
