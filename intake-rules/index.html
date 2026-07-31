@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>受付・見積もりの基本ルール｜株式会社ベスタ スタッフガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
+.site-header { background: #1a1a2e; color: #fff; padding: 20px 16px 16px; text-align: center; }
+.site-brand { font-size: 1.35rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
+.breadcrumb { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.page-nav { background: #16213e; display: flex; gap: 4px; padding: 8px 12px; overflow-x: auto; position: sticky; top: 0; z-index: 100; }
+.page-nav a { flex: 0 0 auto; color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
+main { max-width: 920px; margin: 0 auto; padding: 16px; }
+section { margin-bottom: 24px; scroll-margin-top: 58px; }
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.section-title { font-size: 1.2rem; color: #1a1a2e; border-left: 4px solid #e94560; padding-left: 10px; margin: 0 0 14px; }
+.card-title { font-size: 1rem; color: #1a1a2e; margin: 18px 0 8px; }
+.card-title:first-child { margin-top: 0; }
+p { margin: 0 0 10px; font-size: 0.94rem; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 6px; font-size: 0.92rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+.num { text-align: right; white-space: nowrap; }
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.bad { background: #fff3f3; border-left: 4px solid #e94560; }
+.alert > strong:first-child { display: block; margin-bottom: 4px; color: #1a1a2e; }
+.template { background: #f7f9ff; border: 1px solid #dfe5ff; border-radius: 8px; padding: 14px 16px; font-size: 0.9rem; margin: 10px 0; }
+.template strong { color: #1a1a2e; }
+.headline { background: #1a1a2e; color: #fff; border-radius: 10px; padding: 18px 20px; text-align: center; font-size: 1.15rem; font-weight: 700; line-height: 1.6; margin-bottom: 14px; }
+.headline em { color: #ff8fa3; font-style: normal; }
+.action-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+button, .button-link { border: 0; border-radius: 7px; padding: 10px 14px; font: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: none; }
+.primary { background: #e94560; color: #fff; }
+.secondary { background: #e8ebf3; color: #1a1a2e; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+.summary div { padding: 12px; border-radius: 8px; background: #f8f8f8; border-top: 4px solid #999; font-size: 0.88rem; }
+.summary strong { display: block; color: #1a1a2e; }
+.summary .ok { border-color: #43a047; }
+.summary .wait { border-color: #f9a825; }
+.summary .ask { border-color: #e94560; }
+.q1 { background: #fff3f3; border: 2px solid #e94560; border-radius: 10px; padding: 16px 18px; margin: 12px 0; }
+.q1 .q1-label { font-size: 0.78rem; color: #b92f48; font-weight: 700; letter-spacing: 0.05em; }
+.q1 .q1-text { font-size: 1.05rem; font-weight: 700; color: #1a1a2e; margin: 6px 0 0; }
+.saylist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.saylist > div { border-radius: 8px; padding: 14px 16px; font-size: 0.9rem; }
+.saylist .say-ok { background: #e8f5e9; border: 1px solid #a5d6a7; }
+.saylist .say-ng { background: #fff3f3; border: 1px solid #f4b8c1; }
+.saylist h4 { margin: 0 0 8px; font-size: 0.92rem; color: #1a1a2e; }
+.saylist ul { padding-left: 1.1em; margin: 0; }
+.saylist li { margin-bottom: 8px; }
+.case { border-left: 4px solid #16213e; background: #f4f6fb; border-radius: 0 8px 8px 0; padding: 14px 16px; margin: 12px 0; font-size: 0.9rem; }
+.case strong { display: block; color: #1a1a2e; margin-bottom: 6px; }
+.trial { background: #fff8e1; border: 2px dashed #f9a825; border-radius: 10px; padding: 16px 18px; text-align: center; font-size: 0.95rem; }
+.trial strong { display: block; font-size: 1.05rem; color: #1a1a2e; margin-bottom: 6px; }
+.print-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.print-card { display: block; padding: 15px; border: 2px solid #dfe5ee; border-radius: 9px; background: #fafbfe; color: #1a1a2e; text-decoration: none; }
+.print-card:hover { border-color: #e94560; background: #fff7f8; }
+.print-card strong { display: block; margin-bottom: 4px; color: #b92f48; }
+.print-card span { display: block; color: #666; font-size: 0.82rem; }
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; }
+@media (max-width: 700px) {
+  .summary, .saylist, .print-grid { grid-template-columns: 1fr; }
+  .card { padding: 16px 12px; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 8px 6px; }
+  .headline { font-size: 1rem; }
+}
+@media print {
+  body { background: #fff; }
+  .site-header, .page-nav, .action-bar, footer { display: none; }
+  main { max-width: none; padding: 0; }
+  .card { box-shadow: none; border: 1px solid #bbb; break-inside: avoid; }
+  section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> › 受付・見積もりの基本ルール</div>
+  <div class="site-brand">📥 <span>受付・見積もり</span>の基本ルール</div>
+  <div class="header-sub">株式会社ベスタ スタッフ研修テキスト｜持ち込みデータ・持ち込み商品・分納・変更の受け方</div>
+</header>
+
+<nav class="page-nav">
+  <a href="#rule">基本ルール</a>
+  <a href="#words">言ってよい言葉</a>
+  <a href="#forms">印刷して使う用紙</a>
+  <a href="#data">持ち込みデータ</a>
+  <a href="#goods">持ち込み商品</a>
+  <a href="#delivery">納期</a>
+  <a href="#rush">特急料金</a>
+  <a href="#president">社長確認</a>
+  <a href="#cases">きっかけの事例</a>
+  <a href="#trial">仮運用</a>
+</nav>
+
+<main>
+
+  <section id="rule">
+    <h2 class="section-title">基本ルール</h2>
+
+    <div class="headline">確定していないものに、<br><em>金額と納期を言わない。</em></div>
+
+    <div class="card">
+      <p>このページは、2つの実際の案件をきっかけに作りました。ひとつは「AIで作ったチラシのデータ」、もうひとつは「フラダンスの持ち込みTシャツ」です。まったく別の話に見えますが、<strong>失敗の形は同じ</strong>でした。</p>
+
+      <table>
+        <thead><tr><th>起きたこと</th><th>事例1（AIデータ）</th><th>事例2（持ち込み商品）</th></tr></thead>
+        <tbody>
+          <tr><td>入口が単純に見えた</td><td>見た目が完成していた</td><td>「Tシャツ5枚」だった</td></tr>
+          <tr><td>簡単だと判断した</td><td>少し調整すれば刷れる</td><td>まとめて作れる</td></tr>
+          <tr><td><strong>先に口にした</strong></td><td><strong>1ページ5,000円</strong></td><td><strong>納期と数量割引</strong></td></tr>
+          <tr><td>実際は違った</td><td>ほぼ作り直しだった</td><td>4種類の別仕様＋分納だった</td></tr>
+          <tr><td>取り返せなかった</td><td>値上げできない</td><td>納期も割引も戻せない</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="card-title">3つの原則</h3>
+      <ul>
+        <li><strong>見ていないものに、値段を付けない。</strong>データも商品も、実物を確認してから金額を出します。</li>
+        <li><strong>揃っていないものに、納期を付けない。</strong>ひとつでも未確定の項目があれば、納期は始まりません。</li>
+        <li><strong>一度言った金額は下げられず、一度言った納期は早められない。</strong>だから最初に言わないことが、いちばん安全です。</li>
+      </ul>
+
+      <div class="summary">
+        <div class="ok"><strong>実物を確認できた</strong>ルールに沿って案内してよい。</div>
+        <div class="wait"><strong>まだ見ていない</strong>「拝見してからご案内します」で止める。</div>
+        <div class="ask"><strong>急ぎ・例外・権利が不安</strong>その場で答えず社長へ上げる。</div>
+      </div>
+
+      <div class="alert info">
+        <strong>これはお客様を断るためのルールではありません</strong>
+        あとから「聞いていた金額と違う」「間に合わなかった」となる方が、お客様にとってはるかに困ります。正確な案内を早く出すためのルールです。
+      </div>
+
+      <div class="action-bar">
+        <button class="primary" type="button" onclick="window.print()">印刷する</button>
+        <a class="button-link secondary" href="print-forms.html">受付用紙を印刷する</a>
+        <a class="button-link secondary" href="../estimate-check/">見積もり前チェックリストへ</a>
+        <a class="button-link secondary" href="../staff-confirm/">社長確認のまとめ方へ</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="words">
+    <h2 class="section-title">受付で言ってよい言葉・言わない言葉</h2>
+    <div class="card">
+      <p>このページのルールは、すべて「受付がその場で即答しない」ことが前提です。ただ、現場には即答したくなる空気があります。<strong>迷ったら、この左側の言葉だけを使ってください。</strong></p>
+
+      <div class="saylist">
+        <div class="say-ok">
+          <h4>✅ 言ってよい言葉</h4>
+          <ul>
+            <li>データを拝見してから、お見積もりをお出しします。</li>
+            <li>データ調整費は3,300円からです。</li>
+            <li>完全データで加工がなければ、最短で翌営業日です。データを拝見してから確定でご案内します。</li>
+            <li>5枚まとめてお預かりできれば5枚のお値段です。分けてお作りする場合は<strong>それぞれ別のご注文</strong>として、その枚数のお値段になります。まとめてお預かりできれば、いちばんお安くなります。</li>
+            <li>順番を早めるお急ぎのご希望は、確認してからご連絡します。</li>
+            <li>お仕上がり日は、商品と原稿が全部お揃いになってからのご案内になります。</li>
+            <li>お急ぎの件は、確認してからご連絡します。</li>
+            <li>商品を拝見してから、お仕上がり日を確定します。目安は10営業日です。</li>
+          </ul>
+        </div>
+        <div class="say-ng">
+          <h4>❌ 言わない言葉</h4>
+          <ul>
+            <li>たぶん◯円くらいです。</li>
+            <li>◯日までにできると思います。</li>
+            <li>それくらいならサービスしますよ。</li>
+            <li>簡単そうですね。すぐできます。</li>
+            <li>明日できますよ。（データを見ていない段階で）</li>
+            <li>5枚分の割引でいきますね。（全数が揃っていない段階で）</li>
+            <li>なんとかします。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert bad">
+        <strong>「たぶん」「くらい」「思います」は、お客様には約束として伝わります</strong>
+        あとで訂正すると、値上げ・納期遅れとして受け取られます。曖昧な数字を言うくらいなら、何も言わない方が信頼されます。
+      </div>
+    </div>
+  </section>
+
+  <section id="forms">
+    <h2 class="section-title">印刷して使う用紙</h2>
+    <div class="card">
+      <p>受付のたびにこのページを開く必要はありません。<strong>用紙を何枚か印刷して受付に置いてください。</strong></p>
+      <div class="print-grid">
+        <a class="print-card" href="print-forms.html" target="_blank">
+          <strong>📄 受付用紙（A4・4種）</strong>
+          <span>データ受付シート／プリント指示書／判定メモ／作業時間の記録</span>
+        </a>
+        <a class="print-card" href="delivery-notice.html" target="_blank">
+          <strong>🪧 店頭掲示用 納期表（A4）</strong>
+          <span>お客様向け。掲示前に社長の確認を受けること</span>
+        </a>
+        <a class="print-card" href="../estimate-check/" target="_blank">
+          <strong>🧾 見積もり前チェックリスト</strong>
+          <span>何を聞くかの一覧。商品別A4シートあり</span>
+        </a>
+      </div>
+      <div class="alert info">
+        <strong>使い分け</strong>
+        「何を聞くか」は見積もり前チェックリスト。「聞いたあと、どう判断して、いくらで、いつ渡すか」がこのページです。
+      </div>
+    </div>
+  </section>
+
+  <section id="data">
+    <h2 class="section-title">1．持ち込みデータ・AIで作られたデータの受付</h2>
+
+    <div class="card">
+      <h3 class="card-title">まず、この1問だけ聞く</h3>
+      <div class="q1">
+        <div class="q1-label">最初の1問</div>
+        <p class="q1-text">「文字は打ち替えできる状態ですか？　元のデータはお持ちですか？」</p>
+      </div>
+      <p>持ち込みデータの大半は、PNG・JPG・画面のスクリーンショットで、<strong>文字が画像に焼き込まれています</strong>。この状態だと「文字の打ち替え」は打ち替えではなく作り直しです。事例1で5,000円が破綻した最大の理由がここでした。</p>
+      <p>この1問だけで、ほとんどの案件は仕分けできます。</p>
+
+      <h3 class="card-title">AIで作られたデータの扱い</h3>
+      <div class="alert bad">
+        <strong>AIで作成されたデータは、原則として「完全データ」ではありません</strong>
+        例外は、こちらがデータを開いて確認し、完全と判断したときだけです。スタッフがその場で判定する必要はありません。
+      </div>
+      <p>AIで作られたデータは、見た目が整っているので完成しているように見えます。しかし印刷用に仕上げるには、次の作業が必要になることがほとんどです。</p>
+      <ul>
+        <li>塗り足しの作成</li>
+        <li>文字の打ち替え（画像に焼き込まれている場合は作り直し）</li>
+        <li>背景画像や素材の切り抜き</li>
+        <li>画像と文字の再配置、サイズや比率の調整</li>
+        <li>印刷に適した解像度・色（CMYK）の確認</li>
+        <li>レイアウトの再構成</li>
+      </ul>
+      <p><strong>場合によっては、AIで作られたデータを直す方が、一から作るより手間がかかります。</strong></p>
+
+      <h3 class="card-title">お客様には、こう説明する</h3>
+      <div class="template">
+        <strong>説明の文例</strong><br>
+        「<strong>デザインの方向性はそのまま活かします。</strong>ただ、印刷機に渡せる形に整える作業が必要ですので、<strong>データを拝見してからお見積もりをお出しします。</strong>」
+      </div>
+      <div class="alert warn">
+        <strong>「データが不完全です」とは言わない</strong>
+        お客様は完成データを持ってきたつもりです。<strong>デザインの良し悪しの話ではなく、印刷機に渡す形式の話</strong>にしてください。「翻訳が必要」「印刷用に変換が必要」という言い方なら、お客様のデザインを否定せずに済みます。
+      </div>
+
+      <h3 class="card-title">AIで作られたデータに多い、お客様が気づいていない問題</h3>
+      <p>お客様は「完成している」と思っているので、こちらから指摘しない限り気づきません。<strong>刷ってから言われると手遅れ</strong>なので、確認した時点で必ずお伝えします。</p>
+      <ul>
+        <li>日本語の文字が崩れている・実在しない文字になっている</li>
+        <li>指の本数や手の形がおかしい</li>
+        <li>ロゴやマークが歪んでいる、微妙に違う</li>
+        <li>解像度が低く、拡大すると粗い</li>
+        <li>背景と人物の境目が不自然</li>
+      </ul>
+      <div class="alert warn">
+        <strong>校正の確認は必ず取る</strong>
+        気づいた点をお伝えしたうえで、「このまま進めてよいか」をお客様に確認し、記録に残します。口頭だけで済ませません。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">データ調整費（社内の基準）</h3>
+      <p>お客様には出しません。<strong>社内で金額を決めるときの基準</strong>です。</p>
+      <table>
+        <thead><tr><th>作業内容</th><th class="num">料金（税込）</th></tr></thead>
+        <tbody>
+          <tr><td>データ確認のみ</td><td class="num">原則無料（15分程度まで）</td></tr>
+          <tr><td>30分以内の軽微な調整</td><td class="num">3,300円</td></tr>
+          <tr><td>31〜60分程度</td><td class="num">6,600円</td></tr>
+          <tr><td>61〜90分程度</td><td class="num">9,900円</td></tr>
+          <tr><td>90分超／デザイン判断が必要</td><td class="num">11,000〜22,000円以上で個別見積もり</td></tr>
+        </tbody>
+      </table>
+      <p>内部の考え方は <strong>1時間6,600円・30分単位・最低3,300円</strong> です。すべて税込です。</p>
+
+      <h3 class="card-title">お客様への案内</h3>
+      <div class="template">
+        <strong>データ調整費　3,300円〜</strong><br>
+        実際のデータを確認後、作業内容に応じてお見積もりします。
+      </div>
+      <p>「1時間6,600円」という単価はお客様に出しません。時間で請求すると「そんなにかかったのか」という話になり、作業内容ではなく時間の議論になってしまいます。</p>
+
+      <h3 class="card-title">作業を始める前に、必ずデータを開く</h3>
+      <div class="alert bad">
+        <strong>「塗り足しを付けるだけ」に見えても、開くまで分かりません</strong>
+        元データの状態によって、文字や背景の作り直しが必要になります。<strong>見積もりを出す前に、必ずデータを開いて確認します。</strong>
+      </div>
+
+      <h3 class="card-title">見積もった時間を超えそうになったら、止める</h3>
+      <div class="alert bad">
+        <strong>これが事例1の再発防止そのものです</strong>
+        料金表があっても、超過したときに止まらなければ同じ結果になります。<br><br>
+        ・見積もった時間を超えそうになった時点で、<strong>作業を止めて連絡する</strong><br>
+        ・黙って作業を続けて、<strong>後から請求しない</strong><br>
+        ・「思ったより手間がかかっています」を言うのは、作業後ではなく<strong>作業中</strong>
+      </div>
+      <p>30分・60分・90分という区切りは、請求のためだけでなく<strong>止まるポイント</strong>として使ってください。</p>
+
+      <h3 class="card-title">90分を超えそうなときは、切り替える</h3>
+      <p>データ調整ではなく「<strong>デザイン制作・再作成</strong>」に切り替えます。切り替えの判断は<strong>着手前</strong>に行います。着手後に判明した場合は、作業を止めて社長へ上げてください。</p>
+
+      <h3 class="card-title">校正の回数</h3>
+      <p>持ち込みデータは「ここも変えてほしい」が続きやすく、無制限だと赤字になります。</p>
+      <div class="alert warn">
+        <strong>校正は2回まで込み。3回目以降は30分単位で加算します。</strong>
+        受付・見積もりの時点で、この条件を先に伝えてください。あとから言うと必ず揉めます。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">AI素材・持ち込み素材の権利確認</h3>
+      <p>AIで作られた素材は、使ったサービスによって商用利用の条件が違います。また、既存の作品に似ていることで第三者の権利を侵害する可能性もあります。<strong>印刷して納品するのは当社</strong>なので、確認せずに進めることはできません。</p>
+
+      <div class="alert warn">
+        <strong>口頭では確認しません。必ず書面のチェック欄と署名で残します。</strong>
+        <a href="print-forms.html">受付用紙</a>の「持ち込みデータ受付シート」に確認欄があります。
+      </div>
+
+      <div class="template">
+        <strong>注文書・受付シートの確認欄</strong><br>
+        □ 持ち込みデータおよびAI生成素材について、商用利用が可能であることを確認しました。<br>
+        □ 第三者の著作権、商標権、肖像権その他の権利を侵害する素材ではないことを確認しました。<br>
+        □ 使用したAIサービスの利用規約を確認しました。<br>
+        使用したAIサービス名：＿＿＿＿＿＿＿＿<br>
+        確認日・署名：＿＿＿＿＿＿＿＿
+      </div>
+
+      <h3 class="card-title">スタッフは「似ているかどうか」を判定しない</h3>
+      <div class="alert bad">
+        <strong>判定は難しいので、判定させません</strong>
+        <strong>見覚えのあるキャラクター・ブランドロゴ・有名人の顔が入っていたら、チェック欄だけで通さず、その場で受けずに社長へ上げてください。</strong>「これは似ているのか？」と考える必要はありません。「見たことがある気がする」で十分な理由です。
+      </div>
+
+      <h3 class="card-title">断ることがあります</h3>
+      <p>注文書には、次の一文を併記します。</p>
+      <div class="template">
+        当社の判断により、ご注文をお断りする場合があります。
+      </div>
+      <div class="alert warn">
+        <strong>同意欄があれば当社の責任がすべてなくなる、というものではありません</strong>
+        注文書や規約に入れる正式な文面は、専門家に一度確認してもらう予定です。それまでは、迷ったら受けずに社長へ上げてください。
+      </div>
+    </div>
+  </section>
+
+  <section id="goods">
+    <h2 class="section-title">2．持ち込み商品・分納・変更の受付</h2>
+
+    <div class="card">
+      <h3 class="card-title">まず、この1問だけ聞く</h3>
+      <div class="q1">
+        <div class="q1-label">最初の1問</div>
+        <p class="q1-text">「今日、商品と原稿は全部お揃いですか？」</p>
+      </div>
+      <p>「いいえ」なら、その場で次のように口に出して確認します。</p>
+      <div class="template">
+        <strong>分納になるときの受付の言い方</strong><br>
+        「では<strong>本日お預かりの3枚</strong>でお受けします。残りは、お持ちいただいた時点で改めてお受けします。<br>
+        <strong>お値段とお仕上がり日は、全部お揃いになった時点で確定</strong>します。」
+      </div>
+      <div class="alert info">
+        <strong>「預かる」と「先に作る」は別の話です</strong>
+        商品を先にお預かりするだけで、揃ってからまとめて作るなら、<strong>1件の注文として合計数量のお値段</strong>です。<strong>揃う前に作り始める</strong>と、そこで注文が分かれます。<br>
+        分けて<strong>お渡し</strong>したいのか、分けて<strong>お預け</strong>になるだけなのかを、必ず確認してください。
+      </div>
+
+      <h3 class="card-title">数量割引のルール</h3>
+      <div class="alert info">
+        <strong>数量割引は、同一仕様の商品が一度に揃い、一括して制作できる場合に適用します。</strong>
+      </div>
+      <table>
+        <thead><tr><th>状況</th><th>数量割引の計算</th></tr></thead>
+        <tbody>
+          <tr><td>制作開始前に全数が揃った</td><td>合計数量で計算</td></tr>
+          <tr><td>一部だけ先に制作した</td><td>その時点の数量で計算</td></tr>
+          <tr><td>後から追加された商品</td><td>追加分の数量で別計算</td></tr>
+          <tr><td>後日、全数が揃った</td><td><strong>遡って差額調整はしない</strong></td></tr>
+        </tbody>
+      </table>
+      <p>例：「5枚の注文だが、先に3枚だけ作ってほしい」→ <strong>3枚分の単価 ＋ 後日の2枚分の単価</strong>になります。</p>
+
+      <h3 class="card-title">分けて作る場合は、それぞれが「別の注文」です</h3>
+      <div class="alert bad">
+        <strong>追加の料金はいただきません。まとめ作りの安さがなくなるだけです</strong>
+        5枚を一度に作るのと、1枚と4枚に分けて作るのは、別の話です。<br>
+        分けた場合は「<strong>1枚の注文</strong>」と「<strong>4枚の注文</strong>」として、それぞれの数量の単価で計算します。<strong>5枚まとめた単価にはなりません。</strong>
+      </div>
+      <p>1枚・4枚の単価には、段取りや検品の手間がもともと含まれています。<strong>分けて作る手間は、少ない枚数の単価になった時点で反映されています。</strong>だから割増を別に足す必要はありません。</p>
+
+      <table>
+        <thead><tr><th>ご依頼の内容</th><th>数量の数え方</th><th>特急料金</th></tr></thead>
+        <tbody>
+          <tr><td>全数まとめてお預かり・一括制作</td><td>合計数量（5枚なら5枚単価）</td><td>なし</td></tr>
+          <tr><td>商品が揃わないので、揃った分から作る<br>（急いでいない）</td><td><strong>別の注文として、それぞれの数量</strong></td><td>なし</td></tr>
+          <tr><td>全部揃っているが、一部だけ先に仕上げてほしい</td><td><strong>別の注文として、それぞれの数量</strong></td><td><strong>かかる</strong></td></tr>
+          <tr><td>後から追加で持ち込まれた分</td><td>追加分の数量</td><td>なし</td></tr>
+        </tbody>
+      </table>
+      <p><strong>特急料金がかかるのは、順番を早めるときだけです。</strong>「急がないけど分けたい」なら、別注文になるだけで割増はありません。</p>
+
+      <div class="template">
+        <strong>① 急がないが、分けたいと言われたとき</strong><br>
+        「分けてお作りする場合は、<strong>それぞれ別のご注文</strong>として、その枚数のお値段になります。<br>
+        <strong>5枚まとめてお預かりできれば5枚のお値段になり、いちばんお安くなります。</strong>」
+      </div>
+      <div class="template">
+        <strong>② 分けたうえに、早くしてほしいと言われたとき</strong><br>
+        「それぞれ別のご注文になることに加えて、<strong>順番を早めるお急ぎ料金</strong>が必要になります。<br>
+        <strong>金額と、お受けできるかどうかは、確認してからご連絡します。</strong>」
+      </div>
+      <div class="alert warn">
+        <strong>金額と可否は、受付が答えません</strong>
+        受付が案内してよいのは「分けると別のご注文になります」「早めるとお急ぎ料金がかかります」という<strong>仕組みの説明まで</strong>です。<strong>いくらになるか、受けられるかは、社長または制作担当者の確認後</strong>に回答します。
+      </div>
+
+      <div class="alert warn">
+        <strong>受付の時点で先に言うこと。これが唯一の防ぎ方です</strong>
+        あとから説明すると「5枚のつもりだった」と必ず言われます。先に伝えれば、多くのお客様は「じゃあまとめて持ってきます」となります。<strong>この説明は、まとめてお預かりするための案内でもあります。</strong>
+      </div>
+
+      <h3 class="card-title">例外</h3>
+      <p>最初から全数量・仕様・金額が確定していて、<strong>受付日から7日以内、かつ制作開始前</strong>に残りの商品が揃った場合のみ、合計数量を適用できます。<strong>この例外は社長承認が必要です。</strong></p>
+
+      <h3 class="card-title">別仕様として管理するもの</h3>
+      <p>次のどれかが違えば、同じお客様の同じ案件でも<strong>別仕様</strong>として分けて管理します。事例2では、これが混ざったことで取り違えの危険が出ました。</p>
+      <ul>
+        <li>商品の種類が違う（Tシャツ／スカート）</li>
+        <li>片面と両面が違う</li>
+        <li>商品の色が違う</li>
+        <li>プリント位置・大きさ・色数が違う</li>
+        <li>持ち込み日が違う</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">変更は、口頭で受けない</h3>
+      <p>事例2で「どの指示が最新か分からない」状態になった原因は、変更を口頭とメモで管理したことでした。電話を受けた人と作業する人が違えば、必ず食い違います。</p>
+      <div class="alert bad">
+        <strong>変更を受けたときの手順</strong>
+        1. 口頭で受けたら、<strong>その場で自分が書く</strong><br>
+        2. 書いたものを<strong>お客様に見せて（読み上げて）確認</strong>する<br>
+        3. <strong>プリント指示書に日付と担当者名を入れて記録</strong>する<br>
+        4. 変更の連絡先は<strong>LINEまたはメールに一本化</strong>する
+      </div>
+      <p><a href="print-forms.html">受付用紙</a>の「商品別プリント指示書」に変更履歴の欄があります。<strong>最新版がどれか、紙を見れば分かる状態</strong>にしてください。</p>
+
+      <h3 class="card-title">未確定の項目は、空欄のまま見えるようにする</h3>
+      <p>事例2では「青色のプリント色が決まっていない」という状態が管理できませんでした。決まっていないことを、決まっていないと分かる形で残します。</p>
+      <div class="alert warn">
+        <strong>未確定欄が埋まるまで、着手しません。</strong>
+        埋まった日が、納期の起算日になります。
+      </div>
+
+      <h3 class="card-title">お預かりした商品の管理</h3>
+      <p>持ち込み商品はお客様の私物です。分納だと預かる期間が長くなります。</p>
+      <ul>
+        <li>お預かりした日・数量・返却予定を指示書に記録する</li>
+        <li>予備がないことが前提。<strong>加工に失敗しても代わりがない</strong></li>
+        <li>素材・状態・予備枚数・加工失敗時の扱いを確認せずに「加工できます」と約束しない（社長確認へ）</li>
+        <li>残りの商品が長期間持ち込まれない場合は、お客様へ連絡して扱いを確認する</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="delivery">
+    <h2 class="section-title">3．納期</h2>
+
+    <div class="card">
+      <h3 class="card-title">起算日の定義（これがいちばん大事）</h3>
+      <div class="headline" style="font-size:1.05rem;">納期は、<em>商品・原稿・色・印刷位置・数量のすべてが確定した日</em>の翌営業日から数えます。<br>ひとつでも未確定の項目があれば、納期は始まりません。</div>
+      <p>事例2で「条件が揃わないまま日数だけ過ぎた」のは、起算日が決まっていなかったからです。この一文があれば、同じことは構造的に起きません。</p>
+
+      <div class="alert info">
+        <strong>お客様向けの掲示物があります</strong>
+        この表をお客様向けの言葉に直したものが <a href="delivery-notice.html" target="_blank"><strong>店頭掲示用 納期表（A4）</strong></a> です。お客様に聞かれたら、掲示物を指しながら説明できます。
+      </div>
+
+      <h3 class="card-title">標準納期</h3>
+      <table>
+        <thead><tr><th>商品</th><th>納期</th><th>起算日</th></tr></thead>
+        <tbody>
+          <tr><td>名刺・チラシ<br>（完全データ・加工なし）</td><td><strong>最短 翌営業日</strong></td><td>データ確認完了かつ<strong>15時まで</strong>の入稿</td></tr>
+          <tr><td>名刺・チラシ<br>（折り・ミシン目などの加工あり）</td><td><strong>最短 3営業日後</strong></td><td>同上</td></tr>
+          <tr><td>データ調整あり</td><td>上記＋1〜3営業日</td><td>校正の返事待ちは含めない</td></tr>
+          <tr><td>Tシャツ・ウェア（当店手配）</td><td><strong>10営業日</strong></td><td>条件確定＋入金確認の翌営業日</td></tr>
+          <tr><td>Tシャツ・ウェア（持ち込み）</td><td><strong>10営業日</strong><br>受付時には確定しない</td><td>商品が<strong>全数届いた日</strong>の翌営業日</td></tr>
+          <tr><td>看板・カッティング（商品のみ）</td><td><strong>7営業日〜</strong></td><td>条件確定の翌営業日</td></tr>
+          <tr><td>看板・カッティング（施工あり）</td><td>7営業日＋施工日の調整</td><td><strong>現地確認完了</strong>の翌営業日</td></tr>
+        </tbody>
+      </table>
+
+      <div class="alert warn">
+        <strong>土日祝は休みです</strong>
+        「翌営業日」は翌日ではありません。<strong>金曜15時以降の入稿は、火曜仕上がり</strong>になります。お客様に日付で伝えるときは、必ずカレンダーで数えてください。
+      </div>
+
+      <h3 class="card-title">「最短」を口にしてよい条件</h3>
+      <div class="alert bad">
+        <strong>その場でデータを開いて確認できたときだけ、「最短」を言ってよい</strong>
+        データを見ていない段階では、納期も金額も言いません。<strong>AIで作られたデータ・お客様が作ったデータは、原則として「最短 翌営業日」の対象外</strong>です。
+      </div>
+      <div class="template">
+        <strong>最短を伝えるときの言い方</strong><br>
+        「<strong>完全データで、加工がなければ、最短で翌営業日</strong>にお渡しできます。<strong>データを拝見してから確定でご案内します。</strong>」
+      </div>
+      <p>「明日できますよ」だけを言ってしまうと、事例1と同じことが起きます。<strong>最短という数字は、必ず条件とセットで伝えてください。</strong></p>
+
+      <h3 class="card-title">校正の返事待ちは、納期に含めない</h3>
+      <div class="alert info">
+        <strong>校正をお出ししてから、お客様のご返事をいただくまでの日数は、納期に含まれません。</strong>
+        受付・見積もりの時点でこれを伝えておきます。お客様都合の遅れを、当社が無料で吸収することはありません。
+      </div>
+
+      <h3 class="card-title">持ち込み商品の納期は、受付時に確定しない</h3>
+      <p>持ち込みは、失敗しても代わりがありません。素材が分からないと加工できるかどうかも決まらないので、<strong>商品を見るまで仕上がり日を確定しません</strong>。</p>
+      <div class="template">
+        「<strong>商品を拝見してから、お仕上がり日を確定します。目安は10営業日</strong>とお考えください。」
+      </div>
+      <p>素材の確認やテストプリントが必要な場合は、<strong>さらに＋3営業日</strong>を見込みます。</p>
+
+      <h3 class="card-title">Tシャツの「5〜10営業日」について</h3>
+      <p>みんなのTシャツ.comのサイトには「5〜10営業日程でお届け」と記載しています。<strong>受付が口頭で言う数字は、上限の10営業日に固定</strong>してください。短く言って遅れるのが最悪で、早く上がれば喜ばれるだけです。</p>
+      <div class="template">
+        <strong>「サイトには5日と書いてある」と言われたとき</strong><br>
+        「<strong>最短5営業日ですが、確実にお渡しできるのは10営業日</strong>とお考えください。早く上がりましたら、その時点でご連絡します。」
+      </div>
+    </div>
+  </section>
+
+  <section id="rush">
+    <h2 class="section-title">4．特急料金</h2>
+
+    <div class="card">
+      <h3 class="card-title">特急料金がかかるのは、順番を早めるときだけです</h3>
+      <div class="headline" style="font-size:1.05rem;">分けて作るのは<em>別の注文</em>。<br>順番を早めるのが<em>特急</em>。</div>
+      <p>「分けて作る」と「早く仕上げる」は別の話です。分けるだけなら、それぞれ別の注文として数量の単価で計算するだけで、割増はありません。<strong>特急料金は、ほかの案件の前に割り込むときにいただきます。</strong></p>
+      <table>
+        <thead><tr><th>区分</th><th class="num">料金（税込）</th></tr></thead>
+        <tbody>
+          <tr><td>通常納期を短縮する場合<br><span style="color:#666;font-size:0.92em;">例：通常10営業日を5営業日で</span></td><td class="num">通常料金の30％増し</td></tr>
+          <tr><td>最低特急料金</td><td class="num">3,300円</td></tr>
+          <tr><td>当日対応・大幅な納期短縮</td><td class="num">50％増し、または個別見積もり</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="card-title">受付の判定は、この2問だけ</h3>
+      <div class="q1">
+        <div class="q1-label">判定</div>
+        <p class="q1-text">① 分けて作りますか？　→ はい：<strong>それぞれ別の注文として計算</strong>（割増なし）<br>② 順番を早めますか？　→ はい：<strong>特急料金（30％増し）</strong></p>
+      </div>
+      <div class="alert warn">
+        <strong>「この人の分だけ先に」は、両方あてはまります</strong>
+        別の注文になる（＝まとめ作りの安さがなくなる）うえに、順番を早める（＝割り込む）からです。<br><br>
+        逆に「<strong>急がないけど分けてほしい</strong>」は、<strong>別の注文になるだけ</strong>です。<strong>急いでいないお客様に「特急料金」とは言いません。</strong>
+      </div>
+
+      <div class="alert bad">
+        <strong>30％を掛けるのは、加工賃・制作費だけです</strong>
+        <strong>商品代・材料代・送料には掛けません。</strong>在庫品を取り寄せるだけの商品代に急ぎ料金が乗る理由は説明できません。<br><br>
+        例）当店手配のTシャツ5枚（商品15,000円＋加工10,000円）→ 特急料金は<strong>加工10,000円の30％＝3,000円</strong>。25,000円の30％ではありません。
+      </div>
+
+
+      <h3 class="card-title">受けるかどうかの判断</h3>
+      <div class="alert warn">
+        <strong>特急は、料金を払えば必ず受ける制度ではありません</strong>
+        ・特急対応は、<strong>商品・原稿・色・数量・印刷位置などの全条件が確定した時点から</strong>判断します<br>
+        ・生産状況や品質管理上、対応が難しい場合はお断りすることがあります<br>
+        ・<strong>スタッフが単独で受けません。社長または制作担当者の確認後に回答します</strong>
+      </div>
+
+      <h3 class="card-title">お客様の情報が遅れて急ぎになった場合も、特急です</h3>
+      <p>「原稿が遅れたので急ぎになった」というケースを、当社が無料で吸収することはありません。納期は条件が確定した日から始まるので、<strong>確定が遅れた分だけ仕上がりも後ろに動く</strong>のが原則です。それでも当初の日程で必要な場合が、特急にあたります。</p>
+
+      <h3 class="card-title">内製だからこそ、断る基準が要ります</h3>
+      <div class="alert bad">
+        <strong>当社は完全内製です</strong>
+        外注なら「工場が無理と言っている」と断れますが、内製ではその理由を外に置けません。「やればできるでしょう」と言われたときに守ってくれるのは、社内ルールだけです。<br><br>
+        <strong>受付が言うのは、この一言だけです。「お急ぎの件は、確認してからご連絡します。」</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="president">
+    <h2 class="section-title">5．その場で答えず、社長へ上げる案件</h2>
+    <div class="card">
+      <p><a href="../staff-confirm/">社長確認のまとめ方</a>のC区分（その場で約束せず社長へ上げる案件）に、次を追加します。</p>
+      <ul>
+        <li>持ち込みデータの調整が<strong>90分を超えそう</strong>なとき、または着手後に判明したとき</li>
+        <li>見覚えのある<strong>キャラクター・ブランドロゴ・有名人の顔</strong>が素材に入っているとき</li>
+        <li>数量割引の<strong>例外</strong>を適用したいとき（受付日から7日以内・制作開始前）</li>
+        <li><strong>特急</strong>の可否と料金（すべて）。「この人の分だけ先に」のように<strong>分割と急ぎが重なる</strong>依頼も含みます</li>
+        <li>持ち込み商品の<strong>素材・状態が分からない</strong>とき、予備がなく失敗できないとき</li>
+        <li>残りの商品が<strong>長期間持ち込まれない</strong>とき</li>
+        <li>制作開始後の<strong>仕様変更・分割納品</strong>の申し出</li>
+      </ul>
+      <div class="template">
+        <strong>C案件でお客様に使う言葉</strong><br>
+        「内容を確認のうえ、責任者よりご連絡いたします。」
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <h2 class="section-title">きっかけになった2つの事例</h2>
+    <div class="card">
+      <div class="case">
+        <strong>事例1：AIで作成されたデザインデータの見積もり</strong>
+        お客様がChatGPTなどのAIで作ったチラシや名刺のデザインを持ち込まれるケースが増えました。見た目が完成しているため、お客様だけでなく受付スタッフも「少し調整すれば印刷できる」と判断しやすい状態でした。<br><br>
+        実際の案件では、データを十分に確認する前に「1ページ5,000円程度」と案内してしまいました。しかし印刷用に仕上げるには、塗り足しの作成、文字の打ち替え、背景や素材の切り抜き、画像と文字の再配置、サイズや比率の調整、解像度と色の確認、レイアウトの再構成が必要でした。<strong>一から作るより手間がかかる状態だった</strong>のに、先に金額を言ってしまったため、値上げもできませんでした。
+      </div>
+      <div class="case">
+        <strong>事例2：持ち込み商品の分納と変更指示が重なった案件</strong>
+        フラダンス用のTシャツとスカートへのプリント案件です。当初は「Tシャツ5枚」でしたが、まず3枚だけ持ち込まれ、残り2枚は後日という話でした。その後、残り2枚が1枚に変わり、もう1枚はスカートに変わり、先に預かった分は両面プリント・追加分は片面プリントに変わり、スカートは複数の色が混在し、青色の商品はプリント色が確定しないままでした。<br><br>
+        変更をその都度口頭とメモで管理したため、<strong>どの指示が最新なのか分からなくなり</strong>、印刷面・色・商品・数量を取り違える危険が高い状態になりました。また、5枚として受けた数量割引をそのまま適用すると、作業を分けて行うのに料金に反映されないという問題も出ました。<br><br>
+        <strong>スタッフ個人の記憶力や対応力だけに頼ると、ミスや赤字が発生する</strong>ことがはっきりした案件でした。
+      </div>
+      <div class="alert info">
+        <strong>このページの目的</strong>
+        誰が受付を担当しても、同じ判断と同じ案内ができるようにすることです。個人の能力でカバーする状態をやめます。
+      </div>
+    </div>
+  </section>
+
+  <section id="trial">
+    <h2 class="section-title">仮運用と見直し</h2>
+    <div class="card">
+      <div class="trial">
+        <strong>仮運用：2026年8月1日 〜 2026年10月31日</strong>
+        見直し予定：2026年11月
+      </div>
+      <p style="margin-top:14px;">ここに書いた金額・日数は、3か月の仮運用で決めた暫定の数字です。<strong>実際にどれだけ時間がかかったかを記録しないと、11月に見直しができません。</strong></p>
+      <div class="alert warn">
+        <strong>記録してほしいこと</strong>
+        データ調整をしたら、<a href="print-forms.html">受付用紙</a>の作業記録に <strong>見積時間・実作業時間・担当</strong> を書いてください。3か月分たまれば、1時間6,600円が高いのか安いのか、30分刻みが実態に合っているのかが数字で分かります。
+      </div>
+      <p>逆にこれが無いと、11月に「なんとなく続行」になります。</p>
+
+      <h3 class="card-title">この期間中に決めること</h3>
+      <ul>
+        <li>注文書・規約に入れる権利確認の正式な文面（専門家に確認）</li>
+        <li>データ調整費の区分が実態に合っているか</li>
+        <li>持ち込み商品の10営業日が長すぎないか、短すぎないか</li>
+        <li>みんなのTシャツ.comの「工場に相談」という記載を、内製の実態に合わせて修正する</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 株式会社ベスタ ／ このページは社内スタッフ向け資料です
+</footer>
+
+</body>
+</html>

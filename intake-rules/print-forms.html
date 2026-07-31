@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>受付用紙｜受付・見積もりの基本ルール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #222; line-height: 1.6; }
+header { background: #1a1a2e; color: #fff; padding: 18px 16px; text-align: center; }
+header a { color: #ccc; text-decoration: none; font-size: 0.8rem; }
+h1 { font-size: 1.25rem; margin-top: 4px; }
+main { max-width: 900px; margin: 0 auto; padding: 16px; }
+.toolbar { background: #fff; border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.toolbar p { font-size: 0.9rem; margin-bottom: 10px; }
+button { background: #e94560; color: #fff; border: none; border-radius: 6px; padding: 10px 16px; font-family: inherit; font-weight: 700; cursor: pointer; }
+.sheet { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 18px; margin-bottom: 18px; page-break-after: always; }
+.sheet:last-child { page-break-after: auto; }
+h2 { font-size: 1.1rem; color: #1a1a2e; border-bottom: 2px solid #1a1a2e; padding-bottom: 6px; margin-bottom: 12px; }
+h3 { font-size: 0.95rem; margin: 14px 0 6px; color: #1a1a2e; }
+p, li { font-size: 0.9rem; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 12px; }
+.field { border: 1px solid #bbb; min-height: 38px; padding: 6px 8px; font-size: 0.82rem; }
+.field.large { min-height: 78px; }
+.field.xlarge { min-height: 110px; }
+.label { display: block; font-weight: 700; color: #333; margin-bottom: 2px; }
+.checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 12px; margin: 8px 0; }
+.checks.one { grid-template-columns: 1fr; }
+.check { border-bottom: 1px solid #ccc; min-height: 28px; padding: 3px 0; font-size: 0.86rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 8px; }
+th, td { border: 1px solid #999; padding: 6px; vertical-align: top; }
+th { background: #eee; }
+td.blank { height: 30px; }
+.note { font-size: 0.78rem; color: #555; margin-top: 8px; }
+.stop { border: 2px solid #e94560; background: #fff3f3; border-radius: 6px; padding: 10px 12px; margin: 10px 0; font-size: 0.85rem; }
+.stop > strong:first-child { display: block; color: #b92f48; margin-bottom: 3px; }
+.stop > strong.line { display: block; color: #b92f48; margin-bottom: 3px; }
+.hilite { border: 2px dashed #f9a825; background: #fff8e1; border-radius: 6px; padding: 10px 12px; margin: 10px 0; }
+.hilite .label { color: #7a5c00; }
+@media print {
+  body { background: #fff; }
+  header, .toolbar { display: none; }
+  main { max-width: none; padding: 0; }
+  .sheet { border: none; border-radius: 0; box-shadow: none; margin: 0; padding: 8mm; }
+}
+@media (max-width: 640px) {
+  .grid, .grid3, .checks { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="./">受付・見積もりの基本ルールへ戻る</a>
+  <h1>受付用紙（A4・4種）</h1>
+</header>
+<main>
+  <div class="toolbar">
+    <p>必要なページだけ印刷して、店頭や電話横に置いて使ってください。記入後は案件資料やメールの記録と一緒に保管します。</p>
+    <button onclick="window.print()">印刷する</button>
+  </div>
+
+  <!-- 1 -->
+  <section class="sheet">
+    <h2>1. 持ち込みデータ受付シート（AI・お客様作成データ）</h2>
+
+    <div class="grid3">
+      <div class="field"><span class="label">受付日</span></div>
+      <div class="field"><span class="label">担当</span></div>
+      <div class="field"><span class="label">お客様名</span></div>
+    </div>
+    <div class="grid" style="margin-top:8px;">
+      <div class="field"><span class="label">ご連絡先（電話・LINE・メール）</span></div>
+      <div class="field"><span class="label">作りたいもの・数量</span></div>
+    </div>
+
+    <h3>最初の1問</h3>
+    <div class="stop">
+      <strong>「文字は打ち替えできる状態ですか？　元のデータはお持ちですか？」</strong>
+      □ 文字は編集できる　　□ 文字は画像に焼き込まれている（＝作り直しに近い）　　□ 不明
+    </div>
+
+    <h3>データの状態</h3>
+    <div class="checks">
+      <div class="check">□ データ形式：ai / pdf / psd / jpg / png / スクショ / その他（　　　）</div>
+      <div class="check">□ 元データ（編集できるもの）：あり ・ なし</div>
+      <div class="check">□ 解像度：足りる ・ 足りない ・ 不明</div>
+      <div class="check">□ 塗り足し：あり ・ なし</div>
+      <div class="check">□ 色：CMYK ・ RGB ・ 不明</div>
+      <div class="check">□ 原寸で作られている：はい ・ いいえ ・ 不明</div>
+    </div>
+
+    <h3>データの作成方法</h3>
+    <div class="checks">
+      <div class="check">□ AIで作成（サービス名：　　　　　　　　　　）</div>
+      <div class="check">□ お客様ご自身が作成</div>
+      <div class="check">□ 他社・他の方が作成</div>
+      <div class="check">□ 不明</div>
+    </div>
+    <p class="note">※ AIで作成されたデータは、原則として「完全データ」ではありません。「最短 翌営業日」の対象外です。</p>
+
+    <h3>お客様が気づいていない可能性のある点（見つけたら記入し、必ずお伝えする）</h3>
+    <div class="field large"><span class="label">文字の崩れ／指や手の形／ロゴの歪み／解像度／切り抜きの粗さ など</span></div>
+
+    <h3>権利の確認（口頭では済ませず、必ずお客様に記入・署名いただく）</h3>
+    <div class="checks one">
+      <div class="check">□ 持ち込みデータおよびAI生成素材について、商用利用が可能であることを確認しました。</div>
+      <div class="check">□ 第三者の著作権、商標権、肖像権その他の権利を侵害する素材ではないことを確認しました。</div>
+      <div class="check">□ 使用したAIサービスの利用規約を確認しました。</div>
+    </div>
+    <div class="grid" style="margin-top:8px;">
+      <div class="field"><span class="label">使用したAIサービス名</span></div>
+      <div class="field"><span class="label">確認日・お客様署名</span></div>
+    </div>
+    <div class="stop">
+      <strong>見覚えのあるキャラクター・ブランドロゴ・有名人の顔が入っていたら、チェック欄だけで通さず社長へ</strong>
+      「似ているかどうか」を判断する必要はありません。「見たことがある気がする」で十分な理由です。
+    </div>
+
+    <h3>お客様に案内した内容（言ったことを必ず残す）</h3>
+    <div class="grid">
+      <div class="field"><span class="label">案内した金額</span>□ 金額は言っていない</div>
+      <div class="field"><span class="label">案内した納期</span>□ 納期は言っていない</div>
+    </div>
+    <p class="note">※ データを開いて確認するまでは、金額も納期も言いません。「データを拝見してからお見積もりをお出しします」で止めます。</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="sheet">
+    <h2>2. 商品別プリント指示書（持ち込み・分納・変更）</h2>
+
+    <div class="grid3">
+      <div class="field"><span class="label">受付日</span></div>
+      <div class="field"><span class="label">担当</span></div>
+      <div class="field"><span class="label">お客様名</span></div>
+    </div>
+
+    <h3>最初の1問</h3>
+    <div class="stop">
+      <strong>「今日、商品と原稿は全部お揃いですか？」</strong>
+      □ 全部揃っている　　□ 揃っていない（→ 本日分だけで受付。金額・仕上がり日は確定しない）
+    </div>
+
+    <h3>商品ごとの内容（1行＝1仕様。ひとつでも違えば行を分ける）</h3>
+    <table>
+      <thead>
+        <tr><th style="width:4%">No</th><th style="width:18%">商品</th><th style="width:12%">色</th><th style="width:14%">サイズ</th><th style="width:8%">数量</th><th style="width:12%">片面/両面</th><th style="width:16%">位置・大きさ・色数</th><th style="width:16%">原稿・預かり日</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="note">※ 商品・片面/両面・色・プリント位置・持ち込み日のどれかが違えば、別仕様として行を分けます。</p>
+
+    <h3>未確定の項目（ここが埋まるまで着手しない）</h3>
+    <div class="hilite">
+      <div class="field large"><span class="label">まだ決まっていないこと（例：青の商品のプリント色／残り1枚の商品／使用する原稿）</span></div>
+    </div>
+
+    <h3>納期</h3>
+    <div class="grid3">
+      <div class="field"><span class="label">全条件が確定した日</span></div>
+      <div class="field"><span class="label">起算日（翌営業日）</span></div>
+      <div class="field"><span class="label">仕上がり予定日</span></div>
+    </div>
+    <p class="note">※ 納期は、商品・原稿・色・印刷位置・数量のすべてが確定した日の翌営業日から数えます。校正の返事待ちの日数は含めません。土日祝は数えません。</p>
+
+    <h3>変更の記録（口頭で受けたら、その場で書いてお客様に読み上げて確認する）</h3>
+    <table>
+      <thead>
+        <tr><th style="width:14%">日付</th><th style="width:12%">受けた人</th><th style="width:44%">変更の内容</th><th style="width:30%">お客様への確認方法（読み上げ／LINE／メール）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3>お預かりした商品</h3>
+    <div class="grid3">
+      <div class="field"><span class="label">お預かり日・数量</span></div>
+      <div class="field"><span class="label">返却予定</span></div>
+      <div class="field"><span class="label">予備の有無</span>あり（　枚）・なし</div>
+    </div>
+    <div class="checks" style="margin-top:8px;">
+      <div class="check">□ 素材・状態を確認した</div>
+      <div class="check">□ テストプリントが必要（＋3営業日）</div>
+      <div class="check">□ 素材が不明 → 社長へ（加工できると約束しない）</div>
+      <div class="check">□ 加工失敗時の扱いをお客様と確認した</div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="sheet">
+    <h2>3. 数量・特急の判定メモ</h2>
+
+    <div class="grid3">
+      <div class="field"><span class="label">受付日</span></div>
+      <div class="field"><span class="label">担当</span></div>
+      <div class="field"><span class="label">お客様名</span></div>
+    </div>
+
+    <h3>判定は、この2問だけ</h3>
+    <div class="stop">
+      <strong>① 分けて作りますか？　→ □ はい：それぞれ別の注文として計算（割増なし）　□ いいえ</strong>
+      <strong class="line" style="margin-top:6px;">② 順番を早めますか？　→ □ はい：特急料金（30％増し・最低3,300円）　□ いいえ</strong>
+      分けるだけなら割増はありません。まとめ作りの安さがなくなるだけです。／ 急いでいないお客様に「特急料金」とは言いません。
+    </div>
+
+    <h3>数量の数え方・特急の判定（1行選ぶ）</h3>
+    <table>
+      <thead><tr><th style="width:38%">状況</th><th style="width:34%">数量の数え方</th><th style="width:18%">特急料金</th><th style="width:10%">該当</th></tr></thead>
+      <tbody>
+        <tr><td>全数まとめてお預かり・一括制作</td><td>合計数量（5枚なら5枚単価）</td><td>なし</td><td>□</td></tr>
+        <tr><td>商品が揃わないので、揃った分から作る（急いでいない）</td><td><strong>別の注文として、それぞれの数量</strong></td><td>なし</td><td>□</td></tr>
+        <tr><td>全部揃っているが、一部だけ先に仕上げる</td><td><strong>別の注文として、それぞれの数量</strong></td><td><strong>かかる</strong></td><td>□</td></tr>
+        <tr><td>分けたうえに、当初の日程で急いでほしい</td><td><strong>別の注文として、それぞれの数量</strong></td><td><strong>かかる</strong></td><td>□</td></tr>
+        <tr><td>後から追加で持ち込まれた分</td><td>追加分の数量</td><td>なし</td><td>□</td></tr>
+        <tr><td>後日、全数が揃った</td><td>遡って差額調整はしない</td><td>—</td><td>□</td></tr>
+        <tr><td>例外（受付日から7日以内・制作開始前に全数が揃う見込み）</td><td>合計数量／<strong>社長承認</strong></td><td>なし</td><td>□</td></tr>
+      </tbody>
+    </table>
+    <div class="stop">
+      <strong>「預かる」と「先に作る」は別の話</strong>
+      お預かりするだけで、揃ってからまとめて作るなら1件の注文（合計数量のお値段）です。<strong>揃う前に作り始める</strong>と、そこで注文が分かれます。<br>
+      □ 分けて<strong>お渡し</strong>したい（＝別注文）　　□ 分けて<strong>お預け</strong>になるだけ（＝1件の注文）
+    </div>
+    <div class="stop">
+      <strong>受付の時点で、必ず先に伝える</strong>
+      「5枚まとめてお預かりできれば5枚のお値段です。分けてお作りする場合はそれぞれ別のご注文として、その枚数のお値段になります。まとめてお預かりできれば、いちばんお安くなります。」<br>
+      □ 上記をお客様に伝えた（日付・方法：　　　　　　　　　　　）
+    </div>
+
+    <h3>注文の分かれ方と金額</h3>
+    <table>
+      <thead><tr><th style="width:16%">注文</th><th style="width:16%">数量</th><th style="width:24%">制作する日</th><th style="width:22%">単価</th><th style="width:22%">特急の有無</th></tr></thead>
+      <tbody>
+        <tr><td>1件目</td><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td>2件目</td><td class="blank"></td><td></td><td></td><td></td></tr>
+        <tr><td>3件目</td><td class="blank"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="checks">
+      <div class="check">□ 全条件（商品・原稿・色・数量・位置）が確定している</div>
+      <div class="check">□ 未確定 → 特急の判断はできない</div>
+      <div class="check">□ 当日・大幅短縮：50％増し または個別</div>
+      <div class="check">□ 社長・制作担当の確認をとった</div>
+    </div>
+    <div class="stop">
+      <strong>30％を掛けるのは、加工賃・制作費だけ。商品代・材料代・送料には掛けない。</strong>
+      例）商品15,000円＋加工10,000円 → 特急料金は加工10,000円の30％＝3,000円。
+    </div>
+    <div class="grid3">
+      <div class="field"><span class="label">通常納期</span></div>
+      <div class="field"><span class="label">ご希望日</span></div>
+      <div class="field"><span class="label">特急料金（税込）</span></div>
+    </div>
+    <p class="note">※ 特急はスタッフが単独で受けません。社長または制作担当者の確認後に回答します。受付が言うのは「お急ぎの件は、確認してからご連絡します」だけです。</p>
+
+    <h3>社長へ上げる／自分で進める</h3>
+    <div class="checks one">
+      <div class="check">□ データ調整が90分を超えそう　　□ 見覚えのあるキャラクター・ロゴ・有名人の顔　　□ 数量割引の例外</div>
+      <div class="check">□ 特急の可否と料金　　□ 持ち込み商品の素材・状態が不明　　□ 残りの商品が長期間来ない</div>
+      <div class="check">□ 制作開始後の仕様変更・分割納品の申し出</div>
+    </div>
+    <div class="field large" style="margin-top:8px;"><span class="label">社長に確認してほしい点／自分の案</span></div>
+    <p class="note">C案件でお客様に使う言葉：「内容を確認のうえ、責任者よりご連絡いたします。」</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="sheet">
+    <h2>4. データ調整の作業記録（仮運用 2026年8月1日〜10月31日）</h2>
+
+    <p>データ調整をしたら必ず記入してください。<strong>この記録がないと、11月に料金の見直しができません。</strong></p>
+
+    <h3>社内の基準（お客様には出さない）</h3>
+    <table>
+      <thead><tr><th style="width:60%">作業内容</th><th style="width:40%">料金（税込）</th></tr></thead>
+      <tbody>
+        <tr><td>データ確認のみ（15分程度まで）</td><td>原則無料</td></tr>
+        <tr><td>30分以内の軽微な調整</td><td>3,300円</td></tr>
+        <tr><td>31〜60分程度</td><td>6,600円</td></tr>
+        <tr><td>61〜90分程度</td><td>9,900円</td></tr>
+        <tr><td>90分超／デザイン判断が必要</td><td>11,000〜22,000円以上で個別見積もり</td></tr>
+      </tbody>
+    </table>
+    <p class="note">内部の考え方：1時間6,600円・30分単位・最低3,300円。お客様には「データ調整費 3,300円〜　実際のデータを確認後、作業内容に応じてお見積もりします」と案内します。</p>
+
+    <div class="stop">
+      <strong>見積もった時間を超えそうになったら、作業を止めて連絡する</strong>
+      黙って続けて、後から請求しません。「思ったより手間がかかっています」を言うのは作業後ではなく作業中です。<br>
+      90分を超えそうなときは「デザイン制作・再作成」に切り替えます。切り替えの判断は着手前に。着手後に判明したら社長へ。
+    </div>
+
+    <h3>記録</h3>
+    <table>
+      <thead>
+        <tr><th style="width:11%">日付</th><th style="width:19%">お客様名</th><th style="width:15%">内容</th><th style="width:11%">見積時間</th><th style="width:11%">実作業時間</th><th style="width:11%">請求額</th><th style="width:11%">校正回数</th><th style="width:11%">担当</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="blank"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="note">※ 校正は2回まで込み。3回目以降は30分単位で加算します。受付・見積もりの時点でお客様に伝えます。</p>
+  </section>
+
+</main>
+</body>
+</html>

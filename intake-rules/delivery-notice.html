@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店頭掲示用 納期表｜株式会社ベスタ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; background: #e8e8e0; color: #1a1a2e; line-height: 1.6; }
+
+.toolbar { max-width: 210mm; margin: 0 auto; padding: 14px 16px; background: #fff; border-bottom: 1px solid #ccc; }
+.toolbar a { color: #666; text-decoration: none; font-size: 0.8rem; }
+.toolbar p { font-size: 0.85rem; margin: 6px 0 10px; color: #444; }
+.toolbar button { background: #e94560; color: #fff; border: none; border-radius: 6px; padding: 10px 18px; font-family: inherit; font-weight: 700; cursor: pointer; }
+
+/* ---- ポスター本体：A4縦1枚 ---- */
+.poster {
+  width: 210mm; min-height: 297mm; margin: 20px auto; background: #fff;
+  padding: 14mm 13mm; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  display: flex; flex-direction: column;
+}
+
+.head { text-align: center; border-bottom: 3px solid #1a1a2e; padding-bottom: 5mm; margin-bottom: 6mm; }
+.head .eyebrow { font-size: 10pt; letter-spacing: 0.35em; color: #e94560; font-weight: 700; }
+.head h1 { font-size: 30pt; font-weight: 900; letter-spacing: 0.06em; margin: 2mm 0 1mm; }
+.head .sub { font-size: 10.5pt; color: #555; }
+
+table.main { width: 100%; border-collapse: collapse; margin-bottom: 6mm; }
+table.main th { background: #1a1a2e; color: #fff; font-size: 11pt; padding: 3mm 4mm; text-align: left; }
+table.main th:last-child { text-align: center; width: 52mm; }
+table.main td { border-bottom: 1px solid #ddd; padding: 4mm; vertical-align: middle; }
+table.main tr:nth-child(even) td { background: #f7f8fc; }
+.item { font-size: 13pt; font-weight: 700; }
+.cond { font-size: 9.5pt; color: #666; font-weight: 400; margin-top: 1mm; }
+.days { text-align: center; white-space: nowrap; }
+.days .n { font-size: 22pt; font-weight: 900; color: #e94560; line-height: 1.1; }
+.days .u { font-size: 10pt; font-weight: 700; color: #1a1a2e; }
+.days .pre { display: block; font-size: 9pt; color: #666; font-weight: 700; }
+
+.boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 5mm; }
+.box { border: 1.5px solid #1a1a2e; border-radius: 2mm; padding: 4mm; }
+.box h2 { font-size: 11pt; font-weight: 900; margin-bottom: 2mm; color: #1a1a2e; }
+.box ul { list-style: none; }
+.box li { font-size: 9.5pt; padding-left: 4.5mm; position: relative; margin-bottom: 1.5mm; line-height: 1.55; }
+.box li::before { content: "●"; position: absolute; left: 0; color: #e94560; font-size: 6pt; top: 3.5pt; }
+
+.notice { border: 2px solid #e94560; background: #fff5f6; border-radius: 2mm; padding: 4.5mm 5mm; margin-bottom: 5mm; }
+.notice h2 { font-size: 12pt; font-weight: 900; color: #b92f48; margin-bottom: 2mm; }
+.notice p { font-size: 10pt; line-height: 1.7; }
+
+.rush { background: #1a1a2e; color: #fff; border-radius: 2mm; padding: 4.5mm 5mm; margin-bottom: 5mm; display: flex; align-items: center; gap: 5mm; }
+.rush .t { font-size: 13pt; font-weight: 900; white-space: nowrap; }
+.rush .d { font-size: 9.5pt; line-height: 1.65; color: #e6e6ee; }
+.rush .d strong { color: #ff8fa3; }
+
+.foot { margin-top: auto; border-top: 2px solid #1a1a2e; padding-top: 4mm; display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; }
+.foot .name { font-size: 13pt; font-weight: 900; }
+.foot .tel { font-size: 14pt; font-weight: 900; color: #e94560; letter-spacing: 0.02em; margin-top: 0.5mm; }
+.foot .addr { font-size: 8.5pt; color: #555; line-height: 1.6; margin-top: 1mm; }
+.foot .hours { font-size: 9pt; text-align: right; line-height: 1.6; white-space: nowrap; }
+.foot .hours strong { display: block; font-size: 10pt; }
+
+@media print {
+  body { background: #fff; }
+  .toolbar { display: none; }
+  .poster { width: auto; min-height: auto; margin: 0; padding: 0; box-shadow: none; }
+  @page { size: A4 portrait; margin: 12mm; }
+}
+@media (max-width: 780px) {
+  .poster { width: auto; min-height: auto; padding: 6mm; }
+  .boxes { grid-template-columns: 1fr; }
+  .rush { flex-direction: column; align-items: flex-start; gap: 2mm; }
+  .foot { flex-direction: column; align-items: flex-start; }
+  .foot .hours { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="./">← 受付・見積もりの基本ルールへ戻る</a>
+  <p>お客様向けの店頭掲示物です。A4で印刷してください（A3に拡大しても使えます）。<strong>掲示前に、社長の確認を受けてください。</strong></p>
+  <button onclick="window.print()">印刷する</button>
+</div>
+
+<div class="poster">
+
+  <div class="head">
+    <div class="eyebrow">株式会社ベスタ</div>
+    <h1>お仕上がりの目安</h1>
+    <div class="sub">下記は目安です。実際のお日にちは、内容を確認のうえご案内します。</div>
+  </div>
+
+  <table class="main">
+    <thead>
+      <tr><th>ご注文の内容</th><th>お仕上がりの目安</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="item">名刺・チラシ</div>
+          <div class="cond">そのまま印刷できるデータをお持ちで、折りなどの加工がない場合</div>
+        </td>
+        <td class="days"><span class="pre">最短</span><span class="n">翌</span><span class="u">営業日</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item">名刺・チラシ（加工あり）</div>
+          <div class="cond">折り・ミシン目・断裁・穴あけ・PP加工・角丸・ナンバリングなど</div>
+        </td>
+        <td class="days"><span class="pre">最短</span><span class="n">3</span><span class="u">営業日</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item">Tシャツ・ウェアのプリント</div>
+          <div class="cond">枚数・内容・時期によって変わります／お持ち込みの商品も承ります</div>
+        </td>
+        <td class="days"><span class="n">5〜10</span><span class="u">営業日</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item">看板・カッティングシート</div>
+          <div class="cond">取り付け工事が必要な場合は、現地確認のうえご相談させてください</div>
+        </td>
+        <td class="days"><span class="n">7</span><span class="u">営業日〜</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="boxes">
+    <div class="box">
+      <h2>お日にちの数え方</h2>
+      <ul>
+        <li><strong>15時まで</strong>にデータをお預かりした日の、翌営業日から数えます</li>
+        <li>土曜・日曜・祝日はお休みです<br>（金曜15時以降のお預かりは、火曜のお仕上がりになります）</li>
+        <li>内容・色・数量・印刷位置が<strong>すべて決まってから</strong>数え始めます</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>お日にちが変わる場合</h2>
+      <ul>
+        <li>印刷用にデータを整える作業が必要なとき（＋1〜3営業日）</li>
+        <li>お持ち込みの商品にプリントするとき（商品を拝見してから確定します）</li>
+        <li>仕上がり確認のお返事をお待ちする間は、日数に含みません</li>
+        <li>数量が多いとき、繁忙期</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notice">
+    <h2>デザインをお持ち込みのお客様へ</h2>
+    <p>画面で完成して見えるデータでも、<strong>印刷機に渡せる形に整える作業</strong>が必要な場合があります。デザインの方向性はそのまま活かしますので、ご安心ください。<br>
+    <strong>データを拝見したうえで、お日にちと料金を確定してご案内します。</strong>お手数ですが、まずデータをお見せください。</p>
+  </div>
+
+  <div class="rush">
+    <div class="t">お急ぎのご相談</div>
+    <div class="d">承れる場合があります。まずはご相談ください。内容・数量・ご希望日をうかがい、<strong>お受けできるかどうかと料金を、あらためてご連絡</strong>いたします。<br>
+    お急ぎ料金：通常料金の30％増し（最低3,300円・税込）／当日・大幅な短縮は別途お見積もり</div>
+  </div>
+
+  <div class="foot">
+    <div>
+      <div class="name">株式会社ベスタ</div>
+      <div class="tel">TEL 0797-91-5225</div>
+      <div class="addr">〒665-0816 兵庫県宝塚市平井5-2-9（阪急山本駅近く・国道176号線沿い／駐車場あり）<br>
+      印鑑・名刺・印刷・看板・Tシャツプリント・防災用品／みんなのTシャツドットコム</div>
+    </div>
+    <div class="hours">
+      <strong>平日 10:00 〜 18:00</strong>
+      土曜・日曜・祝日 定休
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
