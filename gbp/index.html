@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Googleビジネスプロフィール 登録作業手順｜株式会社ベスタ スタッフガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Noto Sans JP', sans-serif; background: #f5f5f0; color: #333; line-height: 1.8; }
+.site-header { background: #1a1a2e; color: #fff; padding: 20px 16px 16px; text-align: center; }
+.site-brand { font-size: 1.35rem; font-weight: 700; }
+.site-brand span { color: #e94560; }
+.header-sub { font-size: 0.82rem; color: #aaa; margin-top: 4px; }
+.breadcrumb { font-size: 0.78rem; color: #888; margin-bottom: 6px; }
+.breadcrumb a { color: #aaa; text-decoration: none; }
+.page-nav { background: #16213e; display: flex; gap: 4px; padding: 8px 12px; overflow-x: auto; position: sticky; top: 0; z-index: 100; }
+.page-nav a { flex: 0 0 auto; color: #ccc; text-decoration: none; font-size: 0.78rem; padding: 4px 9px; border-radius: 4px; }
+.page-nav a:hover { background: #0f3460; color: #fff; }
+main { max-width: 920px; margin: 0 auto; padding: 16px; }
+section { margin-bottom: 24px; scroll-margin-top: 58px; }
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.section-title { font-size: 1.2rem; color: #1a1a2e; border-left: 4px solid #e94560; padding-left: 10px; margin: 0 0 14px; }
+.card-title { font-size: 1rem; color: #1a1a2e; margin: 18px 0 8px; }
+.card-title:first-child { margin-top: 0; }
+p { margin: 0 0 10px; font-size: 0.94rem; }
+ul { padding-left: 1.2em; }
+li { margin-bottom: 6px; font-size: 0.92rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 10px 0; }
+th { background: #1a1a2e; color: #fff; padding: 9px 10px; text-align: left; }
+td { padding: 9px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) td { background: #f8f8ff; }
+.alert { border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 0.9rem; }
+.alert.info { background: #e8f5e9; border-left: 4px solid #43a047; }
+.alert.warn { background: #fff8e1; border-left: 4px solid #f9a825; }
+.alert.bad { background: #fff3f3; border-left: 4px solid #e94560; }
+.alert strong { display: block; margin-bottom: 4px; color: #1a1a2e; }
+.step-list { list-style: none; counter-reset: step; margin: 10px 0 0; padding: 0; }
+.step-list li { counter-increment: step; display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.92rem; }
+.step-list li:last-child { border-bottom: none; }
+.step-list li::before { content: counter(step); background: #e94560; color: #fff; font-weight: 700; font-size: 0.8rem; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.copybox { background: #fbfbfb; border: 2px dashed #b0b0c0; border-radius: 8px; padding: 14px 16px; margin: 10px 0; font-size: 0.88rem; line-height: 1.9; white-space: pre-wrap; user-select: all; }
+.copybox .fill { background: #ffe6ec; color: #c2185b; font-weight: 700; padding: 0 4px; border-radius: 3px; }
+.copy-hint { font-size: 0.78rem; color: #888; margin: -4px 0 12px; }
+.checklist { list-style: none; padding: 0; margin: 10px 0 0; }
+.checklist li { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.92rem; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: "☐"; font-size: 1.15rem; color: #e94560; line-height: 1.3; flex-shrink: 0; }
+.tag { display: inline-block; background: #0f3460; color: #fff; font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+.tag.gray { background: #999; }
+.where { background: #eef2f9; border-radius: 6px; padding: 8px 12px; font-size: 0.85rem; color: #1a1a2e; margin: 8px 0; }
+.where code { background: #fff; border: 1px solid #d5dbe6; border-radius: 4px; padding: 1px 6px; font-size: 0.82rem; }
+.discipline-box { background: #1a1a2e; color: #fff; border-radius: 10px; padding: 20px; }
+.discipline-box p { color: #eee; margin-bottom: 8px; }
+.discipline-box strong { color: #ffb3c1; }
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #999; border-top: 1px solid #ddd; }
+@media (max-width: 700px) {
+  .card { padding: 16px 12px; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 8px 6px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="breadcrumb"><a href="../">スタッフガイド TOP</a> › Googleビジネスプロフィール 登録作業</div>
+  <div class="site-brand">📍 <span>Googleビジネスプロフィール</span> 登録作業手順</div>
+  <div class="header-sub">担当：野口さん｜所要 約60分｜作業日：　　月　　日</div>
+</header>
+
+<nav class="page-nav">
+  <a href="#why">なぜやるか</a>
+  <a href="#open">管理画面の開き方</a>
+  <a href="#desc">①説明文</a>
+  <a href="#items">②商品登録</a>
+  <a href="#cat">③カテゴリ</a>
+  <a href="#review">④クチコミ</a>
+  <a href="#check">⑤調べてほしいこと</a>
+  <a href="#done">完了報告</a>
+</nav>
+
+<main>
+
+  <section id="why">
+    <h2 class="section-title">なぜこの作業をするのか</h2>
+    <div class="card">
+      <p>Googleで会社名や商品を検索したとき、地図と一緒に出てくる会社情報の枠を「Googleビジネスプロフィール」といいます。ベスタもすでに登録されていますが、<strong>入力されていない項目が残っています。</strong></p>
+
+      <p>直近6か月のデータを調べたところ、こうなっていました。</p>
+
+      <table>
+        <tr><th>地図から起きた行動</th><th>6か月の件数</th></tr>
+        <tr><td>ルート検索（店までの道順を調べた）</td><td>348件</td></tr>
+        <tr><td>ホームページへのクリック</td><td>122件</td></tr>
+        <tr><td>電話</td><td>46件</td></tr>
+      </table>
+
+      <p>月に85件ほど、地図を見た人が実際に行動しています。ただし<strong>地図に出るきっかけになった検索語句は、この5つだけでした。</strong></p>
+
+      <table>
+        <tr><th>検索された語句</th><th>回数</th></tr>
+        <tr><td>vesta</td><td>421</td></tr>
+        <tr><td>印鑑</td><td>95</td></tr>
+        <tr><td>ベスタ</td><td>92</td></tr>
+        <tr><td>はんこ</td><td>55</td></tr>
+        <tr><td>株式会社ベスタ</td><td>20</td></tr>
+      </table>
+
+      <div class="alert bad">
+        <strong>Tシャツ・ノベルティ・看板・印刷では、地図に一度も出ていません。</strong>
+        会社名を知っている人と、はんこを探している人にしか届いていない状態です。
+      </div>
+
+      <p>原因として考えられるのは次の3つで、そのうち<strong>今すぐ手を打てるのが「情報が埋まっていない」ことと「クチコミが3件しかない」こと</strong>です。この2つを埋めるのが今回の作業です。</p>
+
+      <ul>
+        <li>説明文が空欄のまま（＝Googleが商売の中身を読み取れない）</li>
+        <li>クチコミが3件しかない（＝Googleが「知名度が低い」と判断する）</li>
+        <li>検索した人が遠方にいる（＝これは手が出せない）</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="open">
+    <h2 class="section-title">管理画面の開き方</h2>
+    <div class="card">
+      <ol class="step-list">
+        <li>会社のGoogleアカウントでログインした状態で、Google検索を開く</li>
+        <li>検索窓に <strong>株式会社ベスタ</strong> と入力して検索</li>
+        <li>画面の上のほうに「Googleに掲載中のあなたのビジネス」という管理パネルが出る</li>
+        <li>そこから <strong>「プロフィールを編集」</strong> や <strong>「商品を編集」</strong> のボタンを押す</li>
+      </ol>
+      <div class="alert warn">
+        <strong>管理パネルが出ない場合</strong>
+        ログインしているアカウントが違います。作業を止めて社長に確認してください。個人のGoogleアカウントでは編集できません。
+      </div>
+    </div>
+  </section>
+
+  <section id="desc">
+    <h2 class="section-title">① 説明文を入れる<span class="tag">最優先</span></h2>
+    <div class="card">
+      <div class="where">場所： <code>プロフィールを編集</code> → <code>概要</code> タブ → <strong>説明</strong>（いま「追加」と表示されて空欄になっています）</div>
+
+      <p>下の文章をそのままコピーして貼り付けてください。<strong>ピンク色の部分だけ、貼り付ける前に直します。</strong></p>
+
+      <div class="copybox">株式会社ベスタは、兵庫県宝塚市平井にある印刷・印章の専門店です。阪急山本駅から徒歩3分、国道176号線沿いで駐車場も完備しています。創業81年、自社工場を持ち、デザインから製造・納品まで一貫して自社で行っています。
+
+【印鑑・ゴム印】個人・法人の実印、銀行印、認印、角印。チタン・象牙・黒水牛などの各種印材、印鑑ケース、即納の認印もご用意しています。ゴム印、親子印、日付印、シャチハタ、スタンパー、印鑑の彫り直しも承ります。
+
+【印刷・製本】名刺、ハガキ、宛名印刷、封筒、チラシ、パンフレット、伝票、カレンダー、表彰状、冊子。無線綴じ・中綴じ・折り加工・ラミネート加工まで対応します。
+
+【看板・サイン】表札、マンションプレート、アルミ複合板看板、カッティングシート、のぼり、横断幕、タペストリー、マグネットシート、ステッカー、アクリル板彫刻、LED看板、建設業許可票。大判プリンターを保有し、屋外用の耐候仕様にも対応します。
+
+【オリジナルウェア・ノベルティ】Tシャツ、ポロシャツ、クラスTシャツ、トレーナー、パーカー、キャップ、ビブス、タオル、トートバッグ、エプロン、マグカップ。卒業・卒団記念品、チームウェア、スタッフウェアの製作実績が多数あります。UVプリントやレーザー彫刻による名入れ、お持ち込み品への加工も承ります。
+
+小ロットや短納期のご相談、他社で断られた特殊な加工もお気軽にご相談ください。350件以上の制作事例をホームページで公開しています。
+
+お支払いはPayPay、各種クレジットカード、交通系ICカードに対応。営業時間は平日10:00〜18:00です。</div>
+      <p class="copy-hint">※ 上の枠をクリックすると全体が選択されます。</p>
+
+      <div class="alert info">
+        <strong>「創業81年」は確認済みです。そのまま貼ってください</strong>
+        以前あった空欄は埋めました。ホームページの会社概要では、<strong>創業＝昭和20年12月1日（1945年）</strong>、<strong>設立＝昭和26年3月19日（1951年）</strong>です。<br>
+        1945年12月から数えて、2026年は<strong>創業81年</strong>にあたります。
+      </div>
+
+      <div class="alert bad">
+        <strong>Googleの「開業日」は、絶対に触らないでください</strong>
+        同じ画面に「開業日 1951年3月19日」という欄がありますが、これは<strong>法人の設立日で、間違っていません</strong>。<br>
+        創業年は説明文のほうで伝えるので、<strong>開業日の欄は今のままにしておいてください。</strong>
+      </div>
+
+      <div class="alert warn">
+        <strong>この数字は毎年12月に1つ増えます</strong>
+        2026年12月1日を過ぎたら「創業82年」になります。年に一度、書き換えが必要です。
+      </div>
+    </div>
+  </section>
+
+  <section id="items">
+    <h2 class="section-title">② 商品・サービスを登録する</h2>
+    <div class="card">
+      <div class="where">場所： 管理パネルの <code>商品を編集</code> ボタン</div>
+
+      <p>下の表の内容を1件ずつ登録します。<strong>最低でも上から6件</strong>は入れてください。写真は、ホームページの制作事例ページにある写真をそのまま使って構いません（自社で撮った写真です）。</p>
+
+      <table>
+        <tr><th style="width:30%">商品名</th><th>説明文（そのまま入力）</th></tr>
+        <tr><td>オリジナルTシャツプリント</td><td>1枚から製作可能。クラスTシャツ、チームウェア、スタッフウェア、卒団記念Tシャツなど。ポロシャツ・パーカー・トレーナーにも対応します。</td></tr>
+        <tr><td>のぼり・横断幕</td><td>大判プリンターによる自社製作。屋外用の耐候仕様に対応。イベント、店頭、応援幕など用途に合わせて製作します。</td></tr>
+        <tr><td>看板・プレート製作</td><td>アルミ複合板看板、表札、マンションプレート、建設業許可票、案内板。設置例を多数公開しています。</td></tr>
+        <tr><td>名刺印刷</td><td>各種名刺、ショップカード。少部数から対応、再注文も簡単です。</td></tr>
+        <tr><td>印鑑・実印製作</td><td>個人・法人の実印、銀行印、認印、角印。チタン・象牙・黒水牛など各種印材を取り扱っています。印鑑の彫り直しも承ります。</td></tr>
+        <tr><td>ノベルティ・記念品名入れ</td><td>マグカップ、キーホルダー、USBメモリ、トートバッグなどへの名入れ。UVプリント・レーザー彫刻に対応。お持ち込み品への加工も可能です。</td></tr>
+        <tr><td>カッティングシート</td><td>車両、店舗ガラス面、社名表示など。1文字から製作します。</td></tr>
+        <tr><td>アクリル板彫刻・UVプリント</td><td>アクリルフォトプリント、表札、案内板、工業製品へのマーキング。</td></tr>
+        <tr><td>ゴム印・スタンパー</td><td>ゴム印、親子印、日付印、シャチハタ、セルフインキングスタンパー。住所印、領収印など用途別に製作します。</td></tr>
+        <tr><td>チラシ・パンフレット印刷</td><td>チラシ、パンフレット、冊子、カレンダー、伝票。無線綴じ・中綴じの製本まで自社対応します。</td></tr>
+      </table>
+
+      <div class="alert warn">
+        <strong>価格の入力は空欄で構いません</strong>
+        金額は内容によって変わるので、無理に入れないでください。「価格を表示しない」の設定があればそれを選びます。
+      </div>
+    </div>
+  </section>
+
+  <section id="cat">
+    <h2 class="section-title">③ カテゴリを追加できるか試す<span class="tag gray">できなければ飛ばす</span></h2>
+    <div class="card">
+      <div class="where">場所： <code>プロフィールを編集</code> → <code>概要</code> タブ → <strong>ビジネスカテゴリ</strong></div>
+
+      <p>いま登録されているのはこの5つです。</p>
+      <ul>
+        <li>印刷屋（メイン）</li>
+        <li>印鑑・はんこ販売店</li>
+        <li>看板専門店</li>
+        <li>印刷業者</li>
+        <li>スポーツ記念品専門店</li>
+      </ul>
+
+      <p>ここに、下の言葉を1つずつ入力してみてください。<strong>入力すると候補が出てくるので、出てきたものだけ追加します。</strong></p>
+
+      <ul>
+        <li>Tシャツ店</li>
+        <li>販促用品店</li>
+        <li>スクリーン印刷店</li>
+        <li>ギフトショップ</li>
+        <li>看板デザイン</li>
+      </ul>
+
+      <div class="alert bad">
+        <strong>候補に出てこないものを、似た名前で無理に入れないでください</strong>
+        実際の商売と違うカテゴリを入れると、Googleから不正とみなされて表示が下がることがあります。<strong>出てきたものだけ追加、出てこなければ何もしない</strong>で正解です。
+      </div>
+
+      <div class="alert info">
+        <strong>メインカテゴリは「印刷屋」のまま変えないでください</strong>
+        変更するかどうかは、別途こちらで判断します。今回はさわらないでください。
+      </div>
+    </div>
+  </section>
+
+  <section id="review">
+    <h2 class="section-title">④ クチコミを増やす仕組みを作る<span class="tag">これが一番効く</span></h2>
+    <div class="card">
+      <p>いまベスタのクチコミは<strong>3件</strong>です。Googleは地図に出す会社を選ぶとき、クチコミの数を見ています。3件では、はんこ以外の検索で勝てません。</p>
+
+      <p>ベスタは毎週のように納品してお客様と会っていて、写真まで撮っています。<strong>そのときに一言お願いするだけで増やせます。</strong></p>
+
+      <h3 class="card-title">やること</h3>
+      <ol class="step-list">
+        <li>管理パネルの <strong>「Google QR コード」</strong> を押して、クチコミ用のQRコードを表示する</li>
+        <li>QRコードを画像として保存する</li>
+        <li>名刺サイズのカードに印刷する（自社で刷れます）。文面の例は下にあります</li>
+        <li>レジ横と作業場に置き、<strong>納品時・引き渡し時に必ず1枚渡す</strong></li>
+      </ol>
+
+      <h3 class="card-title">カードに刷る文面（例）</h3>
+      <div class="copybox">この度はご利用ありがとうございました。
+
+よろしければ、仕上がりのご感想を
+Googleのクチコミにひと言いただけると
+大変励みになります。
+
+▼ こちらから（30秒で書けます）
+［QRコード］
+
+株式会社ベスタ　0797-91-5225</div>
+
+      <h3 class="card-title">お渡しするときの声かけ（例）</h3>
+      <div class="alert info">
+        「ありがとうございました。もしよろしければ、こちらから感想をひと言いただけると助かります。次に同じようなものを探している方の参考にもなりますので」
+      </div>
+
+      <div class="alert warn">
+        <strong>やってはいけないこと</strong>
+        <ul style="margin:6px 0 0;">
+          <li>クチコミを書いてもらう見返りに、割引や物を渡す（Googleの規約違反です）</li>
+          <li>スタッフや身内が書く</li>
+          <li>星の数を指定してお願いする</li>
+        </ul>
+        お願いするのは「書いてください」までです。内容はお客様に任せてください。
+      </div>
+
+      <div class="alert info">
+        <strong>目標</strong>
+        まずは<strong>月5件</strong>。半年で30件を超えれば、地図での出方が変わってくるはずです。
+      </div>
+
+      <h3 class="card-title">既にあるクチコミへの返信</h3>
+      <p>管理パネルの「クチコミを管理」に赤い印が付いています。<strong>未返信のクチコミがあります。</strong>1件ずつお礼の返信をしてください。返信しているかどうかもGoogleは見ています。</p>
+    </div>
+  </section>
+
+  <section id="check">
+    <h2 class="section-title">⑤ 調べて報告してほしいこと</h2>
+    <div class="card">
+      <p>作業とは別に、<strong>お店の中から</strong>スマホで調べて、結果を報告してください。判断に必要な情報です。</p>
+
+      <ol class="step-list">
+        <li>スマホの位置情報をオンにする</li>
+        <li>お店の中で、Googleで <strong>「ノベルティ作成 近く」</strong> と検索する</li>
+        <li>地図が出てくる枠に<strong>ベスタが入っているか</strong>を見る</li>
+        <li>ベスタが入っていない場合、<strong>そこに出ている3社それぞれのクチコミ件数</strong>をメモする</li>
+        <li>画面のスクリーンショットを撮って、社長に送る</li>
+      </ol>
+
+      <p>同じことを <strong>「印刷会社」</strong> でももう一度お願いします。</p>
+
+      <div class="alert info">
+        <strong>この結果で何が分かるか</strong>
+        ベスタが出てこず、他社のクチコミが20件も50件もあるなら、原因はクチコミ数だと確定します。他社も3件や5件しかないなら、別の原因を探すことになります。
+      </div>
+    </div>
+  </section>
+
+  <section id="done">
+    <h2 class="section-title">完了報告</h2>
+    <div class="card">
+      <p>終わったら、この一覧に沿って社長に報告してください。</p>
+      <ul class="checklist">
+        <li>説明文を入れた（「創業81年」のまま貼りました）</li>
+        <li>Googleの「開業日」は触っていない</li>
+        <li>商品・サービスを　　　件登録した</li>
+        <li>カテゴリで追加できたもの：　　　　　　　　　　（できなければ「なし」）</li>
+        <li>クチコミ用QRコードを保存した</li>
+        <li>お渡し用カードを　　　枚印刷した</li>
+        <li>未返信のクチコミに返信した（　　件）</li>
+        <li>「ノベルティ作成 近く」の検索結果を送った</li>
+        <li>「印刷会社」の検索結果を送った</li>
+      </ul>
+
+      <div class="alert warn">
+        <strong>迷ったら止めてください</strong>
+        Googleビジネスプロフィールは、お客様から見える会社の顔です。手順に書いていないことが出てきたり、消していいのか分からない項目があったら、<strong>自分で判断せず社長に確認してください。</strong>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 株式会社ベスタ ／ このページは社内スタッフ向け資料です
+</footer>
+</body>
+</html>
