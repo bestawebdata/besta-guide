@@ -22,17 +22,20 @@ body { font-family: 'Noto Sans JP', sans-serif; background: #e8e8e0; color: #1a1
   padding: 14mm 13mm; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   display: flex; flex-direction: column;
 }
+.poster > * { min-width: 0; }
 
 .head { text-align: center; border-bottom: 3px solid #1a1a2e; padding-bottom: 5mm; margin-bottom: 6mm; }
 .head .eyebrow { font-size: 10pt; letter-spacing: 0.35em; color: #e94560; font-weight: 700; }
 .head h1 { font-size: 30pt; font-weight: 900; letter-spacing: 0.06em; margin: 2mm 0 1mm; }
 .head .sub { font-size: 10.5pt; color: #555; }
 
-table.main { width: 100%; border-collapse: collapse; margin-bottom: 6mm; }
+table.main { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 6mm; }
 table.main th { background: #1a1a2e; color: #fff; font-size: 11pt; padding: 3mm 4mm; text-align: left; }
 table.main th:last-child { text-align: center; width: 52mm; }
 table.main td { border-bottom: 1px solid #ddd; padding: 4mm; vertical-align: middle; }
 table.main tr:nth-child(even) td { background: #f7f8fc; }
+.item-content { display: flex; align-items: center; gap: 3mm; }
+.item-icon { width: 14mm; height: 14mm; flex: 0 0 14mm; object-fit: contain; }
 .item { font-size: 13pt; font-weight: 700; }
 .cond { font-size: 9.5pt; color: #666; font-weight: 400; margin-top: 1mm; }
 .days { text-align: center; white-space: nowrap; }
@@ -42,12 +45,17 @@ table.main tr:nth-child(even) td { background: #f7f8fc; }
 
 .boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 5mm; }
 .box { border: 1.5px solid #1a1a2e; border-radius: 2mm; padding: 4mm; }
+.box-heading { display: flex; align-items: center; gap: 2.5mm; margin-bottom: 2mm; }
+.box-icon { width: 11mm; height: 11mm; flex: 0 0 11mm; object-fit: contain; }
 .box h2 { font-size: 11pt; font-weight: 900; margin-bottom: 2mm; color: #1a1a2e; }
+.box-heading h2 { margin-bottom: 0; }
 .box ul { list-style: none; }
 .box li { font-size: 9.5pt; padding-left: 4.5mm; position: relative; margin-bottom: 1.5mm; line-height: 1.55; }
 .box li::before { content: "●"; position: absolute; left: 0; color: #e94560; font-size: 6pt; top: 3.5pt; }
 
 .notice { border: 2px solid #e94560; background: #fff5f6; border-radius: 2mm; padding: 4.5mm 5mm; margin-bottom: 5mm; }
+.notice-inner { display: flex; align-items: center; gap: 4mm; }
+.notice-icon { width: 16mm; height: 16mm; flex: 0 0 16mm; object-fit: contain; }
 .notice h2 { font-size: 12pt; font-weight: 900; color: #b92f48; margin-bottom: 2mm; }
 .notice p { font-size: 10pt; line-height: 1.7; }
 
@@ -67,9 +75,43 @@ table.main tr:nth-child(even) td { background: #f7f8fc; }
   body { background: #fff; }
   .toolbar { display: none; }
   .poster { width: auto; min-height: auto; margin: 0; padding: 0; box-shadow: none; }
+  .poster, .poster * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .head { padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head h1 { font-size: 26pt; margin: 1mm 0 0.5mm; }
+  .head .sub { font-size: 9.5pt; }
+  table.main { margin-bottom: 3mm; }
+  table.main th { padding: 2mm 3mm; font-size: 10pt; }
+  table.main td { padding: 2.5mm 3mm; }
+  .item-content { gap: 2.5mm; }
+  .item-icon { width: 11mm; height: 11mm; flex-basis: 11mm; }
+  .item { font-size: 12pt; }
+  .cond { font-size: 8.5pt; margin-top: 0.5mm; }
+  .days .n { font-size: 20pt; }
+  .days .u { font-size: 9.5pt; }
+  .days .pre { font-size: 8.5pt; }
+  .boxes { gap: 3mm; margin-bottom: 3mm; }
+  .box { padding: 2.5mm 3mm; }
+  .box-heading { gap: 2mm; margin-bottom: 1mm; }
+  .box-icon { width: 9mm; height: 9mm; flex-basis: 9mm; }
+  .box h2 { font-size: 10pt; }
+  .box li { font-size: 8.5pt; line-height: 1.45; margin-bottom: 1mm; }
+  .notice { padding: 3mm 4mm; margin-bottom: 3mm; }
+  .notice-inner { gap: 3mm; }
+  .notice-icon { width: 13mm; height: 13mm; flex-basis: 13mm; }
+  .notice h2 { font-size: 11pt; margin-bottom: 1mm; }
+  .notice p { font-size: 9pt; line-height: 1.55; }
+  .rush { padding: 3mm 4mm; margin-bottom: 3mm; gap: 4mm; }
+  .rush .t { font-size: 12pt; }
+  .rush .d { font-size: 8.5pt; line-height: 1.5; }
+  .foot { padding-top: 2.5mm; }
+  .foot .name { font-size: 12pt; }
+  .foot .tel { font-size: 12pt; margin-top: 0.25mm; }
+  .foot .addr { font-size: 7.5pt; line-height: 1.45; }
+  .foot .hours { font-size: 8pt; line-height: 1.45; }
+  .foot .hours strong { font-size: 9pt; }
   @page { size: A4 portrait; margin: 12mm; }
 }
-@media (max-width: 780px) {
+@media screen and (max-width: 780px) {
   .poster { width: auto; min-height: auto; padding: 6mm; }
   .boxes { grid-template-columns: 1fr; }
   .rush { flex-direction: column; align-items: flex-start; gap: 2mm; }
@@ -82,7 +124,7 @@ table.main tr:nth-child(even) td { background: #f7f8fc; }
 
 <div class="toolbar">
   <a href="./">← 受付・見積もりの基本ルールへ戻る</a>
-  <p>お客様向けの店頭掲示物です。A4で印刷してください（A3に拡大しても使えます）。<strong>掲示前に、社長の確認を受けてください。</strong></p>
+  <p>お客様向けの店頭掲示物です。A4で印刷してください（A3に拡大しても使えます）。<strong>記載の日数をそのまま納期として即答しないでください。自分が作る案件以外は担当部門に確認し、「確認してご連絡します」とお伝えします。</strong></p>
   <button onclick="window.print()">印刷する</button>
 </div>
 
@@ -90,52 +132,75 @@ table.main tr:nth-child(even) td { background: #f7f8fc; }
 
   <div class="head">
     <div class="eyebrow">株式会社ベスタ</div>
-    <h1>お仕上がりの目安</h1>
-    <div class="sub">下記は目安です。実際のお日にちは、内容を確認のうえご案内します。</div>
+    <h1>仕上がりの目安</h1>
+    <div class="sub">下記の日数からが目安です。混み具合により変動するため、実際の仕上がり日は確認のうえご案内します。</div>
   </div>
 
   <table class="main">
     <thead>
-      <tr><th>ご注文の内容</th><th>お仕上がりの目安</th></tr>
+      <tr><th>ご注文の内容</th><th>仕上がりの目安</th></tr>
     </thead>
     <tbody>
       <tr>
         <td>
-          <div class="item">名刺・チラシ</div>
-          <div class="cond">そのまま印刷できるデータをお持ちで、折りなどの加工がない場合</div>
+          <div class="item-content">
+            <img class="item-icon" src="img/01-print.png" alt="" aria-hidden="true">
+            <div>
+              <div class="item">名刺・チラシ（追加印刷）</div>
+              <div class="cond">当社に印刷用データがあり、前回と同じ内容・仕様で印刷する場合</div>
+            </div>
+          </div>
         </td>
-        <td class="days"><span class="pre">最短</span><span class="n">翌</span><span class="u">営業日</span></td>
+        <td class="days"><span class="n">翌</span><span class="u">営業日〜</span></td>
       </tr>
       <tr>
         <td>
-          <div class="item">名刺・チラシ（加工あり）</div>
-          <div class="cond">折り・ミシン目・断裁・穴あけ・PP加工・角丸・ナンバリングなど</div>
+          <div class="item-content">
+            <img class="item-icon" src="img/02-finish.png" alt="" aria-hidden="true">
+            <div>
+              <div class="item">名刺・チラシ（新規）</div>
+              <div class="cond">新しく作る場合、内容を変更する場合、加工がある場合</div>
+            </div>
+          </div>
         </td>
-        <td class="days"><span class="pre">最短</span><span class="n">3</span><span class="u">営業日</span></td>
+        <td class="days"><span class="n">3</span><span class="u">営業日〜</span></td>
       </tr>
       <tr>
         <td>
-          <div class="item">Tシャツ・ウェアのプリント</div>
-          <div class="cond">枚数・内容・時期によって変わります／お持ち込みの商品も承ります</div>
+          <div class="item-content">
+            <img class="item-icon" src="img/03-tshirt.png" alt="" aria-hidden="true">
+            <div>
+              <div class="item">Tシャツ・ウェアのプリント</div>
+              <div class="cond">枚数・内容・時期によって変わります／お持ち込みの商品も承ります</div>
+            </div>
+          </div>
         </td>
-        <td class="days"><span class="n">5〜10</span><span class="u">営業日</span></td>
+        <td class="days"><span class="n">10</span><span class="u">営業日〜</span></td>
       </tr>
       <tr>
         <td>
-          <div class="item">看板・カッティングシート</div>
-          <div class="cond">取り付け工事が必要な場合は、現地確認のうえご相談させてください</div>
+          <div class="item-content">
+            <img class="item-icon" src="img/04-sign.png" alt="" aria-hidden="true">
+            <div>
+              <div class="item">看板・カッティングシート</div>
+              <div class="cond">取り付け工事が必要な場合は、現地確認のうえご相談させてください</div>
+            </div>
+          </div>
         </td>
-        <td class="days"><span class="n">7</span><span class="u">営業日〜</span></td>
+        <td class="days"><span class="n">10</span><span class="u">営業日〜</span></td>
       </tr>
     </tbody>
   </table>
 
   <div class="boxes">
     <div class="box">
-      <h2>お日にちの数え方</h2>
+      <div class="box-heading">
+        <img class="box-icon" src="img/05-calendar.png" alt="" aria-hidden="true">
+        <h2>お日にちの数え方</h2>
+      </div>
       <ul>
         <li><strong>15時まで</strong>にデータをお預かりした日の、翌営業日から数えます</li>
-        <li>土曜・日曜・祝日はお休みです<br>（金曜15時以降のお預かりは、火曜のお仕上がりになります）</li>
+        <li>土曜・日曜・祝日はお休みです<br>（金曜15時以降のお預かりは、火曜の仕上がりになります）</li>
         <li>内容・色・数量・印刷位置が<strong>すべて決まってから</strong>数え始めます</li>
       </ul>
     </div>
@@ -151,9 +216,14 @@ table.main tr:nth-child(even) td { background: #f7f8fc; }
   </div>
 
   <div class="notice">
-    <h2>デザインをお持ち込みのお客様へ</h2>
-    <p>画面で完成して見えるデータでも、<strong>印刷機に渡せる形に整える作業</strong>が必要な場合があります。デザインの方向性はそのまま活かしますので、ご安心ください。<br>
-    <strong>データを拝見したうえで、お日にちと料金を確定してご案内します。</strong>お手数ですが、まずデータをお見せください。</p>
+    <div class="notice-inner">
+      <img class="notice-icon" src="img/06-data.png" alt="" aria-hidden="true">
+      <div>
+        <h2>デザインをお持ち込みのお客様へ</h2>
+        <p>画面で完成して見えるデータでも、<strong>印刷機に渡せる形に整える作業</strong>が必要な場合があります。デザインの方向性はそのまま活かしますので、ご安心ください。<br>
+        <strong>データを拝見したうえで、お日にちと料金を確定してご案内します。</strong>お手数ですが、まずデータをお見せください。</p>
+      </div>
+    </div>
   </div>
 
   <div class="rush">
